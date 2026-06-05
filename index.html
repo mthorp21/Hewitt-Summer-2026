@@ -3,816 +3,906 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Morning Belle · Sales Growth Guide</title>
-<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<title>Hewitt's Summer Academy 2026</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans:ital,wght@0,400;0,500;0,600;1,400&display=swap" rel="stylesheet">
 <style>
-  :root {
-    --green: #99C961;
-    --yellow: #ffde5c;
-    --coral: #fc826d;
-    --teal: #3c5c68;
-    --charcoal: #4d4d4d;
-    --amber: #fbaf41;
-    --sage: #9bc4bc;
-    --burnt: #d57136;
-    --orange: #f46e3b;
-    --cream: #fdf8f2;
-    --white: #ffffff;
-  }
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --orange:#F46D1B;--orange-dark:#C4540E;--orange-light:#FEE8D6;
+  --navy:#0D1B2A;--gold:#F5C518;--gold-light:#FEF9C3;
+  --green:#22C55E;--green-light:#DCFCE7;
+  --red:#EF4444;--red-light:#FEE2E2;
+  --blue:#3B82F6;--blue-light:#EFF6FF;
+  --f1-red:#E8002D;--f1-dark:#15151E;--lando:#FF8000;--kimi:#00A0DE;
+  --gray-bg:#F4F2EE;--card-bg:#FFFFFF;--text:#0D1B2A;--muted:#6B7280;
+  --border:rgba(13,27,42,0.1);--radius:14px;
+  --font-d:'Bebas Neue','Impact',sans-serif;--font-b:'DM Sans','Segoe UI',sans-serif;
+  --shadow:0 2px 12px rgba(0,0,0,0.07);--shadow-lg:0 8px 32px rgba(0,0,0,0.12);
+}
+html{scroll-behavior:smooth}
+body{font-family:var(--font-b);background:var(--gray-bg);color:var(--text);min-height:100vh;font-size:15px;line-height:1.5}
+.app{max-width:680px;margin:0 auto;padding-bottom:80px;min-height:100vh;background:var(--gray-bg)}
 
-  * { margin: 0; padding: 0; box-sizing: border-box; }
+/* HEADER */
+.header{background:var(--navy);padding:24px 20px 0;position:relative;overflow:hidden}
+.header::before{content:'';position:absolute;top:-40px;right:-40px;width:200px;height:200px;background:radial-gradient(circle,rgba(244,109,27,0.15) 0%,transparent 70%);pointer-events:none}
+.header-top{display:flex;align-items:flex-start;justify-content:space-between;margin-bottom:18px}
+.app-title{font-family:var(--font-d);font-size:38px;color:var(--orange);letter-spacing:2px;line-height:.95}
+.app-subtitle{font-size:11px;color:rgba(255,255,255,.45);margin-top:4px;letter-spacing:1px;text-transform:uppercase}
+.streak-badge{background:var(--orange);color:white;border-radius:20px;padding:7px 16px;font-size:13px;font-weight:600;white-space:nowrap;flex-shrink:0}
+.xp-section{padding:0 0 22px}
+.level-row{display:flex;align-items:center;gap:10px;margin-bottom:10px}
+.level-badge{background:var(--gold);color:var(--navy);font-family:var(--font-d);font-size:20px;padding:3px 12px;border-radius:6px;line-height:1.4;flex-shrink:0}
+.level-name{color:white;font-size:15px;font-weight:600}
+.xp-label{display:flex;justify-content:space-between;margin-bottom:7px}
+.xp-label span{font-size:12px;color:rgba(255,255,255,.5)}
+.xp-label strong{color:var(--gold);font-size:13px}
+.xp-bar{background:rgba(255,255,255,.1);border-radius:99px;height:10px;overflow:hidden}
+.xp-fill{background:linear-gradient(90deg,var(--orange),var(--gold));border-radius:99px;height:100%;transition:width .7s cubic-bezier(.4,0,.2,1);min-width:2px}
 
-  body {
-    font-family: 'DM Sans', sans-serif;
-    background: var(--cream);
-    color: var(--charcoal);
-    min-height: 100vh;
-  }
+/* TABS */
+.tabs{display:flex;background:white;border-bottom:2px solid var(--border);position:sticky;top:0;z-index:100;box-shadow:0 2px 8px rgba(0,0,0,.06);overflow-x:auto}
+.tab{flex:1;min-width:54px;padding:12px 3px 9px;text-align:center;font-size:9px;font-weight:700;letter-spacing:.4px;color:var(--muted);cursor:pointer;border-bottom:3px solid transparent;margin-bottom:-2px;transition:color .2s,border-color .2s;text-transform:uppercase;user-select:none;white-space:nowrap}
+.tab:hover{color:var(--orange)}
+.tab.active{color:var(--orange);border-bottom-color:var(--orange)}
+.tab-icon{font-size:17px;display:block;margin-bottom:2px}
 
-  /* HEADER */
-  .header {
-    background: var(--teal);
-    padding: 28px 24px 24px;
-    text-align: center;
-    position: relative;
-    overflow: hidden;
-  }
-  .header::before {
-    content: '';
-    position: absolute;
-    top: -40px; right: -40px;
-    width: 180px; height: 180px;
-    background: var(--green);
-    opacity: 0.15;
-    border-radius: 50%;
-  }
-  .header::after {
-    content: '';
-    position: absolute;
-    bottom: -30px; left: -20px;
-    width: 120px; height: 120px;
-    background: var(--yellow);
-    opacity: 0.12;
-    border-radius: 50%;
-  }
-  .header-eyebrow {
-    font-family: 'DM Sans', sans-serif;
-    font-size: 10px;
-    font-weight: 500;
-    letter-spacing: 3px;
-    text-transform: uppercase;
-    color: var(--sage);
-    margin-bottom: 6px;
-  }
-  .header-title {
-    font-family: 'Playfair Display', serif;
-    font-size: 28px;
-    color: var(--white);
-    line-height: 1.2;
-  }
-  .header-title em {
-    color: var(--yellow);
-    font-style: italic;
-  }
-  .header-sub {
-    font-size: 12px;
-    color: var(--sage);
-    margin-top: 6px;
-    font-weight: 300;
-  }
+.content{padding:18px 16px}
 
-  /* NAV PILLS */
-  .nav-wrap {
-    background: var(--white);
-    border-bottom: 1px solid rgba(60,92,104,0.1);
-    position: sticky;
-    top: 0;
-    z-index: 100;
-    box-shadow: 0 2px 12px rgba(0,0,0,0.06);
-  }
-  .nav-scroll {
-    display: flex;
-    overflow-x: auto;
-    padding: 12px 16px;
-    gap: 8px;
-    scrollbar-width: none;
-  }
-  .nav-scroll::-webkit-scrollbar { display: none; }
-  .nav-pill {
-    flex-shrink: 0;
-    padding: 7px 14px;
-    border-radius: 20px;
-    border: 1.5px solid rgba(60,92,104,0.2);
-    background: transparent;
-    font-family: 'DM Sans', sans-serif;
-    font-size: 12px;
-    font-weight: 500;
-    color: var(--teal);
-    cursor: pointer;
-    transition: all 0.2s ease;
-    white-space: nowrap;
-  }
-  .nav-pill.active, .nav-pill:hover {
-    background: var(--teal);
-    color: var(--white);
-    border-color: var(--teal);
-  }
-  .nav-pill.active { font-weight: 500; }
+/* STAT CARDS */
+.stat-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin-bottom:18px}
+.stat-card{background:var(--card-bg);border-radius:var(--radius);padding:14px 10px;text-align:center;border:1px solid var(--border);box-shadow:var(--shadow)}
+.stat-num{font-family:var(--font-d);font-size:28px;color:var(--orange);line-height:1;letter-spacing:1px}
+.stat-lbl{font-size:10px;color:var(--muted);margin-top:3px;text-transform:uppercase;letter-spacing:.5px;font-weight:600}
+.section-title{font-family:var(--font-d);font-size:24px;color:var(--navy);margin-bottom:12px;letter-spacing:1px}
 
-  /* SECTIONS */
-  .sections {
-    padding: 20px 16px 40px;
-    max-width: 600px;
-    margin: 0 auto;
-  }
+/* CHIPS */
+.filter-chips{display:flex;gap:8px;overflow-x:auto;padding-bottom:6px;margin-bottom:16px;scrollbar-width:none}
+.filter-chips::-webkit-scrollbar{display:none}
+.chip{flex-shrink:0;padding:6px 14px;border-radius:99px;border:1.5px solid var(--border);font-size:11px;font-weight:700;cursor:pointer;background:white;color:var(--muted);transition:all .15s;text-transform:uppercase;letter-spacing:.3px;user-select:none}
+.chip:hover{border-color:var(--orange);color:var(--orange)}
+.chip.active{background:var(--navy);color:white;border-color:var(--navy)}
 
-  .section {
-    display: none;
-    animation: fadeUp 0.3s ease forwards;
-  }
-  .section.active { display: block; }
+/* ASSIGNMENT CARDS */
+.assignment-card{background:var(--card-bg);border-radius:var(--radius);border:1px solid var(--border);margin-bottom:10px;overflow:hidden;box-shadow:var(--shadow);transition:transform .15s,box-shadow .15s}
+.assignment-card:hover{transform:translateY(-1px);box-shadow:var(--shadow-lg)}
+.assignment-card.completed{opacity:.72}
+.card-header{display:flex;align-items:center;gap:12px;padding:14px;cursor:pointer;user-select:none}
+.cat-icon{width:46px;height:46px;border-radius:12px;display:flex;align-items:center;justify-content:center;font-size:24px;flex-shrink:0}
+.card-meta{flex:1;min-width:0}
+.card-title{font-weight:700;font-size:14px;line-height:1.3;margin-bottom:2px}
+.card-sub{font-size:11px;color:var(--muted);text-transform:uppercase;letter-spacing:.5px;font-weight:600}
+.card-xp{background:var(--orange-light);color:var(--orange-dark);font-size:12px;font-weight:800;padding:5px 12px;border-radius:99px;flex-shrink:0;white-space:nowrap}
+.card-xp.done{background:var(--green-light);color:#15803D}
+.chevron{font-size:13px;color:var(--muted);margin-left:2px;transition:transform .2s;flex-shrink:0}
+.chevron.open{transform:rotate(180deg)}
+.card-body{border-top:1px solid var(--border);padding:14px;display:none;animation:fadeIn .2s ease}
+.card-body.open{display:block}
+@keyframes fadeIn{from{opacity:0;transform:translateY(-4px)}to{opacity:1;transform:translateY(0)}}
+.card-question{font-size:14px;line-height:1.65;margin-bottom:14px;font-weight:500}
+.card-options{display:flex;flex-direction:column;gap:8px;margin-bottom:12px}
+.option-btn{background:var(--gray-bg);border:1.5px solid var(--border);border-radius:10px;padding:11px 16px;font-size:13px;font-family:var(--font-b);cursor:pointer;text-align:left;transition:all .15s;font-weight:500;color:var(--text)}
+.option-btn:hover:not(:disabled){border-color:var(--orange);background:var(--orange-light);color:var(--orange-dark)}
+.option-btn.correct{background:var(--green-light);border-color:var(--green);color:#15803D;font-weight:700}
+.option-btn.wrong{background:var(--red-light);border-color:var(--red);color:#B91C1C}
+.option-btn:disabled{cursor:not-allowed}
+.result-msg{font-size:13px;padding:12px 16px;border-radius:10px;margin-bottom:10px;font-weight:600;line-height:1.5}
+.result-msg.win{background:var(--green-light);color:#15803D;border:1px solid var(--green)}
+.result-msg.lose{background:var(--red-light);color:#B91C1C;border:1px solid var(--red)}
+.done-stamp{display:flex;align-items:flex-start;gap:8px;font-size:13px;color:#15803D;background:var(--green-light);border:1px solid var(--green);border-radius:10px;padding:12px 14px;line-height:1.5}
 
-  @keyframes fadeUp {
-    from { opacity: 0; transform: translateY(10px); }
-    to { opacity: 1; transform: translateY(0); }
-  }
+/* TASK CARDS */
+.task-card{background:var(--card-bg);border-radius:var(--radius);border:1px solid var(--border);padding:14px;margin-bottom:10px;display:flex;align-items:center;gap:14px;box-shadow:var(--shadow);transition:opacity .2s}
+.task-card.done-task{opacity:.6}
+.task-icon{font-size:28px;flex-shrink:0}
+.task-info{flex:1;min-width:0}
+.task-name{font-weight:700;font-size:14px}
+.task-desc{font-size:12px;color:var(--muted);margin-top:2px;line-height:1.4}
+.task-xp-badge{font-size:11px;color:var(--orange-dark);font-weight:800;margin-top:4px;text-transform:uppercase;letter-spacing:.3px}
+.task-check{width:36px;height:36px;border-radius:50%;border:2.5px solid var(--orange);background:transparent;cursor:pointer;display:flex;align-items:center;justify-content:center;font-size:18px;transition:all .2s;flex-shrink:0;font-family:var(--font-b)}
+.task-check:hover{background:var(--orange-light)}
+.task-check.done{background:var(--orange);border-color:var(--orange);color:white}
 
-  /* SECTION HEADER */
-  .section-header {
-    display: flex;
-    align-items: flex-start;
-    gap: 14px;
-    margin-bottom: 20px;
-    padding: 20px;
-    border-radius: 16px;
-    position: relative;
-    overflow: hidden;
-  }
-  .section-num {
-    font-family: 'Playfair Display', serif;
-    font-size: 42px;
-    line-height: 1;
-    font-weight: 700;
-    opacity: 0.18;
-    position: absolute;
-    right: 16px;
-    top: 12px;
-  }
-  .section-icon {
-    font-size: 28px;
-    flex-shrink: 0;
-    margin-top: 2px;
-  }
-  .section-title {
-    font-family: 'Playfair Display', serif;
-    font-size: 20px;
-    font-weight: 700;
-    line-height: 1.2;
-    margin-bottom: 4px;
-  }
-  .section-tagline {
-    font-size: 12px;
-    font-weight: 300;
-    opacity: 0.75;
-    font-style: italic;
-  }
+/* SPORTS */
+.sports-card{background:var(--card-bg);border-radius:var(--radius);border:1px solid var(--border);padding:16px;margin-bottom:10px;display:flex;align-items:flex-start;gap:16px;box-shadow:var(--shadow)}
+.sports-icon{font-size:32px;flex-shrink:0;margin-top:2px}
+.sports-name{font-weight:700;font-size:15px;margin-bottom:2px}
+.sports-stat{font-family:var(--font-d);font-size:30px;color:var(--orange);line-height:1.1;letter-spacing:1px}
+.sports-lbl{font-size:11px;font-weight:700;color:var(--muted);margin-bottom:5px;text-transform:uppercase;letter-spacing:.5px}
+.sports-note{font-size:13px;color:var(--text);line-height:1.55}
 
-  /* COLOR THEMES PER SECTION */
-  .theme-coral { background: linear-gradient(135deg, #fff0ed, #ffe4df); }
-  .theme-coral .section-title { color: var(--burnt); }
-  .theme-coral .section-tagline { color: var(--burnt); }
+/* PROFILE */
+.profile-hero{background:var(--navy);border-radius:var(--radius);padding:28px 24px;text-align:center;margin-bottom:16px;box-shadow:var(--shadow-lg);position:relative;overflow:hidden}
+.profile-hero::before{content:'';position:absolute;bottom:-30px;right:-30px;width:150px;height:150px;background:radial-gradient(circle,rgba(245,197,24,.12) 0%,transparent 70%);pointer-events:none}
+.avatar{width:84px;height:84px;border-radius:50%;background:var(--orange);display:flex;align-items:center;justify-content:center;font-size:40px;margin:0 auto 14px;border:3px solid var(--gold);box-shadow:0 0 0 6px rgba(245,197,24,.15)}
+.profile-name{font-family:var(--font-d);font-size:28px;color:white;letter-spacing:1px}
+.profile-title{font-size:13px;color:var(--gold);margin-top:4px;font-weight:600}
+.profile-stats{display:flex;justify-content:center;gap:16px;margin-top:16px;flex-wrap:wrap}
+.profile-stat{color:rgba(255,255,255,.7);font-size:12px;text-align:center}
+.profile-stat strong{display:block;font-family:var(--font-d);font-size:20px;color:white;letter-spacing:.5px;line-height:1.1}
+.badge-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:8px;margin-top:4px}
+.badge-item{background:var(--card-bg);border-radius:12px;border:1px solid var(--border);padding:12px 6px;text-align:center;box-shadow:var(--shadow);transition:transform .15s}
+.badge-item:hover{transform:translateY(-2px)}
+.badge-emoji{font-size:24px}
+.badge-name{font-size:9px;color:var(--muted);margin-top:4px;font-weight:700;text-transform:uppercase;letter-spacing:.3px}
+.badge-item.locked{opacity:.3;filter:grayscale(1)}
+.badge-item.earned{border-color:var(--gold);background:var(--gold-light)}
+.category-progress{display:flex;flex-direction:column;gap:10px}
+.prog-row{display:flex;align-items:center;gap:10px}
+.prog-emoji{font-size:16px;width:22px;text-align:center;flex-shrink:0}
+.prog-label{font-size:11px;font-weight:700;min-width:75px;text-transform:uppercase;letter-spacing:.3px;color:var(--muted)}
+.prog-bar-bg{flex:1;background:var(--border);border-radius:99px;height:8px;overflow:hidden}
+.prog-bar-fill{border-radius:99px;height:100%;background:var(--orange);transition:width .5s cubic-bezier(.4,0,.2,1)}
+.prog-count{font-size:12px;color:var(--muted);min-width:28px;text-align:right;font-weight:700}
+.reset-box{background:var(--card-bg);border:1px solid var(--border);border-radius:var(--radius);padding:18px;margin-top:18px}
+.reset-box h3{font-size:14px;font-weight:700;margin-bottom:6px}
+.reset-box p{font-size:12px;color:var(--muted);margin-bottom:12px}
+.reset-btn{background:var(--red-light);border:1px solid #FCA5A5;color:#B91C1C;padding:9px 18px;border-radius:8px;cursor:pointer;font-size:13px;font-weight:700;font-family:var(--font-b);transition:background .15s}
+.reset-btn:hover{background:#FEE2E2}
 
-  .theme-teal { background: linear-gradient(135deg, #eaf4f2, #d6eceb); }
-  .theme-teal .section-title { color: var(--teal); }
-  .theme-teal .section-tagline { color: var(--teal); }
+/* ====== CALENDAR ====== */
+.cal-header-bar{display:flex;align-items:center;justify-content:space-between;margin-bottom:12px}
+.cal-month-title{font-family:var(--font-d);font-size:26px;color:var(--navy);letter-spacing:1px}
+.cal-nav-btn{background:var(--card-bg);border:1px solid var(--border);border-radius:8px;width:34px;height:34px;cursor:pointer;font-size:16px;display:flex;align-items:center;justify-content:center;transition:background .15s}
+.cal-nav-btn:hover{background:var(--orange-light)}
+.cal-nav-btn:disabled{opacity:.3;cursor:not-allowed}
+.cal-grid{display:grid;grid-template-columns:repeat(7,1fr);gap:3px;margin-bottom:14px}
+.cal-dow{text-align:center;font-size:9px;font-weight:800;color:var(--muted);text-transform:uppercase;letter-spacing:.5px;padding:5px 0}
+.cal-dow.wknd{color:var(--orange)}
 
-  .theme-amber { background: linear-gradient(135deg, #fff8e8, #ffefc5); }
-  .theme-amber .section-title { color: #b07000; }
-  .theme-amber .section-tagline { color: #b07000; }
+.cal-day{background:var(--card-bg);border-radius:9px;border:1px solid var(--border);min-height:62px;padding:5px 4px 4px;cursor:pointer;transition:transform .12s,box-shadow .12s;position:relative;overflow:hidden}
+.cal-day:hover{transform:translateY(-1px);box-shadow:var(--shadow)}
+.cal-day.empty{background:transparent;border-color:transparent;cursor:default;pointer-events:none}
+.cal-day.out{background:rgba(255,255,255,.3);border:1px dashed rgba(13,27,42,.06);cursor:default}
+.cal-day.out .cal-dn{color:rgba(13,27,42,.2)}
+.cal-day.wknd-day{background:#FAFAF8}
+.cal-day.logged{background:var(--green-light);border-color:var(--green)}
+.cal-day.logged .cal-dn{color:#15803D}
 
-  .theme-green { background: linear-gradient(135deg, #f0f9e8, #dff0cc); }
-  .theme-green .section-title { color: #4a7a1e; }
-  .theme-green .section-tagline { color: #4a7a1e; }
+.cal-day.bday{background:linear-gradient(135deg,#FFF7ED 0%,#FEF9C3 60%,#FFF7ED 100%);border:2px solid var(--gold);box-shadow:0 0 0 3px rgba(245,197,24,.2);animation:bdayPulse 2.5s ease-in-out infinite}
+@keyframes bdayPulse{0%,100%{box-shadow:0 0 0 3px rgba(245,197,24,.2)}50%{box-shadow:0 0 0 6px rgba(245,197,24,.35)}}
+.cal-day.bday .cal-dn{color:var(--orange);font-size:13px}
 
-  .theme-orange { background: linear-gradient(135deg, #fff3ed, #fde4d0); }
-  .theme-orange .section-title { color: var(--orange); }
-  .theme-orange .section-tagline { color: var(--orange); }
+.cal-day.f1r{background:var(--f1-dark);border-color:var(--f1-red)}
+.cal-day.f1r .cal-dn{color:var(--f1-red)}
+.cal-day.f1r.logged{background:#1a0a0e;border-color:var(--f1-red)}
+.cal-day.f1w{background:#1a1a2e;border-color:rgba(232,0,45,.35)}
+.cal-day.f1w .cal-dn{color:rgba(255,255,255,.75)}
 
-  .theme-sage { background: linear-gradient(135deg, #f2f8f7, #daecea); }
-  .theme-sage .section-title { color: #3a7a70; }
-  .theme-sage .section-tagline { color: #3a7a70; }
+.cal-dn{font-size:11px;font-weight:800;line-height:1;margin-bottom:3px;color:var(--text)}
+.cal-events{display:flex;flex-direction:column;gap:2px}
+.cc{font-size:7px;font-weight:800;padding:1px 3px;border-radius:3px;line-height:1.5;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;letter-spacing:.2px}
+.cc-bday{background:var(--gold);color:#78350F}
+.cc-f1r{background:var(--f1-red);color:white}
+.cc-f1w{background:#2244AA;color:white}
+.cc-hol{background:var(--red-light);color:#B91C1C;border:1px solid rgba(220,38,38,.2)}
+.cc-sm{background:var(--blue-light);color:#1D4ED8;border:1px solid rgba(59,130,246,.2)}
+.cal-check-dot{position:absolute;top:3px;right:3px;width:13px;height:13px;border-radius:50%;background:var(--green);color:white;font-size:8px;display:flex;align-items:center;justify-content:center;font-weight:800}
 
-  .theme-yellow { background: linear-gradient(135deg, #fffce8, #fff4b8); }
-  .theme-yellow .section-title { color: #7a6600; }
-  .theme-yellow .section-tagline { color: #7a6600; }
+.cal-legend{display:flex;flex-wrap:wrap;gap:6px 12px;padding:8px 0 12px}
+.cal-li{display:flex;align-items:center;gap:5px;font-size:10px;font-weight:600;color:var(--muted)}
+.cal-dot{width:9px;height:9px;border-radius:3px;flex-shrink:0}
+.cal-stats{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin-bottom:14px}
+.cal-stat{background:var(--card-bg);border:1px solid var(--border);border-radius:10px;padding:11px 8px;text-align:center}
+.cs-num{font-family:var(--font-d);font-size:24px;color:var(--orange);line-height:1}
+.cs-lbl{font-size:9px;color:var(--muted);margin-top:2px;font-weight:700;text-transform:uppercase;letter-spacing:.3px}
 
-  .theme-burnt { background: linear-gradient(135deg, #fdf0e8, #f9ddc8); }
-  .theme-burnt .section-title { color: var(--burnt); }
-  .theme-burnt .section-tagline { color: var(--burnt); }
+/* DAY MODAL */
+.overlay{position:fixed;inset:0;background:rgba(13,27,42,.5);z-index:500;display:flex;align-items:flex-end;animation:oIn .2s ease}
+@keyframes oIn{from{opacity:0}to{opacity:1}}
+.day-modal{background:var(--card-bg);width:100%;max-width:680px;margin:0 auto;border-radius:20px 20px 0 0;padding:20px;max-height:82vh;overflow-y:auto;animation:sUp .25s cubic-bezier(.34,1.4,.64,1)}
+@keyframes sUp{from{transform:translateY(60px);opacity:0}to{transform:translateY(0);opacity:1}}
+.modal-handle{width:36px;height:4px;background:var(--border);border-radius:99px;margin:0 auto 16px}
+.modal-title{font-family:var(--font-d);font-size:26px;color:var(--navy);letter-spacing:1px;margin-bottom:3px}
+.modal-sub{font-size:12px;color:var(--muted);font-weight:600;text-transform:uppercase;letter-spacing:.5px;margin-bottom:14px}
+.modal-sl{font-size:10px;font-weight:800;color:var(--muted);text-transform:uppercase;letter-spacing:.8px;margin-bottom:7px;margin-top:12px}
+.modal-note{width:100%;min-height:78px;padding:12px;border:1.5px solid var(--border);border-radius:10px;font-family:var(--font-b);font-size:14px;color:var(--text);background:var(--gray-bg);resize:none;outline:none;transition:border-color .15s;line-height:1.5}
+.modal-note:focus{border-color:var(--orange)}
+.modal-cb{width:100%;padding:13px;border-radius:10px;border:none;font-family:var(--font-d);font-size:18px;letter-spacing:1px;cursor:pointer;transition:all .2s;margin-top:12px}
+.modal-cb.unc{background:var(--orange);color:white}
+.modal-cb.chk{background:var(--green-light);color:#15803D;border:2px solid var(--green)}
+.modal-cl{width:100%;padding:11px;border-radius:10px;border:1px solid var(--border);background:transparent;font-family:var(--font-b);font-size:14px;font-weight:600;cursor:pointer;margin-top:8px;color:var(--muted)}
 
-  /* CARDS */
-  .card {
-    background: var(--white);
-    border-radius: 14px;
-    padding: 18px;
-    margin-bottom: 12px;
-    box-shadow: 0 2px 8px rgba(0,0,0,0.05);
-    border-left: 4px solid transparent;
-  }
-  .card-label {
-    font-size: 10px;
-    font-weight: 500;
-    letter-spacing: 2px;
-    text-transform: uppercase;
-    margin-bottom: 8px;
-  }
-  .card-title {
-    font-family: 'Playfair Display', serif;
-    font-size: 15px;
-    font-weight: 700;
-    margin-bottom: 10px;
-    color: var(--teal);
-  }
-  .card p {
-    font-size: 13.5px;
-    line-height: 1.65;
-    color: var(--charcoal);
-    margin-bottom: 8px;
-  }
-  .card p:last-child { margin-bottom: 0; }
+.f1-box{background:var(--f1-dark);border-radius:10px;padding:13px 15px;margin-bottom:10px;border:1px solid rgba(232,0,45,.3)}
+.f1-box-title{font-family:var(--font-d);font-size:20px;color:var(--f1-red);letter-spacing:1px;margin-bottom:3px}
+.f1-box-detail{font-size:12px;color:rgba(255,255,255,.55);line-height:1.5}
+.f1-drivers{display:flex;gap:8px;margin-top:9px}
+.f1-dc{flex:1;border-radius:8px;padding:8px 10px}
+.f1-dc .dnum{font-family:var(--font-d);font-size:22px;line-height:1}
+.f1-dc .dname{font-size:11px;font-weight:700;margin-top:1px}
 
-  /* SCRIPT BUBBLES */
-  .script {
-    background: var(--teal);
-    color: var(--white);
-    border-radius: 12px 12px 12px 4px;
-    padding: 12px 16px;
-    font-size: 13px;
-    line-height: 1.6;
-    margin: 10px 0;
-    font-style: italic;
-    position: relative;
-  }
-  .script::before {
-    content: '"';
-    font-family: 'Playfair Display', serif;
-    font-size: 36px;
-    color: var(--sage);
-    opacity: 0.4;
-    position: absolute;
-    top: -4px;
-    left: 10px;
-    line-height: 1;
-  }
-  .script-label {
-    font-size: 10px;
-    font-weight: 500;
-    letter-spacing: 1.5px;
-    text-transform: uppercase;
-    color: var(--sage);
-    margin-bottom: 4px;
-    font-style: normal;
-  }
+.bday-box{background:linear-gradient(135deg,#FFF7ED,#FEF9C3);border:2px solid var(--gold);border-radius:12px;padding:16px;margin-bottom:12px;text-align:center}
+.bday-box-cake{font-size:40px;line-height:1;margin-bottom:8px}
+.bday-box-title{font-family:var(--font-d);font-size:26px;color:var(--orange);letter-spacing:1px}
+.bday-box-sub{font-size:13px;color:#92400E;margin-top:5px;line-height:1.5}
 
-  .script.never {
-    background: #f5f5f5;
-    color: #888;
-    border-radius: 12px 12px 12px 4px;
-    text-decoration-color: #ccc;
-  }
-  .script.never .script-label { color: #bbb; }
+/* TOAST */
+.toast{position:fixed;top:24px;left:50%;transform:translateX(-50%) translateY(-100px);background:var(--navy);color:white;padding:13px 24px;border-radius:12px;font-weight:700;font-size:18px;font-family:var(--font-d);letter-spacing:1.5px;z-index:9999;transition:transform .35s cubic-bezier(.34,1.56,.64,1);box-shadow:var(--shadow-lg);pointer-events:none;white-space:nowrap;border:2px solid var(--orange)}
+.toast.show{transform:translateX(-50%) translateY(0)}
 
-  /* NEVER / ALWAYS PAIR */
-  .swap-pair { margin: 10px 0; }
-  .swap-pair .never { margin-bottom: 6px; }
-
-  /* CUES LIST */
-  .cue-list {
-    list-style: none;
-    margin: 8px 0;
-  }
-  .cue-list li {
-    font-size: 13.5px;
-    line-height: 1.6;
-    padding: 6px 0 6px 24px;
-    position: relative;
-    border-bottom: 1px solid rgba(0,0,0,0.05);
-    color: var(--charcoal);
-  }
-  .cue-list li:last-child { border-bottom: none; }
-  .cue-list li::before {
-    content: '→';
-    position: absolute;
-    left: 0;
-    color: var(--coral);
-    font-weight: 700;
-  }
-
-  /* ACCENT CHIPS */
-  .chips {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 6px;
-    margin-top: 10px;
-  }
-  .chip {
-    font-size: 11px;
-    font-weight: 500;
-    padding: 4px 10px;
-    border-radius: 20px;
-    background: rgba(60,92,104,0.08);
-    color: var(--teal);
-  }
-
-  /* PRINCIPLE BOX */
-  .principle {
-    background: var(--teal);
-    color: var(--white);
-    border-radius: 14px;
-    padding: 18px 20px;
-    margin-top: 16px;
-    text-align: center;
-  }
-  .principle p {
-    font-family: 'Playfair Display', serif;
-    font-size: 15px;
-    font-style: italic;
-    line-height: 1.6;
-    color: var(--white);
-    margin: 0;
-  }
-  .principle span {
-    display: block;
-    font-family: 'DM Sans', sans-serif;
-    font-size: 10px;
-    font-style: normal;
-    letter-spacing: 2px;
-    text-transform: uppercase;
-    color: var(--sage);
-    margin-top: 8px;
-  }
-
-  /* ACCENT COLORS ON CARDS BY SECTION */
-  .s1 .card { border-left-color: var(--coral); }
-  .s1 .card-label { color: var(--coral); }
-  .s2 .card { border-left-color: var(--teal); }
-  .s2 .card-label { color: var(--teal); }
-  .s3 .card { border-left-color: var(--amber); }
-  .s3 .card-label { color: #b07000; }
-  .s4 .card { border-left-color: var(--green); }
-  .s4 .card-label { color: #4a7a1e; }
-  .s5 .card { border-left-color: var(--orange); }
-  .s5 .card-label { color: var(--orange); }
-  .s6 .card { border-left-color: var(--sage); }
-  .s6 .card-label { color: #3a7a70; }
-  .s7 .card { border-left-color: var(--yellow); }
-  .s7 .card-label { color: #7a6600; }
-  .s8 .card { border-left-color: var(--burnt); }
-  .s8 .card-label { color: var(--burnt); }
-
-  /* DIVIDER */
-  .divider {
-    height: 1px;
-    background: rgba(60,92,104,0.08);
-    margin: 14px 0;
-  }
-
-  /* FOOTER */
-  .footer {
-    text-align: center;
-    padding: 20px;
-    font-size: 11px;
-    color: rgba(77,77,77,0.4);
-    letter-spacing: 1px;
-    text-transform: uppercase;
-  }
+@media(max-width:480px){.stat-num{font-size:22px}.app-title{font-size:30px}.cal-day{min-height:52px}}
 </style>
 </head>
 <body>
+<div class="app">
+  <div class="header">
+    <div class="header-top">
+      <div>
+        <div class="app-title">HEWITT'S<br>ACADEMY</div>
+        <div class="app-subtitle">Summer 2026 &nbsp;·&nbsp; Level Up</div>
+      </div>
+      <div class="streak-badge">&#128293; <span id="streakCount">0</span> day streak</div>
+    </div>
+    <div class="xp-section">
+      <div class="level-row">
+        <div class="level-badge" id="levelBadge">LVL 1</div>
+        <div class="level-name" id="levelName">Rookie</div>
+      </div>
+      <div class="xp-label"><span>XP Progress</span><strong id="xpDisplay">0 / 500 XP</strong></div>
+      <div class="xp-bar"><div class="xp-fill" id="xpFill" style="width:0%"></div></div>
+    </div>
+  </div>
 
-<div class="header">
-  <div class="header-eyebrow">Morning Belle · Internal Reference</div>
-  <h1 class="header-title">Sales <em>Growth</em> Guide</h1>
-  <p class="header-sub">The best marketing comes from the four walls.</p>
+  <div class="tabs">
+    <div class="tab active" data-tab="learn" onclick="switchTab('learn')"><span class="tab-icon">&#128218;</span>Learn</div>
+    <div class="tab" data-tab="tasks" onclick="switchTab('tasks')"><span class="tab-icon">&#127939;</span>Move</div>
+    <div class="tab" data-tab="sports" onclick="switchTab('sports')"><span class="tab-icon">&#127936;</span>Sports</div>
+    <div class="tab" data-tab="calendar" onclick="switchTab('calendar')"><span class="tab-icon">&#128197;</span>Calendar</div>
+    <div class="tab" data-tab="profile" onclick="switchTab('profile')"><span class="tab-icon">&#127942;</span>Profile</div>
+  </div>
+
+  <div class="content" id="mainContent"></div>
 </div>
 
-<div class="nav-wrap">
-  <div class="nav-scroll">
-    <button class="nav-pill active" onclick="show('s1', this)">1 · Gratitude</button>
-    <button class="nav-pill" onclick="show('s2', this)">2 · Read the Room</button>
-    <button class="nav-pill" onclick="show('s3', this)">3 · Beverages</button>
-    <button class="nav-pill" onclick="show('s4', this)">4 · Add-Ons</button>
-    <button class="nav-pill" onclick="show('s5', this)">5 · Lobby Comfort</button>
-    <button class="nav-pill" onclick="show('s6', this)">6 · Catering</button>
-    <button class="nav-pill" onclick="show('s7', this)">7 · Events</button>
-    <button class="nav-pill" onclick="show('s8', this)">8 · Own Your 5 Miles</button>
-  </div>
-</div>
-
-<div class="sections">
-
-  <!-- SECTION 1: GRATITUDE -->
-  <div id="s1" class="section s1 active">
-    <div class="section-header theme-coral">
-      <div class="section-icon">🌱</div>
-      <div>
-        <div class="section-title">Start With Gratitude</div>
-        <div class="section-tagline">They passed 10 other restaurants to get here. We owe them our best. Our goal is to be our guests' favorite place to eat, drink, and be with friends and family.</div>
-      </div>
-      <div class="section-num">01</div>
-    </div>
-
-    <div class="card">
-      <div class="card-label">Loyalty / Rewards</div>
-      <div class="script"><div class="script-label">Say This</div>You're in our rewards program — that means a lot to us. Thank you.</div>
-    </div>
-
-    <div class="card">
-      <div class="card-label">Waitlist</div>
-      <div class="script"><div class="script-label">Say This</div>Oh, nice! Thank you for joining online. We'll take great care of you.</div>
-    </div>
-
-    <div class="card">
-      <div class="card-label">Reservation</div>
-      <div class="script"><div class="script-label">Say This</div>That's really great, we love reservations. We're so glad you planned ahead.</div>
-    </div>
-
-    <div class="card">
-      <div class="card-label">Guests Waiting (Host + Server Both Own This)</div>
-      <div class="script"><div class="script-label">Say This</div>We appreciate your patience so much. You chose to spend your morning with us and that matters.</div>
-      <div class="divider"></div>
-      <p style="font-size:12px; color:#888;">Both the host and the waiting server acknowledge the wait. Gratitude is not one person's job.</p>
-    </div>
-
-    <div class="card">
-      <div class="card-label">Find Reasons to Compliment</div>
-      <p>A genuine compliment makes a guest feel seen. Not flattered. Seen. Look for something real and name it.</p>
-      <div class="script"><div class="script-label">Example</div>That's a beautiful sweater, Mrs. Higgins.</div>
-      <div class="script"><div class="script-label">Example</div>I love that bag. Great choice.</div>
-      <div class="script"><div class="script-label">Example</div>Your kids are so well-behaved. What a great little crew.</div>
-      <div class="script"><div class="script-label">Example</div>Happy birthday, by the way. We're so glad you're spending it with us.</div>
-      <div class="divider"></div>
-      <ul class="cue-list">
-        <li>Something they're wearing, something they said, something about their group</li>
-        <li>Use their name if you have it. A name is the best compliment you can pay.</li>
-        <li>One genuine compliment lands better than five generic ones</li>
-        <li>Never force it. If it isn't real, don't say it.</li>
-      </ul>
-    </div>
-
-    <div class="principle">
-      <p>Gratitude is not a script. It's a posture. Every touchpoint is a chance to say: we know you had a choice, and we're glad you chose us.</p>
-      <span>The Morning Belle Standard</span>
-    </div>
-  </div>
-
-  <!-- SECTION 2: OBSERVATIONAL HOSPITALITY -->
-  <div id="s2" class="section s2">
-    <div class="section-header theme-teal">
-      <div class="section-icon">👁</div>
-      <div>
-        <div class="section-title">Observational Hospitality</div>
-        <div class="section-tagline">See everything. Say nothing twice.</div>
-      </div>
-      <div class="section-num">02</div>
-    </div>
-
-    <div class="card">
-      <div class="card-label">Read the Table</div>
-      <ul class="cue-list">
-        <li>Guest scanning the room is looking for something. Get there first.</li>
-        <li>Empty glass is not a question. It's a cue. Refill it or ask.</li>
-        <li>Plate pushed to the edge means they're done. Clear it.</li>
-        <li>Two people talking quietly and not looking around want space. Give it.</li>
-        <li>Guest who looks tense or bothered didn't start that way. Find out what happened and fix it.</li>
-        <li>Eye contact from a seated guest means they need you. Respond immediately.</li>
-        <li>Guests still wearing their coats? The room might be cold. Check the temperature before they have to ask.</li>
-      </ul>
-    </div>
-
-    <div class="card">
-      <div class="card-label">Read the Room</div>
-      <p style="font-size:12px; color:#888; margin-bottom:10px;">Before the first guest walks in, the room has to be ready.</p>
-      <ul class="cue-list">
-        <li>Floors clean? Every corner, not just the aisle.</li>
-        <li>Bathrooms stocked, clean, and smelling right? Check on a schedule, not when someone complains.</li>
-        <li>Tables fully set? Salt, pepper, syrup, hot sauce, ketchup, sugar caddy.</li>
-        <li>Menus clean? A sticky menu is a first impression.</li>
-        <li>Music right for the daypart? Energy in the room starts with the room.</li>
-      </ul>
-    </div>
-
-    <div class="card">
-      <div class="card-label">Anticipate the Need</div>
-      <ul class="cue-list">
-        <li>Shareable order? Bring extra plates before they ask.</li>
-        <li>Multiple dishes incoming? Lay out silverware for everyone before food arrives.</li>
-        <li>Table with a baby or toddler? Offer the high chair before the parent wrestles with it.</li>
-        <li>Guest poured their own water from the carafe? You should have been there first.</li>
-        <li>Toast, bread, or a pastry ordered? Butter and jam on the table, already.</li>
-        <li>Hot sauce or ketchup ordered last time? Have it there when they sit down.</li>
-      </ul>
-    </div>
-
-    <div class="card">
-      <div class="card-label">Cleanliness Is Hospitality</div>
-      <ul class="cue-list">
-        <li>A clean floor says we care before the food arrives.</li>
-        <li>A dirty bathroom says we stopped caring after you walked in.</li>
-        <li>Every Gardener owns the room. Not just their section.</li>
-        <li>If you see it, fix it. That is the standard.</li>
-      </ul>
-    </div>
-
-    <div class="card">
-      <div class="card-label">The Language of Observation</div>
-      <div class="swap-pair">
-        <div class="script never"><div class="script-label">Never Say</div>Is everything okay?</div>
-        <div class="script"><div class="script-label">Say This Instead</div>What can I bring you right now?</div>
-      </div>
-      <div class="divider"></div>
-      <div class="script"><div class="script-label">Say This</div>I noticed your glass was getting low.</div>
-      <div class="script"><div class="script-label">Say This</div>I wanted to bring extra plates in case you wanted to share.</div>
-      <div class="script"><div class="script-label">Say This</div>What can I grab to make you more comfortable?</div>
-    </div>
-
-    <div class="principle">
-      <p>The guest feels seen before they ask for anything. That's the whole standard.</p>
-      <span>Uncommon Hospitality</span>
-    </div>
-  </div>
-
-  <!-- SECTION 3: BEVERAGES -->
-  <div id="s3" class="section s3">
-    <div class="section-header theme-amber">
-      <div class="section-icon">🥂</div>
-      <div>
-        <div class="section-title">Beverage First</div>
-        <div class="section-tagline">Lead with the drink. The check follows.</div>
-      </div>
-      <div class="section-num">03</div>
-    </div>
-
-    <div class="card">
-      <div class="card-label">The Standard Greeting</div>
-      <div class="swap-pair">
-        <div class="script never"><div class="script-label">Never Say</div>What can I getcha?</div>
-        <div class="script"><div class="script-label">Always Say</div>Would you like to try a Morning Belle mimosa or brunch cocktail? If you're not looking for a cocktail, we have our Sunrise Squeeze and iced lattes.</div>
-      </div>
-    </div>
-
-    <div class="card">
-      <div class="card-label">Table Reads + Specific Suggestions</div>
-      <ul class="cue-list">
-        <li><strong>Date table of two</strong> — Belle Mimosa, Morning Spritz</li>
-        <li><strong>Group table</strong> — Bottle of champagne, "squeeze in more flavor"</li>
-        <li><strong>Sober or light drinker</strong> — Sunrise Squeeze, Bloom and Bubbles Zero</li>
-        <li><strong>Coffee moment</strong> — Spiked Cold Brew, Wake Up Call</li>
-        <li><strong>Guest mentions beer</strong> — Founders Solid Gold Lager, Beermosa</li>
-      </ul>
-    </div>
-
-    <div class="card">
-      <div class="card-label">Refill Is a Revenue Moment</div>
-      <p>A second round of mimosas is not a favor. It's an opportunity. Always ask before the glass is empty.</p>
-      <div class="script"><div class="script-label">Say This</div>Would you like another mimosa while you enjoy your meal?</div>
-    </div>
-
-    <div class="principle">
-      <p>Name the drink. Describe it. Make them want it. "We have drinks" sells nothing.</p>
-      <span>Beverage Standard</span>
-    </div>
-  </div>
-
-  <!-- SECTION 4: ADD-ONS -->
-  <div id="s4" class="section s4">
-    <div class="section-header theme-green">
-      <div class="section-icon">🍳</div>
-      <div>
-        <div class="section-title">Food Add-Ons and Pairings</div>
-        <div class="section-tagline">Balance the plate. Build the check.</div>
-      </div>
-      <div class="section-num">04</div>
-    </div>
-
-    <div class="card">
-      <div class="card-label">Sweet Order? Suggest Something Salty.</div>
-      <div class="script"><div class="script-label">Say This</div>That Cinnamon Roll French Toast is incredible. A lot of guests love adding the Burnt Pork Ends or smoked bacon on the side to balance the sweet.</div>
-    </div>
-
-    <div class="card">
-      <div class="card-label">Savory Order? Round It Out.</div>
-      <div class="script"><div class="script-label">Say This</div>Would you like to add an egg on top or a side of toast?</div>
-    </div>
-
-    <div class="card">
-      <div class="card-label">Bowl or Lighter Order? Add Texture.</div>
-      <div class="script"><div class="script-label">Say This</div>Our Chit Chats are a great little add-on. Warm cinnamon doughnut bites on the side.</div>
-    </div>
-
-    <div class="card">
-      <div class="card-label">Protein Upsell</div>
-      <div class="script"><div class="script-label">Say This</div>We have local smoked ham, bacon, sausage, chorizo, and corned beef as add-ons. Want to build it out?</div>
-      <div class="chips">
-        <span class="chip">Local smoked ham</span>
-        <span class="chip">Bacon</span>
-        <span class="chip">Sausage</span>
-        <span class="chip">Chorizo</span>
-        <span class="chip">Corned beef</span>
-      </div>
-    </div>
-
-    <div class="principle">
-      <p>Every plate suggestion should sound like a recommendation from someone who loves the food. Not a menu recitation.</p>
-      <span>Food Standard</span>
-    </div>
-  </div>
-
-  <!-- SECTION 5: LOBBY COMFORT -->
-  <div id="s5" class="section s5">
-    <div class="section-header theme-orange">
-      <div class="section-icon">☕</div>
-      <div>
-        <div class="section-title">Lobby Comfort</div>
-        <div class="section-tagline">The wait is a sales opportunity.</div>
-      </div>
-      <div class="section-num">05</div>
-    </div>
-
-    <div class="card">
-      <div class="card-label">The Default Sample</div>
-      <p>Chit Chats. Warm, easy, low cost, high memorability. Every waiting guest is a candidate.</p>
-      <div class="script"><div class="script-label">Say This</div>While you wait, would you like to try our Chit Chats? Warm cinnamon doughnut bites with Morning Belle sprinkles. On us.</div>
-      <div class="script"><div class="script-label">Or This</div>Here's a little something from us while we get your table ready.</div>
-    </div>
-
-    <div class="card">
-      <div class="card-label">Why It Works</div>
-      <ul class="cue-list">
-        <li>Removes friction from the wait experience</li>
-        <li>Builds an emotional memory before the guest sits down</li>
-        <li>Guests who receive something during the wait tip more and return more often</li>
-        <li>It is the $30 experience starting in the lobby</li>
-      </ul>
-    </div>
-
-    <div class="principle">
-      <p>Lobby comfort is not a cost. It's the cheapest marketing we do.</p>
-      <span>Uncommon Hospitality</span>
-    </div>
-  </div>
-
-  <!-- SECTION 6: CATERING -->
-  <div id="s6" class="section s6">
-    <div class="section-header theme-sage">
-      <div class="section-icon">📦</div>
-      <div>
-        <div class="section-title">Catering</div>
-        <div class="section-tagline">Every table is a catering lead.</div>
-      </div>
-      <div class="section-num">06</div>
-    </div>
-
-    <div class="card">
-      <div class="card-label">Trigger Moments</div>
-      <ul class="cue-list">
-        <li>Guest mentions an upcoming event, birthday, office, or group gathering</li>
-        <li>Large table with coworkers</li>
-        <li>Guest says "I love this place" or "we come here all the time"</li>
-        <li>Guest is picking up to-go and mentions a team or group</li>
-      </ul>
-    </div>
-
-    <div class="card">
-      <div class="card-label">The Pitch</div>
-      <div class="script"><div class="script-label">Say This</div>Did you know we cater? We can bring Morning Belle to your office or your next event. Cinnamon Roll French Toast for the whole team. Our cards are at the host stand.</div>
-    </div>
-
-    <div class="card">
-      <div class="card-label">Campaign Language</div>
-      <div class="chips">
-        <span class="chip">Bring the Belle.</span>
-        <span class="chip">Everyday luxury. Delivered.</span>
-        <span class="chip">Order online or call it in.</span>
-      </div>
-      <p style="font-size:12px; color:#888; margin-top:10px;">Catering is off-site, transactional, and convenience-driven. It is Morning Belle, delivered. Keep the message simple.</p>
-    </div>
-
-    <div class="principle">
-      <p>The four walls are the best catering sales channel we have. Every server is a catering rep.</p>
-      <span>Catering Standard</span>
-    </div>
-  </div>
-
-  <!-- SECTION 7: EVENTS -->
-  <div id="s7" class="section s7">
-    <div class="section-header theme-yellow">
-      <div class="section-icon">🎉</div>
-      <div>
-        <div class="section-title">Private Events</div>
-        <div class="section-tagline">Own the occasion.</div>
-      </div>
-      <div class="section-num">07</div>
-    </div>
-
-    <div class="card">
-      <div class="card-label">Trigger Moments</div>
-      <ul class="cue-list">
-        <li>Anniversary, birthday, baby shower, bridal brunch, retirement</li>
-        <li>Guest mentions they're planning something</li>
-        <li>Large group reservation, especially on a weekday</li>
-        <li>Guest says "we need a place for our whole team"</li>
-      </ul>
-    </div>
-
-    <div class="card">
-      <div class="card-label">The Pitch</div>
-      <div class="script"><div class="script-label">Say This</div>We actually host private events here. If you ever want to reserve the space for your group, we'd love to make that happen for you.</div>
-    </div>
-
-    <div class="card">
-      <div class="card-label">Campaign Language</div>
-      <div class="chips">
-        <span class="chip">Your people. Your Morning Belle.</span>
-        <span class="chip">Your Belle. Reserved for you.</span>
-        <span class="chip">Celebrate together.</span>
-      </div>
-      <p style="font-size:12px; color:#888; margin-top:10px;">Events is on-site, curated, and occasion-driven. It is not catering. Never mix the two in copy or conversation.</p>
-    </div>
-
-    <div class="card">
-      <div class="card-label">Key Numbers to Know</div>
-      <ul class="cue-list">
-        <li>Weekday minimum: $800 food and beverage</li>
-        <li>Weekend minimum: $1,200 food and beverage</li>
-        <li>Available 3pm weekdays, 4pm weekends</li>
-        <li>Capacity: 80 to 130 guests depending on location</li>
-      </ul>
-    </div>
-
-    <div class="principle">
-      <p>Every server is an event coordinator. The conversation starts at the table.</p>
-      <span>Events Standard</span>
-    </div>
-  </div>
-
-  <!-- SECTION 8: OWN YOUR 5 MILES -->
-  <div id="s8" class="section s8">
-    <div class="section-header theme-burnt">
-      <div class="section-icon">📍</div>
-      <div>
-        <div class="section-title">Own Your 5 Miles</div>
-        <div class="section-tagline">The best marketing comes from the four walls.</div>
-      </div>
-      <div class="section-num">08</div>
-    </div>
-
-    <div class="card">
-      <div class="card-label">What Every Gardener Can Do</div>
-      <ul class="cue-list">
-        <li>Leave a card or flyer at a nearby business during your off time</li>
-        <li>Know the neighborhood. Know the regulars. Know who is new.</li>
-        <li>When a guest mentions they work nearby, ask if their team knows about us</li>
-        <li>If a guest is from out of town, ask them to tell their people when they get home</li>
-        <li>Know what events are happening within 5 miles. Be ready to invite people in.</li>
-      </ul>
-    </div>
-
-    <div class="card">
-      <div class="card-label">Scripts for the Neighborhood</div>
-      <div class="script"><div class="script-label">For the Local Worker</div>Do you work around here? We'd love for your team to know about us.</div>
-      <div class="script"><div class="script-label">For the Out-of-Towner</div>We're so glad you found us. Tell your people about us when you get home.</div>
-      <div class="script"><div class="script-label">For the Regular</div>Do you have friends who haven't been in yet? We'd love to meet them.</div>
-    </div>
-
-    <div class="card">
-      <div class="card-label">Local Store Marketing Is Not a Manager Job</div>
-      <p>Every Gardener is a brand ambassador. Every conversation inside the four walls can extend the brand beyond them.</p>
-      <div class="chips">
-        <span class="chip">Rooted in the neighborhood</span>
-        <span class="chip">Run it like you own it</span>
-        <span class="chip">Collective genius</span>
-      </div>
-    </div>
-
-    <div class="principle">
-      <p>We are not a chain passing through. We are the place that showed up, stayed, and became part of the neighborhood.</p>
-      <span>Morning Belle Brand Pillar 04</span>
-    </div>
-  </div>
-
-</div>
-
-<div class="footer">Morning Belle · Internal Reference · All Four Locations</div>
+<div class="toast" id="toast"></div>
+<div id="modalContainer"></div>
 
 <script>
-  function show(id, btn) {
-    document.querySelectorAll('.section').forEach(s => s.classList.remove('active'));
-    document.querySelectorAll('.nav-pill').forEach(p => p.classList.remove('active'));
-    document.getElementById(id).classList.add('active');
-    btn.classList.add('active');
-    window.scrollTo({ top: document.querySelector('.nav-wrap').offsetTop, behavior: 'smooth' });
+const SK='hewitt_academy_2026_v1';
+const LEVELS=[
+  {min:0,name:'Rookie',max:500},{min:500,name:'Bench Warmer',max:1200},
+  {min:1200,name:'Starter',max:2400},{min:2400,name:'All-Star',max:4000},
+  {min:4000,name:'MVP',max:6000},{min:6000,name:'Hewitt the GOAT',max:99999}
+];
+const MN=['January','February','March','April','May','June','July','August','September','October','November','December'];
+const MS=['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'];
+
+const CAL_START=new Date(2026,5,1);
+const CAL_END=new Date(2026,7,25);
+
+const SPECIALS={
+  '2026-06-01':{type:'summer',label:'Summer Start',info:"Hewitt's Summer Academy begins. 86 days to level up."},
+  '2026-06-19':{type:'hol',label:'Juneteenth',info:'Federal holiday.'},
+  '2026-06-26':{type:'f1w',label:'FP1+2',race:'Austrian GP',circuit:'Red Bull Ring, Spielberg'},
+  '2026-06-27':{type:'f1w',label:'Qualifying',race:'Austrian GP',circuit:'Red Bull Ring, Spielberg'},
+  '2026-06-28':{type:'f1r',label:'AUSTRIAN GP',race:'Austrian GP',circuit:'Red Bull Ring, Spielberg',round:10},
+  '2026-07-03':{type:'f1w',label:'FP1+Sprint Q',race:'British GP',circuit:'Silverstone Circuit — Lando home race!'},
+  '2026-07-04':{type:'bday',label:'BIRTHDAY!',info:'Happy 11th Birthday! British GP at Silverstone is TOMORROW.'},
+  '2026-07-05':{type:'f1r',label:'BRITISH GP',race:'British GP',circuit:'Silverstone Circuit — Lando home race!',round:11},
+  '2026-07-17':{type:'f1w',label:'FP1+2',race:'Belgian GP',circuit:'Circuit de Spa-Francorchamps'},
+  '2026-07-18':{type:'f1w',label:'Qualifying',race:'Belgian GP',circuit:'Circuit de Spa-Francorchamps'},
+  '2026-07-19':{type:'f1r',label:'BELGIAN GP',race:'Belgian GP',circuit:'Circuit de Spa-Francorchamps',round:12},
+  '2026-07-24':{type:'f1w',label:'FP1+2',race:'Hungarian GP',circuit:'Hungaroring, Budapest'},
+  '2026-07-25':{type:'f1w',label:'Qualifying',race:'Hungarian GP',circuit:'Hungaroring, Budapest'},
+  '2026-07-26':{type:'f1r',label:'HUNGARIAN GP',race:'Hungarian GP',circuit:'Hungaroring, Budapest',round:13},
+  '2026-08-21':{type:'f1w',label:'FP + Sprint Q',race:'Dutch GP',circuit:'Circuit Zandvoort — Sprint Weekend!'},
+  '2026-08-22':{type:'f1w',label:'Sprint + Quali',race:'Dutch GP',circuit:'Circuit Zandvoort — Sprint Weekend!'},
+  '2026-08-23':{type:'f1r',label:'DUTCH GP',race:'Dutch GP',circuit:'Circuit Zandvoort — Sprint Weekend!',round:14},
+  '2026-08-25':{type:'summer',label:'Last Day',info:"Summer Academy ends. How far did you go, Hewitt?"}
+};
+// July 4 also has holiday + f1 practice
+const EXTRA_JULY4=[
+  {type:'hol',label:'4th of July'},
+  {type:'f1w',label:'British GP — Sprint Weekend',race:'British GP',circuit:'Silverstone Circuit — Race is TOMORROW!'}
+];
+
+const ASSIGNMENTS=[
+  // MATH
+  {id:'a24',cat:'math',icon:'&#10135;',bg:'#F0FDF4',title:'Free Throw Math',sub:'Basketball Statistics',xp:55,
+   q:'A player shoots 80 free throws and makes 68. What is their free throw percentage?',
+   opts:['82%','85%','80%','88%'],answer:'85%',
+   fact:'68 divided by 80 equals 0.85, or 85%. The NBA season record belongs to Jose Calderon at 98.1% in 2008-09.'},
+  {id:'a25',cat:'math',icon:'&#10135;',bg:'#F0FDF4',title:'Win Percentage',sub:'Box Score Math',xp:55,
+   q:'A team plays 82 games and wins 57. What is their winning percentage to the nearest thousandth?',
+   opts:['.695','.675','.715','.655'],answer:'.695',
+   fact:'57 divided by 82 is 0.6951, which rounds to .695. The 1995-96 Chicago Bulls went 72-10 for a .878 win percentage.'},
+  // HISTORY
+  {id:'a26',cat:'history',icon:'&#128214;',bg:'#FEF3C7',title:'The Moon Landing',sub:'American History',xp:60,
+   q:'Neil Armstrong became the first human to walk on the moon in what year?',
+   opts:['1967','1968','1969','1971'],answer:'1969',
+   fact:'July 20, 1969. "That\'s one small step for man, one giant leap for mankind." Over 600 million watched on TV.'},
+  // BIBLE
+  {id:'b01',cat:'bible',icon:'&#9997;',bg:'#FFF7ED',title:'David and Goliath',sub:'1 Samuel 17',xp:65,
+   q:'David defeated Goliath with a sling and a stone. How many stones did David pick up before the fight?',
+   opts:['1','3','5','7'],answer:'5',
+   fact:'1 Samuel 17:40 — David chose five smooth stones from a stream but only needed one. The story teaches that courage and faith are more powerful than size or strength.'},
+  {id:'b02',cat:'bible',icon:'&#9997;',bg:'#FFF7ED',title:"Noah's Ark",sub:'Genesis 6-9',xp:60,
+   q:"How many days and nights did it rain during the flood in Noah's story?",
+   opts:['7','20','40','100'],answer:'40',
+   fact:"Genesis 7:12 — It rained 40 days and 40 nights. The number 40 appears throughout the Bible as a period of testing. Moses spent 40 years in the desert. Jesus fasted 40 days."},
+  {id:'b03',cat:'bible',icon:'&#9997;',bg:'#FFF7ED',title:"The Lord's Prayer",sub:'Matthew 6',xp:70,
+   q:"In the Lord's Prayer, we ask God to forgive our debts as we forgive whom?",
+   opts:['Our enemies','Our debtors','Our neighbors','All people'],answer:'Our debtors',
+   fact:"Matthew 6:12 — Forgive us our debts, as we also have forgiven our debtors. The prayer teaches that receiving forgiveness is connected to giving it. One of the most recited prayers in history."},
+  {id:'b04',cat:'bible',icon:'&#9997;',bg:'#FFF7ED',title:'The Ten Commandments',sub:'Exodus 20',xp:65,
+   q:'The first commandment says you shall have no other ___ before God.',
+   opts:['kings','idols','gods','masters'],answer:'gods',
+   fact:'Exodus 20:3 — The first commandment establishes that God is above everything. Given to Moses on Mount Sinai, the Ten Commandments form the foundation of biblical law.'},
+  {id:'b05',cat:'bible',icon:'&#9997;',bg:'#FFF7ED',title:'The Golden Rule',sub:'Matthew 7:12',xp:60,
+   q:'Jesus states the Golden Rule in Matthew 7:12. What does it teach?',
+   opts:['Love your enemies','Treat others as you wish to be treated','Give to the poor','Pray without ceasing'],answer:'Treat others as you wish to be treated',
+   fact:'Matthew 7:12 — Do to others what you would have them do to you. Jesus called this the summary of the Law and the Prophets. One of the most powerful moral principles ever written.'},
+  // MUSIC
+  {id:'a10',cat:'music',icon:'&#127928;',bg:'#EDE9FE',title:'Like a Rolling Stone',sub:'Bob Dylan',xp:60,
+   q:'"Like a Rolling Stone" was revolutionary. What made radio stations refuse to play it?',
+   opts:['Too political','Over 6 minutes long','No melody','Too loud'],answer:'Over 6 minutes long',
+   fact:'Radio said no song could be over 3 minutes. Dylan did not care. Changed what a pop song could be.'},
+  {id:'a11',cat:'music',icon:'&#127928;',bg:'#EDE9FE',title:'Beatles Break Up',sub:'Music History',xp:50,
+   q:'In what year did The Beatles officially break up?',
+   opts:['1968','1969','1970','1972'],answer:'1970',
+   fact:'Paul McCartney announced his departure in April 1970, just after Abbey Road was released.'},
+  {id:'a12',cat:'music',icon:'&#127928;',bg:'#EDE9FE',title:'Hendrix at Woodstock',sub:'Jimi Hendrix',xp:75,
+   q:'Jimi Hendrix closed Woodstock 1969 with a famous version of which song?',
+   opts:['Purple Haze','The Star-Spangled Banner','Hey Joe','All Along the Watchtower'],answer:'The Star-Spangled Banner',
+   fact:'Hendrix played the national anthem with feedback and distortion. One of the greatest guitar moments in history.'},
+  {id:'a13',cat:'music',icon:'&#127928;',bg:'#EDE9FE',title:'The Beach Boys',sub:'California Sound',xp:50,
+   q:'"Pet Sounds" by the Beach Boys directly influenced which legendary band?',
+   opts:['The Rolling Stones','The Beatles','Led Zeppelin','The Doors'],answer:'The Beatles',
+   fact:"Paul McCartney called Pet Sounds his favorite album. It inspired the Beatles to make Sgt. Pepper's."},
+  {id:'a14',cat:'music',icon:'&#127928;',bg:'#EDE9FE',title:'Elvis the King',sub:'Rock and Roll',xp:55,
+   q:'Elvis Presley is the "King of Rock and Roll." What state was he born in?',
+   opts:['Tennessee','Alabama','Mississippi','Louisiana'],answer:'Mississippi',
+   fact:'Tupelo, Mississippi, January 8, 1935. His first Sun Studio recording in 1954 changed American music.'},
+  // ART
+  {id:'a19',cat:'art',icon:'&#127912;',bg:'#ECFDF5',title:'Starry Night',sub:'Van Gogh',xp:60,
+   q:'Van Gogh painted "The Starry Night" from the window of what location?',
+   opts:['His Paris apartment','A hospital in Arles','An asylum in Saint-Remy','His childhood home'],answer:'An asylum in Saint-Remy',
+   fact:'1889. Van Gogh painted it from his room in a mental institution. He called it a failure when he sent it to his brother Theo.'},
+  {id:'a20',cat:'art',icon:'&#127912;',bg:'#ECFDF5',title:'Mona Lisa',sub:'Leonardo da Vinci',xp:55,
+   q:'The Mona Lisa is displayed in which museum?',
+   opts:['The British Museum','The Louvre','The Vatican Museums','The Uffizi Gallery'],answer:'The Louvre',
+   fact:'Paris, France. About 6 million people visit the Louvre every year just to see it. It is only 30 by 21 inches.'},
+  {id:'a21',cat:'art',icon:'&#127912;',bg:'#ECFDF5',title:'Pop Art',sub:'Andy Warhol',xp:50,
+   q:'Andy Warhol turned what everyday objects into iconic Pop Art?',
+   opts:['Dollar bills and coins','Soup cans and celebrities','Cars and motorcycles','Sports equipment'],answer:'Soup cans and celebrities',
+   fact:"Campbell's Soup cans, Marilyn Monroe, Elvis. Warhol believed commercial objects were as valid as fine art."},
+  // POETRY
+  {id:'a22',cat:'poetry',icon:'&#128220;',bg:'#FEF9C3',title:'The Road Not Taken',sub:'Robert Frost',xp:70,
+   q:'In Frost\'s "The Road Not Taken," what twist do most readers miss?',
+   opts:['The roads were actually identical','The speaker was lost','It is literally about driving','The speaker chose wrong'],answer:'The roads were actually identical',
+   fact:'Frost describes both paths as having the same claim. It is a poem about how we create meaning from ordinary choices.'},
+  {id:'a23',cat:'poetry',icon:'&#128220;',bg:'#FEF9C3',title:'O Captain! My Captain!',sub:'Walt Whitman',xp:65,
+   q:'Walt Whitman\'s "O Captain! My Captain!" (1865) — the captain represents whom?',
+   opts:['George Washington','Abraham Lincoln','Ulysses S. Grant','Frederick Douglass'],answer:'Abraham Lincoln',
+   fact:"Whitman was devastated by Lincoln's assassination. Lincoln guided the country through the Civil War and was killed right as it ended."},
+  // BASKETBALL
+  {id:'a01',cat:'basketball',icon:'&#127936;',bg:'#FEE8D6',title:"Jordan's Six Rings",sub:'NBA History',xp:50,
+   q:'Michael Jordan won six NBA championships. How many Finals MVP awards did he win?',
+   opts:['3','5','6','4'],answer:'6',
+   fact:'Jordan was Finals MVP all six times. No one has ever won a Finals he played in.'},
+  {id:'a02',cat:'basketball',icon:'&#127936;',bg:'#FEE8D6',title:'Three-Point King',sub:'NBA Records',xp:50,
+   q:'Stephen Curry holds the all-time NBA three-point record. About how many has he made?',
+   opts:['Over 2,000','Over 3,000','Over 3,500','Over 4,000'],answer:'Over 3,500',
+   fact:'Curry passed Ray Allen in 2021 and kept adding. He shoots around 43% from three for his career.'},
+  {id:'a03',cat:'basketball',icon:'&#127936;',bg:'#FEE8D6',title:"Wilt's 100-Point Game",sub:'Historic Stats',xp:75,
+   q:'Wilt Chamberlain scored 100 points in a single NBA game. What year?',
+   opts:['1958','1960','1962','1965'],answer:'1962',
+   fact:'March 2, 1962. Philadelphia Warriors vs New York Knicks. Nobody has ever come within 20 points of that mark.'},
+  {id:'a04',cat:'basketball',icon:'&#127936;',bg:'#FEE8D6',title:'The Dream Team',sub:'Olympics History',xp:60,
+   q:'The 1992 US Dream Team had Jordan, Magic, Bird, and Barkley. Where were those Olympics?',
+   opts:['Atlanta','Seoul','Sydney','Barcelona'],answer:'Barcelona',
+   fact:'Barcelona, Spain. They won gold by an average of 44 points per game.'},
+  {id:'a05',cat:'basketball',icon:'&#127936;',bg:'#FEE8D6',title:'Bird vs Magic',sub:'1980s Rivalry',xp:65,
+   q:'Larry Bird and Magic Johnson were rivals in the 1980s. Which team did Bird play for?',
+   opts:['New York Knicks','Los Angeles Lakers','Boston Celtics','Philadelphia 76ers'],answer:'Boston Celtics',
+   fact:'Bird with the Celtics, Magic with the Lakers. Their rivalry is credited with saving the NBA.'},
+  {id:'a06',cat:'basketball',icon:'&#127936;',bg:'#FEE8D6',title:"LeBron's Record",sub:'All-Time Scoring',xp:55,
+   q:'LeBron became the all-time NBA scoring leader in 2023. Whose record did he break?',
+   opts:['Michael Jordan','Wilt Chamberlain','Kareem Abdul-Jabbar','Karl Malone'],answer:'Kareem Abdul-Jabbar',
+   fact:'LeBron passed Kareem on February 7, 2023. Kareem held the record for 38 years.'},
+  // HOCKEY
+  {id:'a07',cat:'hockey',icon:'&#127944;',bg:'#E0F2FE',title:'The Great One',sub:'Wayne Gretzky',xp:75,
+   q:"Gretzky's assists alone beat every other player's total points. How many career assists?",
+   opts:['1,249','1,963','1,500','2,100'],answer:'1,963',
+   fact:'1,963 assists. Total points were 2,857. They retired his number 99 across the entire NHL.'},
+  {id:'a08',cat:'hockey',icon:'&#127944;',bg:'#E0F2FE',title:'The Stanley Cup',sub:'NHL History',xp:50,
+   q:'The Stanley Cup is the oldest pro sports trophy in North America. When was it first awarded?',
+   opts:['1893','1917','1904','1926'],answer:'1893',
+   fact:"Lord Stanley donated it in 1892. Every player who wins still gets their name engraved on it every year."},
+  {id:'a09',cat:'hockey',icon:'&#127944;',bg:'#E0F2FE',title:"McDavid's Season",sub:'Modern NHL',xp:60,
+   q:'Connor McDavid had a historic 153-point season in 2022-23. Who was the last to score 150+ before him?',
+   opts:['Wayne Gretzky','Mario Lemieux','Jaromir Jagr','Brett Hull'],answer:'Mario Lemieux',
+   fact:"Lemieux did it in 1995-96. McDavid is the fastest skater in NHL history."},
+  // F1
+  {id:'a15',cat:'f1',icon:'&#127950;',bg:'#1a1a2e',title:'Lando Wins Miami',sub:'F1 History',xp:60,
+   q:'Lando Norris won his first ever F1 race in 2024. Which Grand Prix was it?',
+   opts:['British GP','Monaco GP','Miami GP','Australian GP'],answer:'Miami GP',
+   fact:'May 5, 2024. Miami. Norris led from the front and held off Verstappen. The McLaren garage went crazy.'},
+  {id:'a16',cat:'f1',icon:'&#127950;',bg:'#1a1a2e',title:'Kimi Antonelli',sub:'F1 History',xp:65,
+   q:'Kimi Antonelli was born in 2006 and joined which legendary F1 team replacing Lewis Hamilton?',
+   opts:['Ferrari','Red Bull','McLaren','Mercedes'],answer:'Mercedes',
+   fact:'Mercedes signed Antonelli to replace Lewis Hamilton. Kimi is Italian and one of the youngest F1 drivers in history.'},
+  {id:'a17',cat:'f1',icon:'&#127950;',bg:'#1a1a2e',title:'F1 Speed',sub:'Formula 1 Facts',xp:50,
+   q:'What is the approximate top speed of a modern F1 car?',
+   opts:['160 mph','200 mph','230 mph','280 mph'],answer:'230 mph',
+   fact:'Over 230 mph on long straights. A pit stop takes about 2.5 seconds. Each car costs around $15 million.'},
+  {id:'a18',cat:'f1',icon:'&#127950;',bg:'#1a1a2e',title:'Silverstone History',sub:'British Grand Prix',xp:55,
+   q:'The British GP at Silverstone is Lando\'s home race. What was Silverstone before it became a circuit?',
+   opts:['A horse racing track','A WWII airfield','A shipping port','A train station'],answer:'A WWII airfield',
+   fact:"Silverstone was a Royal Air Force base in WWII. The runways became the race track. The first British GP there was 1948."}
+];
+
+const TASKS=[
+  {id:'t01',icon:'&#127939;',name:'Run the Block',desc:'One full lap around the block at a good pace.',xp:40},
+  {id:'t02',icon:'&#127936;',name:'50 Free Throws',desc:'Shoot 50 free throws. Track your makes and calculate your percentage.',xp:50},
+  {id:'t03',icon:'&#11088;',name:'100 Jumping Jacks',desc:'100 jumping jacks outside. Go!',xp:35},
+  {id:'t04',icon:'&#127936;',name:'100 Basketball Shots',desc:'Shoot from 5 different spots, 20 shots each. Count your makes.',xp:65},
+  {id:'t05',icon:'&#128692;',name:'Bike 20 Minutes',desc:'Bike around the neighborhood for at least 20 minutes.',xp:50},
+  {id:'t06',icon:'&#127944;',name:'Street Hockey 30 Min',desc:'Play or practice street hockey for 30 minutes. Work on your shot.',xp:55},
+  {id:'t07',icon:'&#128170;',name:'20 Push-ups',desc:'Drop and do 20 push-ups outside.',xp:30},
+  {id:'t08',icon:'&#129336;',name:'Agility Drills',desc:'10 minutes of footwork drills outside: high knees, lateral shuffles, quick feet.',xp:45},
+  {id:'t09',icon:'&#127936;',name:'Dribbling Drills',desc:'15 minutes of ball-handling: crossover, between legs, behind back, spin move.',xp:40},
+  {id:'t10',icon:'&#127795;',name:'Nature Walk Report',desc:'Take a 20-minute walk and find 3 interesting things to report back about.',xp:35},
+  {id:'t11',icon:'&#129496;',name:'Stretch Routine',desc:'10-minute full body stretch outside in the fresh air.',xp:25},
+  {id:'t12',icon:'&#127936;',name:'3-on-3 or H-O-R-S-E',desc:'Play a pickup game or H-O-R-S-E with a friend, sibling, or parent.',xp:60}
+];
+
+const BADGES=[
+  {icon:'&#127936;',name:'Hooper',check:s=>s.completed.filter(id=>ASSIGNMENTS.find(a=>a.id===id)?.cat==='basketball').length>=5},
+  {icon:'&#127928;',name:'Rockstar',check:s=>s.completed.filter(id=>ASSIGNMENTS.find(a=>a.id===id)?.cat==='music').length>=4},
+  {icon:'&#127939;',name:'Athlete',check:s=>s.tasksCompleted.length>=5},
+  {icon:'&#128220;',name:'Poet',check:s=>s.completed.filter(id=>ASSIGNMENTS.find(a=>a.id===id)?.cat==='poetry').length>=2},
+  {icon:'&#128293;',name:'On Fire',check:s=>s.streak>=3},
+  {icon:'&#127942;',name:'MVP',check:s=>s.xp>=2400},
+  {icon:'&#127912;',name:'Artsy',check:s=>s.completed.filter(id=>ASSIGNMENTS.find(a=>a.id===id)?.cat==='art').length>=3},
+  {icon:'&#129518;',name:'Stats Nerd',check:s=>s.completed.filter(id=>ASSIGNMENTS.find(a=>a.id===id)?.cat==='math').length>=2},
+  {icon:'&#127950;',name:'Checkered',check:s=>s.completed.filter(id=>ASSIGNMENTS.find(a=>a.id===id)?.cat==='f1').length>=4},
+  {icon:'&#128197;',name:'Consistent',check:s=>Object.values(s.calDays||{}).filter(d=>d.checked).length>=14},
+  {icon:'&#9997;',name:'Scripture',check:s=>s.completed.filter(id=>ASSIGNMENTS.find(a=>a.id===id)?.cat==='bible').length>=5}
+];
+
+const VAULT=[
+  {icon:'&#127936;',name:'LeBron James',stat:'38,652',lbl:'Career Points — All-Time NBA Leader',note:'LeBron passed Kareem Abdul-Jabbar on February 7, 2023. He played 21 seasons.'},
+  {icon:'&#127936;',name:'Michael Jordan',stat:'30.1',lbl:'Career PPG Average — Highest Ever',note:'The highest scoring average in NBA history. 6 rings, 6 Finals MVPs. He never lost a Finals.'},
+  {icon:'&#127936;',name:'Wilt Chamberlain',stat:'50.4',lbl:'PPG in a Single Season — 1961-62',note:'Averaged 50 points and 25 rebounds per game. Also scored 100 in one game that same season.'},
+  {icon:'&#127936;',name:'Steph Curry',stat:'43.5%',lbl:'Career Three-Point Percentage',note:'On over 3,500 attempts. Average NBA player shoots about 36% from three. Curry does it from 30+ feet.'},
+  {icon:'&#127944;',name:'Wayne Gretzky',stat:'2,857',lbl:'Career NHL Points — Goals + Assists',note:'His assists alone (1,963) beat every other player\'s total points. Retired his number 99 across all of the NHL.'},
+  {icon:'&#127944;',name:'Connor McDavid',stat:'153',lbl:'Points in the 2022-23 Season',note:'First player to reach 150 since Mario Lemieux in 1995-96. Fastest skater in NHL history.'},
+  {icon:'&#127950;',name:'Lando Norris',stat:'#4',lbl:'McLaren — Papaya Orange MCL39',note:'Won his first F1 race in Miami 2024. Born in Bristol, UK. Known for his humor and Twitch streams.'},
+  {icon:'&#127950;',name:'Kimi Antonelli',stat:'#12',lbl:'Mercedes-AMG W16 — Silver Arrow',note:'Born 2006 in Bologna, Italy — one year older than you. Replaced Lewis Hamilton at Mercedes.'},
+  {icon:'&#127950;',name:'F1 Top Speed',stat:'230+',lbl:'MPH on Long Straights',note:'At Monza, cars hit 225+ mph. A pit stop takes 2.5 seconds. The cars could theoretically drive upside down.'}
+];
+
+const CL={'all':'All','math':'Math','history':'History','bible':'Bible','music':'Music','art':'Art','poetry':'Poetry','basketball':'Basketball','hockey':'Hockey','f1':'F1 Racing'};
+const CE={'math':'&#10135;','history':'&#128214;','bible':'&#9997;','music':'&#127928;','art':'&#127912;','poetry':'&#128220;','basketball':'&#127936;','hockey':'&#127944;','f1':'&#127950;'};
+
+let state={xp:0,streak:0,completed:[],tasksCompleted:[],lastDate:null,calDays:{},penalties:[]};
+let activeTab='learn',activeFilter='all',openCard=null,calM=5,calY=2026;
+
+function loadState(){
+  try{const s=JSON.parse(localStorage.getItem(SK));if(s)state=Object.assign({calDays:{},penalties:[]},state,s);if(!state.calDays)state.calDays={};if(!state.penalties)state.penalties=[]}catch(e){}
+  checkStreak();
+}
+function saveState(){localStorage.setItem(SK,JSON.stringify(state));}
+function checkStreak(){
+  const today=new Date().toDateString(),yesterday=new Date(Date.now()-86400000).toDateString();
+  if(state.lastDate===today)return;
+  if(state.lastDate===yesterday)state.streak+=1;
+  else if(!state.lastDate){}
+  else state.streak=0;
+  state.lastDate=today;saveState();
+}
+function getLvl(){
+  let i=0;for(let j=LEVELS.length-1;j>=0;j--){if(state.xp>=LEVELS[j].min){i=j;break;}}
+  return{lvl:i+1,...LEVELS[i],nextMax:LEVELS[Math.min(i+1,LEVELS.length-1)].max};
+}
+function updateHeader(){
+  const l=getLvl(),pct=Math.min(100,Math.round(((state.xp-l.min)/(l.nextMax-l.min))*100));
+  document.getElementById('levelBadge').textContent='LVL '+l.lvl;
+  document.getElementById('levelName').textContent=l.name;
+  document.getElementById('xpDisplay').textContent=state.xp.toLocaleString()+' / '+l.nextMax.toLocaleString()+' XP';
+  document.getElementById('xpFill').style.width=pct+'%';
+  document.getElementById('streakCount').textContent=state.streak;
+}
+function showToast(msg){const t=document.getElementById('toast');t.textContent=msg;t.classList.add('show');setTimeout(()=>t.classList.remove('show'),2200);}
+function awardXP(amt){
+  const before=getLvl().lvl;state.xp+=amt;const after=getLvl().lvl;
+  saveState();updateHeader();showToast('+'+amt+' XP!');
+  if(after>before)setTimeout(()=>showToast('LEVEL UP! LVL '+after+' — '+getLvl().name.toUpperCase()),2400);
+}
+function switchTab(tab){
+  activeTab=tab;openCard=null;
+  document.querySelectorAll('.tab').forEach(t=>t.classList.toggle('active',t.dataset.tab===tab));
+  renderContent();window.scrollTo({top:0,behavior:'smooth'});
+}
+function renderContent(){
+  const el=document.getElementById('mainContent');
+  if(activeTab==='learn')el.innerHTML=renderLearn();
+  if(activeTab==='tasks')el.innerHTML=renderTasks();
+  if(activeTab==='sports')el.innerHTML=renderSports();
+  if(activeTab==='calendar')el.innerHTML=renderCalendar();
+  if(activeTab==='profile')el.innerHTML=renderProfile();
+}
+
+function renderLearn(){
+  const cats=Object.keys(CL);
+  let chips='<div class="filter-chips">';
+  cats.forEach(c=>{chips+=`<div class="chip${activeFilter===c?' active':''}" onclick="setFilter('${c}')">${CL[c]}</div>`;});
+  chips+='</div>';
+  const filtered=activeFilter==='all'?ASSIGNMENTS:ASSIGNMENTS.filter(a=>a.cat===activeFilter);
+  let html=chips+`<div class="stat-grid">
+    <div class="stat-card"><div class="stat-num">${state.completed.length}</div><div class="stat-lbl">Completed</div></div>
+    <div class="stat-card"><div class="stat-num">${ASSIGNMENTS.length-state.completed.length}</div><div class="stat-lbl">Remaining</div></div>
+    <div class="stat-card"><div class="stat-num">${state.xp.toLocaleString()}</div><div class="stat-lbl">Total XP</div></div>
+  </div><div class="section-title">&#128218; Assignments</div>`;
+  filtered.forEach(a=>{
+    const isDone=state.completed.includes(a.id),isOpen=openCard===a.id;
+    html+=`<div class="assignment-card${isDone?' completed':''}">
+      <div class="card-header" onclick="toggleCard('${a.id}')">
+        <div class="cat-icon" style="background:${a.bg}">${a.icon}</div>
+        <div class="card-meta">
+          <div class="card-title"${a.cat==='f1'?' style="color:white"':''}>${eh(a.title)}</div>
+          <div class="card-sub">${eh(a.sub)}</div>
+        </div>
+        <div class="card-xp${isDone?' done':''}">${isDone?'&#10003; Done':'+'+a.xp+' XP'}</div>
+        <div class="chevron${isOpen?' open':''}">&#9660;</div>
+      </div>
+      <div class="card-body${isOpen?' open':''}" id="body_${a.id}">`;
+    if(isDone){html+=`<div class="done-stamp">&#10003; <span>${eh(a.fact)}</span></div>`;}
+    else{
+      html+=`<div class="card-question">${eh(a.q)}</div><div class="card-options" id="opts_${a.id}">`;
+      a.opts.forEach(o=>{html+=`<button class="option-btn" onclick="answer('${a.id}','${ea(o)}')">${eh(o)}</button>`;});
+      html+=`</div><div id="result_${a.id}"></div>`;
+    }
+    html+=`</div></div>`;
+  });
+  return html;
+}
+
+function renderTasks(){
+  const done=state.tasksCompleted.length;
+  let html=`<div class="stat-grid">
+    <div class="stat-card"><div class="stat-num">${done}</div><div class="stat-lbl">Done</div></div>
+    <div class="stat-card"><div class="stat-num">${TASKS.length-done}</div><div class="stat-lbl">Remaining</div></div>
+    <div class="stat-card"><div class="stat-num">${TASKS.reduce((s,t)=>s+(state.tasksCompleted.includes(t.id)?t.xp:0),0)}</div><div class="stat-lbl">XP Earned</div></div>
+  </div><div class="section-title">&#127939; Move Missions</div>`;
+  TASKS.forEach(t=>{
+    const isDone=state.tasksCompleted.includes(t.id);
+    html+=`<div class="task-card${isDone?' done-task':''}">
+      <div class="task-icon">${t.icon}</div>
+      <div class="task-info"><div class="task-name">${eh(t.name)}</div><div class="task-desc">${eh(t.desc)}</div><div class="task-xp-badge">+${t.xp} XP</div></div>
+      <button class="task-check${isDone?' done':''}" onclick="completeTask('${t.id}')">${isDone?'&#10003;':''}</button>
+    </div>`;
+  });
+  return html;
+}
+
+function renderSports(){
+  let html='<div class="section-title">&#127942; Sports Stats Vault</div><p style="font-size:13px;color:var(--muted);margin-bottom:16px;line-height:1.5">Legends, records, and numbers that define the games you love.</p>';
+  VAULT.forEach(f=>{
+    html+=`<div class="sports-card">
+      <div class="sports-icon">${f.icon}</div>
+      <div><div class="sports-name">${eh(f.name)}</div><div class="sports-stat">${eh(f.stat)}</div><div class="sports-lbl">${eh(f.lbl)}</div><div class="sports-note">${eh(f.note)}</div></div>
+    </div>`;
+  });
+  return html;
+}
+
+// ===================== CALENDAR =====================
+function dkey(y,m,d){return`${y}-${String(m+1).padStart(2,'0')}-${String(d).padStart(2,'0')}`;}
+function inRange(y,m,d){const dt=new Date(y,m,d);return dt>=CAL_START&&dt<=CAL_END;}
+function getSpecials(y,m,d){
+  const k=dkey(y,m,d);
+  const results=[];
+  if(k==='2026-07-04'){
+    results.push(SPECIALS['2026-07-04']);
+    results.push(...EXTRA_JULY4);
+    return results;
   }
+  if(SPECIALS[k])results.push(SPECIALS[k]);
+  return results;
+}
+
+function renderCalendar(){
+  const logged=Object.values(state.calDays).filter(d=>d.checked).length;
+  const f1Races=Object.values(SPECIALS).filter(s=>s.type==='f1r').length;
+  const canPrev=!(calM===5&&calY===2026),canNext=!(calM===7&&calY===2026);
+
+  let html=`<div class="cal-stats">
+    <div class="cal-stat"><div class="cs-num">${logged}</div><div class="cs-lbl">Days Logged</div></div>
+    <div class="cal-stat"><div class="cs-num">86</div><div class="cs-lbl">Total Days</div></div>
+    <div class="cal-stat"><div class="cs-num">${f1Races}</div><div class="cs-lbl">F1 Race Days</div></div>
+  </div>`;
+
+  html+=`<div class="cal-header-bar">
+    <button class="cal-nav-btn" onclick="calPrev()" ${!canPrev?'disabled':''}>&#9664;</button>
+    <div class="cal-month-title">${MN[calM]} ${calY}</div>
+    <button class="cal-nav-btn" onclick="calNext()" ${!canNext?'disabled':''}>&#9654;</button>
+  </div>`;
+
+  html+=`<div class="cal-legend">
+    <div class="cal-li"><div class="cal-dot" style="background:#E8002D"></div>F1 Race</div>
+    <div class="cal-li"><div class="cal-dot" style="background:#2244AA"></div>F1 Weekend</div>
+    <div class="cal-li"><div class="cal-dot" style="background:var(--gold)"></div>Birthday</div>
+    <div class="cal-li"><div class="cal-dot" style="background:var(--green)"></div>Logged &#10003;</div>
+    <div class="cal-li"><div class="cal-dot" style="background:var(--blue-light);border:1px solid #93C5FD"></div>Event</div>
+  </div>`;
+
+  html+='<div class="cal-grid">';
+  ['Sun','Mon','Tue','Wed','Thu','Fri','Sat'].forEach((d,i)=>{
+    html+=`<div class="cal-dow${i===0||i===5||i===6?' wknd':''}">${d}</div>`;
+  });
+
+  const firstDay=new Date(calY,calM,1).getDay();
+  const daysInMonth=new Date(calY,calM+1,0).getDate();
+
+  for(let i=0;i<firstDay;i++)html+='<div class="cal-day empty"></div>';
+
+  for(let d=1;d<=daysInMonth;d++){
+    const k=dkey(calY,calM,d);
+    const specials=getSpecials(calY,calM,d);
+    const inR=inRange(calY,calM,d);
+    const dd=state.calDays[k]||{};
+    const dow=new Date(calY,calM,d).getDay();
+    const isWknd=dow===0||dow===5||dow===6;
+    const primary=specials.length?specials[0].type:null;
+
+    let cls='cal-day';
+    if(!inR)cls+=' out';
+    else if(isWknd)cls+=' wknd-day';
+    if(primary==='bday')cls+=' bday';
+    else if(primary==='f1r')cls+=' f1r';
+    else if(primary==='f1w')cls+=' f1w';
+    if(dd.checked)cls+=' logged';
+
+    html+=`<div class="${cls}"${inR?` onclick="openDay('${k}')"`:''}  data-k="${k}">`;
+    html+=`<div class="cal-dn">${d}</div>`;
+
+    if(primary==='bday'){
+      html+='<div style="font-size:15px;line-height:1">&#127874;</div>';
+      html+='<div class="cc cc-bday">BDAY!</div>';
+    } else {
+      html+='<div class="cal-events">';
+      specials.forEach(sp=>{
+        if(sp.type==='f1r')html+='<div class="cc cc-f1r">&#127937; F1</div>';
+        else if(sp.type==='f1w')html+='<div class="cc cc-f1w">&#127950; F1</div>';
+        else if(sp.type==='hol')html+=`<div class="cc cc-hol">${sp.label.substring(0,9)}</div>`;
+        else if(sp.type==='summer')html+=`<div class="cc cc-sm">${sp.label.substring(0,9)}</div>`;
+      });
+      if(dd.note)html+='<div class="cc cc-sm">&#128203; note</div>';
+      if(dd.penalties&&dd.penalties.length)html+='<div class="cc" style="background:#FEE2E2;color:#B91C1C;border:1px solid #FCA5A5">&#9888; -xp</div>';
+      html+='</div>';
+    }
+    if(dd.checked)html+='<div class="cal-check-dot">&#10003;</div>';
+    html+='</div>';
+  }
+
+  const rem=7-((firstDay+daysInMonth)%7);
+  if(rem<7)for(let i=0;i<rem;i++)html+='<div class="cal-day empty"></div>';
+  html+='</div>';
+  return html;
+}
+
+function calPrev(){if(calM===5&&calY===2026)return;calM--;if(calM<0){calM=11;calY--;}renderContent();}
+function calNext(){if(calM===7&&calY===2026)return;calM++;if(calM>11){calM=0;calY++;}renderContent();}
+
+function openDay(k){
+  const parts=k.split('-').map(Number);
+  const [y,m,d]=[parts[0],parts[1],parts[2]];
+  const specials=getSpecials(y,m-1,d);
+  const dd=state.calDays[k]||{};
+  const penHistory=dd.penalties&&dd.penalties.length?dd.penalties.map(p=>'<div style="font-size:12px;padding:6px 10px;background:#FEE2E2;border-radius:6px;margin-bottom:4px;color:#991B1B;font-weight:600">&#9888; -'+p.pts+' XP: '+eh(p.reason)+'</div>').join(''):'';
+  const dateObj=new Date(y,m-1,d);
+  const dayName=dateObj.toLocaleDateString('en-US',{weekday:'long'});
+  const dateStr=dateObj.toLocaleDateString('en-US',{month:'long',day:'numeric',year:'numeric'});
+
+  let html=`<div class="overlay" onclick="closeModal(event)"><div class="day-modal" id="dmi">
+    <div class="modal-handle"></div>
+    <div class="modal-title">${dayName}, ${MS[m-1]} ${d}</div>
+    <div class="modal-sub">${dateStr}</div>`;
+
+  if(specials.some(s=>s.type==='bday')){
+    html+=`<div class="bday-box">
+      <div class="bday-box-cake">&#127874;&#127881;&#127882;</div>
+      <div class="bday-box-title">HAPPY 11TH BIRTHDAY HEWITT!</div>
+      <div class="bday-box-sub">The British GP at Silverstone is TOMORROW. Best birthday ever?<br>Lando races on your birthday weekend. Let's go!</div>
+    </div>`;
+  }
+
+  const f1sp=specials.find(s=>s.type==='f1r'||s.type==='f1w');
+  if(f1sp){
+    const isRace=f1sp.type==='f1r';
+    html+=`<div class="f1-box">
+      <div class="f1-box-title">${isRace?'&#127937;':'&#127950;'} ${eh(f1sp.race||'F1 Weekend')}</div>
+      <div class="f1-box-detail">${eh(f1sp.circuit||'')} &nbsp;&bull;&nbsp; ${isRace?'RACE DAY':(f1sp.label.includes('Quali')?'QUALIFYING':'PRACTICE')}</div>
+      <div class="f1-drivers">
+        <div class="f1-dc" style="background:rgba(255,128,0,.15);border:1px solid rgba(255,128,0,.3)">
+          <div class="dnum" style="color:#FF8000">4</div><div class="dname" style="color:white">Lando Norris</div>
+        </div>
+        <div class="f1-dc" style="background:rgba(0,160,222,.15);border:1px solid rgba(0,160,222,.3)">
+          <div class="dnum" style="color:#00A0DE">12</div><div class="dname" style="color:white">Kimi Antonelli</div>
+        </div>
+      </div>
+    </div>`;
+  }
+
+  if(specials.some(s=>s.type==='hol'&&s.label!=='4th of July')){
+    const hol=specials.find(s=>s.type==='hol');
+    html+=`<div style="background:var(--red-light);border:1px solid rgba(220,38,38,.2);border-radius:10px;padding:10px 14px;margin-bottom:10px;font-size:13px;font-weight:600;color:#B91C1C">&#127881; ${eh(hol.label)}</div>`;
+  }
+
+  html+=`<div class="modal-sl">Daily Note</div>
+    <textarea class="modal-note" id="mnote" placeholder="What did you do today? How did it go? Write anything...">${eh(dd.note||'')}</textarea>
+    <button class="modal-cb ${dd.checked?'chk':'unc'}" id="mcb" onclick="toggleCheck('${k}')">
+      ${dd.checked?'&#10003; Day Logged!':'Mark Day Complete +10 XP'}
+    </button>
+    <div style="margin-top:16px;padding-top:14px;border-top:1px solid var(--border)">
+      <div style="font-size:10px;font-weight:800;color:#B91C1C;text-transform:uppercase;letter-spacing:.8px;margin-bottom:8px">&#9888; Parent Penalty</div>
+      ${penHistory}
+      <input id="penReason" type="text" placeholder="Reason (e.g. disobeyed parents)" style="width:100%;padding:10px 12px;border:1.5px solid var(--border);border-radius:8px;font-family:var(--font-b);font-size:13px;margin-bottom:8px;outline:none;background:var(--gray-bg)">
+      <div style="display:flex;gap:8px;align-items:center;margin-bottom:8px">
+        <label style="font-size:12px;font-weight:700;color:var(--muted);white-space:nowrap">XP to deduct:</label>
+        <select id="penPts" style="flex:1;padding:8px 10px;border:1.5px solid var(--border);border-radius:8px;font-family:var(--font-b);font-size:13px;background:var(--gray-bg);outline:none">
+          <option value="25">25 XP</option>
+          <option value="50">50 XP</option>
+          <option value="75">75 XP</option>
+          <option value="100">100 XP</option>
+        </select>
+        <button onclick="addPenalty('${k}')" style="background:#B91C1C;color:white;border:none;padding:9px 14px;border-radius:8px;font-size:13px;font-weight:700;font-family:var(--font-b);cursor:pointer;white-space:nowrap">Deduct XP</button>
+      </div>
+      <div id="penResult"></div>
+    </div>
+    <button class="modal-cl" onclick="saveNote('${k}');closeModal()">Save &amp; Close</button>
+  </div></div>`;
+
+  document.getElementById('modalContainer').innerHTML=html;
+}
+
+function saveNote(k){
+  const ta=document.getElementById('mnote');
+  if(ta){if(!state.calDays[k])state.calDays[k]={};state.calDays[k].note=ta.value;saveState();}
+}
+function addPenalty(k){
+  const reason=document.getElementById('penReason').value.trim();
+  const pts=parseInt(document.getElementById('penPts').value)||25;
+  if(!reason){alert('Please enter a reason.');return;}
+  const entry={date:k,reason:reason,pts:pts,ts:Date.now()};
+  state.penalties.push(entry);
+  // Log on calendar
+  if(!state.calDays[k])state.calDays[k]={};
+  if(!state.calDays[k].penalties)state.calDays[k].penalties=[];
+  state.calDays[k].penalties.push(entry);
+  state.xp=Math.max(0,state.xp-pts);
+  saveState();updateHeader();
+  showToast('-'+pts+' XP');
+  document.getElementById('penReason').value='';
+  document.getElementById('penResult').innerHTML='<div style="margin-top:8px;padding:10px 14px;background:#FEE2E2;border:1px solid #FCA5A5;border-radius:8px;font-size:13px;font-weight:700;color:#B91C1C">&#9888; -'+pts+' XP logged: '+eh(reason)+'</div>';
+  renderContent();
+}
+
+function toggleCheck(k){
+  saveNote(k);
+  if(!state.calDays[k])state.calDays[k]={};
+  const was=state.calDays[k].checked;
+  state.calDays[k].checked=!was;
+  saveState();
+  const btn=document.getElementById('mcb');
+  if(btn){btn.className=`modal-cb ${state.calDays[k].checked?'chk':'unc'}`;btn.innerHTML=state.calDays[k].checked?'&#10003; Day Logged!':'Mark Day Complete +10 XP';}
+  if(!was){awardXP(10);}
+  renderContent();
+}
+
+function closeModal(e){
+  if(e&&e.target!==document.querySelector('.overlay'))return;
+  document.getElementById('modalContainer').innerHTML='';
+  renderContent();
+}
+
+function renderProfile(){
+  const l=getLvl();
+  const logged=Object.values(state.calDays).filter(d=>d.checked).length;
+  let html=`<div class="profile-hero">
+    <div class="avatar">&#127936;</div>
+    <div class="profile-name">HEWITT</div>
+    <div class="profile-title">Level ${l.lvl} &mdash; ${l.name}</div>
+    <div class="profile-stats">
+      <div class="profile-stat"><strong>${state.xp.toLocaleString()}</strong>Total XP</div>
+      <div class="profile-stat"><strong>${state.streak}</strong>Day Streak</div>
+      <div class="profile-stat"><strong>${state.completed.length}</strong>Lessons</div>
+      <div class="profile-stat"><strong>${logged}</strong>Days Logged</div>
+    </div>
+  </div>`;
+
+  html+='<div class="section-title">&#127941; Badges</div><div class="badge-grid">';
+  BADGES.forEach(b=>{
+    const earned=b.check(state);
+    html+=`<div class="badge-item${earned?' earned':' locked'}">
+      <div class="badge-emoji">${b.icon}</div>
+      <div class="badge-name">${eh(b.name)}</div>
+    </div>`;
+  });
+  html+='</div>';
+
+  html+='<div class="section-title" style="margin-top:20px">&#128202; Category Progress</div><div class="category-progress">';
+  Object.keys(CE).forEach(cat=>{
+    const total=ASSIGNMENTS.filter(a=>a.cat===cat).length;
+    if(!total)return;
+    const done=state.completed.filter(id=>ASSIGNMENTS.find(a=>a.id===id)?.cat===cat).length;
+    const pct=Math.round((done/total)*100);
+    html+=`<div class="prog-row">
+      <div class="prog-emoji">${CE[cat]}</div>
+      <div class="prog-label">${CL[cat]}</div>
+      <div class="prog-bar-bg"><div class="prog-bar-fill" style="width:${pct}%"></div></div>
+      <div class="prog-count">${done}/${total}</div>
+    </div>`;
+  });
+  html+='</div>';
+
+  // Penalty log
+  if(state.penalties&&state.penalties.length){
+    html+='<div class="section-title" style="margin-top:20px;color:#B91C1C">&#9888; Penalty Log</div>';
+    html+='<div style="display:flex;flex-direction:column;gap:6px;margin-bottom:16px">';
+    const sorted=[...state.penalties].sort((a,b)=>b.ts-a.ts);
+    sorted.forEach(p=>{
+      const dt=new Date(p.ts).toLocaleDateString('en-US',{month:'short',day:'numeric'});
+      html+=`<div style="background:#FEE2E2;border:1px solid #FCA5A5;border-radius:10px;padding:11px 14px;display:flex;align-items:center;justify-content:space-between;gap:12px">
+        <div>
+          <div style="font-size:13px;font-weight:700;color:#991B1B">${eh(p.reason)}</div>
+          <div style="font-size:11px;color:#B91C1C;margin-top:2px">${dt}</div>
+        </div>
+        <div style="font-family:var(--font-d);font-size:22px;color:#B91C1C;flex-shrink:0">-${p.pts} XP</div>
+      </div>`;
+    });
+    html+='</div>';
+  }
+
+  html+=`<div class="reset-box">
+    <h3>Reset Progress</h3>
+    <p>Clears all XP, completed lessons, tasks, calendar logs, streak, and penalty history.</p>
+    <button class="reset-btn" onclick="resetAll()">Reset Everything</button>
+  </div>`;
+  return html;
+}
+
+function setFilter(f){activeFilter=f;openCard=null;renderContent();}
+function toggleCard(id){openCard=openCard===id?null:id;renderContent();}
+
+function answer(aid,choice){
+  const a=ASSIGNMENTS.find(x=>x.id===aid);
+  if(!a||state.completed.includes(aid))return;
+  const optsEl=document.getElementById('opts_'+aid),resultEl=document.getElementById('result_'+aid);
+  if(!optsEl||!resultEl)return;
+  optsEl.querySelectorAll('.option-btn').forEach(btn=>{
+    btn.disabled=true;
+    if(btn.textContent.trim()===a.answer)btn.classList.add('correct');
+    else if(btn.textContent.trim()===choice&&choice!==a.answer)btn.classList.add('wrong');
+  });
+  if(choice===a.answer){
+    resultEl.innerHTML=`<div class="result-msg win">&#10003; Correct! ${eh(a.fact)}</div>`;
+    state.completed.push(aid);saveState();
+    setTimeout(()=>{awardXP(a.xp);renderContent();},900);
+  } else {
+    resultEl.innerHTML=`<div class="result-msg lose">&#10007; Not quite. Answer: <strong>${eh(a.answer)}</strong>. ${eh(a.fact)}</div>`;
+  }
+}
+
+function completeTask(tid){
+  if(state.tasksCompleted.includes(tid))return;
+  const t=TASKS.find(x=>x.id===tid);if(!t)return;
+  state.tasksCompleted.push(tid);saveState();awardXP(t.xp);renderContent();
+}
+
+function resetAll(){
+  if(!confirm('Reset all progress including XP, lessons, tasks, calendar, and streak?'))return;
+  state={xp:0,streak:0,completed:[],tasksCompleted:[],lastDate:new Date().toDateString(),calDays:{},penalties:[]};
+  saveState();updateHeader();renderContent();
+}
+
+function eh(s){return String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;').replace(/'/g,'&#039;');}
+function ea(s){return String(s).replace(/'/g,'&#039;').replace(/"/g,'&quot;');}
+
+loadState();updateHeader();renderContent();
 </script>
 </body>
 </html>
