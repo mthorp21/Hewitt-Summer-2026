@@ -222,6 +222,111 @@ body{font-family:var(--font-b);background:var(--gray-bg);color:var(--text);min-h
 .toast.show{transform:translateX(-50%) translateY(0)}
 
 @media(max-width:480px){.stat-num{font-size:22px}.app-title{font-size:30px}.cal-day{min-height:52px}}
+
+/* ===== REWARD SYSTEM ===== */
+.reward-hero{background:linear-gradient(135deg,var(--navy) 0%,#0a2a18 100%);border-radius:var(--radius);padding:22px 20px;text-align:center;margin-bottom:14px;position:relative;overflow:hidden;box-shadow:var(--shadow-lg)}
+.reward-hero::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse 70% 50% at 50% 0%,rgba(34,197,94,.15) 0%,transparent 70%);pointer-events:none}
+.reward-balance{font-family:var(--font-d);font-size:52px;color:var(--green);letter-spacing:2px;line-height:1;position:relative}
+.reward-balance-lbl{font-size:11px;color:rgba(255,255,255,.45);text-transform:uppercase;letter-spacing:1.5px;margin-top:4px;position:relative}
+.reward-goal{font-size:13px;color:rgba(255,255,255,.7);margin-top:10px;font-weight:600;position:relative}
+.day-goal-card{background:var(--card-bg);border-radius:var(--radius);border:1px solid var(--border);padding:14px;margin-bottom:10px;box-shadow:var(--shadow)}
+.day-goal-row{display:flex;align-items:center;gap:10px;margin-bottom:8px}
+.day-goal-row:last-child{margin-bottom:0}
+.day-goal-dot{width:14px;height:14px;border-radius:50%;flex-shrink:0;transition:background .3s}
+.day-goal-label{font-size:13px;font-weight:600;flex:1}
+.day-goal-status{font-size:11px;font-weight:800;text-transform:uppercase;letter-spacing:.3px}
+.earn-btn{width:100%;padding:12px;color:white;border:none;border-radius:10px;font-family:var(--font-d);font-size:18px;letter-spacing:1px;cursor:pointer;transition:all .2s;margin-top:10px}
+.earn-btn.ready{background:var(--green)}
+.earn-btn.ready:hover{background:#16a34a}
+.earn-btn.not-ready{background:var(--muted);cursor:not-allowed;opacity:.55}
+.spend-box{background:var(--card-bg);border:1px solid var(--border);border-radius:var(--radius);padding:14px;margin-top:12px}
+.spend-title{font-size:11px;font-weight:800;color:var(--muted);text-transform:uppercase;letter-spacing:.8px;margin-bottom:8px}
+.spend-row{display:flex;gap:8px;margin-bottom:8px;flex-wrap:wrap}
+.spend-input{flex:1;min-width:110px;padding:9px 12px;border:1.5px solid var(--border);border-radius:8px;font-family:var(--font-b);font-size:13px;outline:none;background:white}
+.spend-input:focus{border-color:var(--green)}
+.spend-amt{width:76px;padding:9px 12px;border:1.5px solid var(--border);border-radius:8px;font-family:var(--font-b);font-size:13px;outline:none;background:white}
+.spend-btn{background:var(--red);color:white;border:none;border-radius:8px;padding:9px 14px;font-family:var(--font-d);font-size:15px;letter-spacing:.5px;cursor:pointer}
+.ledger-row-earn{display:flex;align-items:center;gap:8px;padding:7px 10px;background:var(--green-light);border:1px solid rgba(34,197,94,.25);border-radius:8px;margin-bottom:5px;font-size:12px;font-weight:600;color:#15803D}
+.ledger-row-spend{display:flex;align-items:center;gap:8px;padding:7px 10px;background:var(--red-light);border:1px solid rgba(239,68,68,.2);border-radius:8px;margin-bottom:5px;font-size:12px;font-weight:600;color:#B91C1C}
+.ledger-empty{font-size:12px;color:var(--muted);text-align:center;padding:12px 0;font-style:italic}
+/* ===== BONUS LESSON ===== */
+.bonus-hero{background:linear-gradient(135deg,#0F3460 0%,#16213E 100%);border-radius:var(--radius);padding:16px;margin-bottom:14px;text-align:center;position:relative;overflow:hidden}
+.bonus-hero::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse 60% 50% at 50% 0%,rgba(245,197,24,.12) 0%,transparent 70%);pointer-events:none}
+.bonus-window-badge{display:inline-block;background:var(--gold);color:var(--navy);font-size:10px;font-weight:800;padding:3px 10px;border-radius:99px;text-transform:uppercase;letter-spacing:.5px;margin-bottom:8px;position:relative}
+.bonus-title{font-family:var(--font-d);font-size:22px;color:white;letter-spacing:1px;margin-bottom:3px;position:relative}
+.bonus-subject{font-size:11px;color:rgba(255,255,255,.5);text-transform:uppercase;letter-spacing:1px;position:relative}
+.bonus-video-wrap{position:relative;padding-bottom:56.25%;height:0;overflow:hidden;border-radius:10px;margin-bottom:12px;box-shadow:var(--shadow)}
+.bonus-video-wrap iframe{position:absolute;top:0;left:0;width:100%;height:100%;border:none;border-radius:10px}
+.bonus-passage-card{background:var(--card-bg);border-radius:10px;border:1px solid var(--border);padding:14px;margin-bottom:12px}
+.bonus-passage-label{font-size:10px;font-weight:800;color:var(--muted);text-transform:uppercase;letter-spacing:.8px;margin-bottom:8px}
+.bonus-passage-text{font-size:13px;line-height:1.75;color:var(--text)}
+.scavenger-box{background:linear-gradient(135deg,#F0FDF4,#DCFCE7);border:1.5px solid var(--green);border-radius:10px;padding:14px;margin-bottom:12px}
+.scavenger-label{font-size:10px;font-weight:800;color:#15803D;text-transform:uppercase;letter-spacing:.5px;margin-bottom:10px}
+.scav-item{display:flex;align-items:center;gap:10px;padding:8px 0;border-bottom:1px solid rgba(34,197,94,.12);cursor:pointer;user-select:none}
+.scav-item:last-child{border-bottom:none}
+.scav-dot{width:22px;height:22px;border-radius:50%;border:2px solid var(--green);background:transparent;flex-shrink:0;display:flex;align-items:center;justify-content:center;font-size:12px;font-weight:800;transition:all .2s}
+.scav-dot.done{background:var(--green);color:white}
+.scav-text{font-size:13px;font-weight:500;flex:1;line-height:1.4}
+.bonus-quiz-label{font-size:10px;font-weight:800;color:var(--muted);text-transform:uppercase;letter-spacing:.8px;margin-bottom:10px}
+.bonus-q-card{background:var(--card-bg);border-radius:10px;border:1px solid var(--border);padding:12px;margin-bottom:8px}
+.bonus-q-text{font-size:13px;font-weight:600;margin-bottom:8px;line-height:1.5}
+.bonus-opts{display:flex;flex-direction:column;gap:6px}
+.bonus-opt{background:var(--gray-bg);border:1.5px solid var(--border);border-radius:8px;padding:9px 12px;font-size:12px;font-family:var(--font-b);font-weight:600;cursor:pointer;text-align:left;transition:all .15s}
+.bonus-opt:hover:not(:disabled){border-color:var(--orange);background:var(--orange-light);color:var(--orange-dark)}
+.bonus-opt.correct{background:var(--green-light);border-color:var(--green);color:#15803D;font-weight:700}
+.bonus-opt.wrong{background:var(--red-light);border-color:var(--red);color:#B91C1C}
+.bonus-opt:disabled{cursor:not-allowed}
+.bonus-done-banner{background:var(--green-light);border:2px solid var(--green);border-radius:12px;padding:16px;text-align:center;margin-bottom:12px}
+.bonus-done-title{font-family:var(--font-d);font-size:20px;color:#15803D;letter-spacing:1px}
+.bonus-closed{padding:40px 20px;text-align:center}
+.bonus-closed-icon{font-size:48px;margin-bottom:12px}
+.bonus-closed-title{font-family:var(--font-d);font-size:20px;color:var(--muted);letter-spacing:1px;margin-bottom:6px}
+.bonus-closed-sub{font-size:13px;color:var(--muted);line-height:1.65}
+
+
+/* ===== SCAVENGER HUNT ===== */
+.scav-page-hero{background:linear-gradient(135deg,#064E3B 0%,#065F46 100%);border-radius:var(--radius);padding:18px 20px;margin-bottom:14px;position:relative;overflow:hidden;box-shadow:var(--shadow-lg)}
+.scav-page-hero::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse 60% 50% at 50% 0%,rgba(52,211,153,.15) 0%,transparent 70%);pointer-events:none}
+.scav-page-title{font-family:var(--font-d);font-size:26px;color:white;letter-spacing:1px;margin-bottom:3px;position:relative}
+.scav-page-sub{font-size:11px;color:rgba(255,255,255,.5);text-transform:uppercase;letter-spacing:1px;position:relative}
+.scav-progress-row{display:flex;align-items:center;gap:10px;margin-top:12px;position:relative}
+.scav-progress-bg{flex:1;background:rgba(255,255,255,.15);border-radius:99px;height:10px;overflow:hidden}
+.scav-progress-fill{border-radius:99px;height:100%;background:linear-gradient(90deg,#34D399,#10B981);transition:width .5s}
+.scav-progress-lbl{font-size:12px;font-weight:800;color:#34D399;white-space:nowrap}
+.scav-sub-tabs{display:flex;gap:8px;margin-bottom:14px;overflow-x:auto;scrollbar-width:none}
+.scav-sub-tabs::-webkit-scrollbar{display:none}
+.scav-sub-tab{flex-shrink:0;padding:8px 16px;border-radius:99px;border:2px solid var(--border);font-size:11px;font-weight:800;cursor:pointer;background:white;color:var(--muted);transition:all .15s;text-transform:uppercase;letter-spacing:.3px;user-select:none;display:flex;align-items:center;gap:5px}
+.scav-sub-tab:hover{border-color:var(--green);color:var(--green)}
+.scav-sub-tab.active{background:#064E3B;color:white;border-color:#064E3B}
+.scav-cat-card{background:white;border-radius:var(--radius);border:1px solid var(--border);margin-bottom:10px;overflow:hidden;box-shadow:var(--shadow)}
+.scav-cat-header{display:flex;align-items:center;gap:10px;padding:13px 14px;cursor:pointer;user-select:none}
+.scav-cat-icon{font-size:22px;flex-shrink:0}
+.scav-cat-name{font-family:var(--font-d);font-size:16px;letter-spacing:.5px;flex:1;color:var(--navy)}
+.scav-cat-count{font-size:11px;font-weight:800;color:var(--green);background:#DCFCE7;padding:3px 10px;border-radius:99px;white-space:nowrap}
+.scav-cat-chev{font-size:12px;color:var(--muted);transition:transform .2s}
+.scav-cat-chev.open{transform:rotate(180deg)}
+.scav-cat-body{border-top:1px solid var(--border);display:none}
+.scav-cat-body.open{display:block}
+.scav-item-row{display:flex;align-items:flex-start;gap:10px;padding:10px 14px;border-bottom:1px solid rgba(0,0,0,.04);cursor:pointer;user-select:none;transition:background .1s}
+.scav-item-row:hover{background:#F9FFF9}
+.scav-item-row:last-child{border-bottom:none}
+.scav-item-check{width:24px;height:24px;border-radius:6px;border:2px solid var(--border);background:transparent;flex-shrink:0;margin-top:1px;display:flex;align-items:center;justify-content:center;font-size:13px;font-weight:800;transition:all .2s}
+.scav-item-check.found{background:var(--green);border-color:var(--green);color:white}
+.scav-item-text{font-size:13px;line-height:1.5;flex:1;color:var(--text)}
+.scav-item-text.found-text{color:var(--muted);text-decoration:line-through}
+/* license plate grid */
+.plate-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:8px;padding:12px}
+.plate-item{background:#F9FAFB;border:2px solid var(--border);border-radius:8px;padding:10px 12px;cursor:pointer;transition:all .15s;user-select:none}
+.plate-item:hover{border-color:var(--orange)}
+.plate-item.found-plate{background:#ECFDF5;border-color:var(--green)}
+.plate-check{font-size:10px;font-weight:800;color:var(--green);margin-bottom:2px}
+.plate-name{font-size:12px;font-weight:700;color:var(--text);line-height:1.3}
+.plate-item.found-plate .plate-name{color:var(--muted)}
+.scav-page-tabs{display:flex;background:white;border-radius:10px;border:1px solid var(--border);overflow:hidden;margin-bottom:14px;box-shadow:var(--shadow)}
+.scav-page-tab{flex:1;padding:11px 6px;text-align:center;font-size:11px;font-weight:800;cursor:pointer;color:var(--muted);text-transform:uppercase;letter-spacing:.3px;transition:all .2s;border-right:1px solid var(--border)}
+.scav-page-tab:last-child{border-right:none}
+.scav-page-tab.active{background:#064E3B;color:white}
+
 </style>
 </head>
 <body>
@@ -249,6 +354,9 @@ body{font-family:var(--font-b);background:var(--gray-bg);color:var(--text);min-h
     <div class="tab" data-tab="tasks" onclick="switchTab('tasks')"><span class="tab-icon">&#127939;</span>Move</div>
     <div class="tab" data-tab="sports" onclick="switchTab('sports')"><span class="tab-icon">&#127936;</span>Sports</div>
     <div class="tab" data-tab="calendar" onclick="switchTab('calendar')"><span class="tab-icon">&#128197;</span>Calendar</div>
+    <div class="tab" data-tab="bonus" id="bonusTab" onclick="switchTab('bonus')"><span class="tab-icon">&#9889;</span>Bonus</div>
+    <div class="tab" data-tab="reward" onclick="switchTab('reward')"><span class="tab-icon">&#128184;</span>Reward</div>
+    <div class="tab" data-tab="scavenger" onclick="switchTab('scavenger')"><span class="tab-icon">&#127807;</span>Hunt</div>
     <div class="tab" data-tab="profile" onclick="switchTab('profile')"><span class="tab-icon">&#127942;</span>Profile</div>
   </div>
 
@@ -295,6 +403,141 @@ const SPECIALS={
 const EXTRA_JULY4=[
   {type:'hol',label:'4th of July'},
   {type:'f1w',label:'British GP — Sprint Weekend',race:'British GP',circuit:'Silverstone Circuit — Race is TOMORROW!'}
+];
+
+const BONUS_LESSONS=[
+  {id:'bl01',title:'How Cheetahs Hunt',subject:'Science & Nature',
+   video:'https://www.youtube.com/embed/ACkpMGkOBco',
+   passage:"Cheetahs are the fastest land animals on Earth, reaching 70 mph in just 3 seconds. Unlike most big cats, cheetahs hunt during the day using their incredible eyesight. They stalk prey silently, getting as close as 50 yards before sprinting. The chase rarely lasts more than 30 seconds because cheetahs overheat quickly. After a hunt, they need up to 30 minutes to recover before eating. Cheetahs cannot roar — instead they chirp and purr like a house cat.",
+   quiz:[
+     {q:'How fast can a cheetah sprint?',opts:['50 mph','60 mph','70 mph','80 mph'],a:'70 mph'},
+     {q:'Why does a cheetah stop chasing after about 30 seconds?',opts:['It gets tired','It overheats','It loses interest','It gets hungry'],a:'It overheats'},
+     {q:'What sound does a cheetah make instead of roaring?',opts:['Hissing','Growling','Chirping and purring','Barking'],a:'Chirping and purring'}
+   ],
+   scavenger:{title:'Nature Scavenger Hunt',items:['Find an animal outside (bird, bug, squirrel, deer)','Find something that moves fast','Find something hiding or camouflaged','Find tracks or signs an animal was there']}},
+  {id:'bl02',title:'Michael Jordan: The Making of a Legend',subject:'Biography',
+   video:'https://www.youtube.com/embed/ew7rM4_MWJI',
+   passage:"Michael Jordan was cut from his high school varsity basketball team as a sophomore. Instead of quitting, he used that rejection as fuel. He practiced obsessively and made the team the following year. Jordan went on to win 6 NBA championships, 5 MVPs, and 6 Finals MVP awards. He never lost in the NBA Finals. His most famous quote: I can accept failure, everyone fails at something. But I cannot accept not trying.",
+   quiz:[
+     {q:'What happened to Jordan in high school that motivated him?',opts:['He broke his ankle','He was cut from the varsity team','He failed a class','He moved schools'],a:'He was cut from the varsity team'},
+     {q:'How many NBA championships did Jordan win?',opts:['4','5','6','7'],a:'6'},
+     {q:"What is Jordan's quote about?",opts:['Winning at all costs','Accepting failure but never not trying','Working harder than everyone','Natural talent'],a:'Accepting failure but never not trying'}
+   ],
+   scavenger:null},
+  {id:'bl03',title:'The Science of Volcanoes',subject:'Science & Nature',
+   video:'https://www.youtube.com/embed/R_pDKyg5YKY',
+   passage:"Volcanoes are openings in the Earth's crust where molten rock called magma escapes. Once it reaches the surface it is called lava. Lava can reach temperatures over 2,000 degrees Fahrenheit. There are about 1,500 potentially active volcanoes on Earth, and roughly 50 erupt every year. The largest eruption in recorded history, Mount Tambora in 1815, caused global temperatures to drop. Not all volcanoes are destructive — the Hawaiian Islands were formed entirely by volcanic activity.",
+   quiz:[
+     {q:'What is magma called once it reaches the surface?',opts:['Plasma','Lava','Ash','Steam'],a:'Lava'},
+     {q:'Approximately how many volcanoes erupt every year?',opts:['About 10','About 25','About 50','About 100'],a:'About 50'},
+     {q:'How were the Hawaiian Islands formed?',opts:['By earthquakes','By volcanic activity','By glaciers','By rising sea levels'],a:'By volcanic activity'}
+   ],
+   scavenger:{title:'Earth Science Scavenger Hunt',items:['Find a rock and describe its texture and color','Find soil and describe what is in it','Find the highest point visible from your yard','Find evidence of water erosion anywhere outside']}},
+  {id:'bl04',title:'Beethoven: Music Against All Odds',subject:'Music & Biography',
+   video:'https://www.youtube.com/embed/rYpHPMLCaCo',
+   passage:"Ludwig van Beethoven began losing his hearing in his late 20s. By 1814, he was completely deaf. Yet he continued composing some of the most powerful music in history, including his Ninth Symphony, which he never heard performed. He cut the legs off his piano and felt vibrations through the floor while composing. Beethoven wrote over 700 works in his lifetime and remains one of the greatest examples of refusing to let circumstances define your potential.",
+   quiz:[
+     {q:'When did Beethoven go completely deaf?',opts:['By age 20','By 1814','During childhood','In his 50s'],a:'By 1814'},
+     {q:'How did Beethoven feel music when he could not hear?',opts:['He read lips','Through vibrations in the floor','Through a hearing device','He watched others play'],a:'Through vibrations in the floor'},
+     {q:'Which symphony did Beethoven compose while completely deaf?',opts:['The Fifth','The Seventh','The Ninth','The Third'],a:'The Ninth'}
+   ],
+   scavenger:null},
+  {id:'bl05',title:'Leonardo da Vinci: The Original Genius',subject:'Art & Biography',
+   video:'https://www.youtube.com/embed/VnEH7NXZMS0',
+   passage:"Leonardo da Vinci was born in Italy in 1452 and became one of the most talented people who ever lived. He painted the Mona Lisa and The Last Supper. He was also a scientist and inventor — 500 years ahead of his time. He designed a flying machine, a tank, and a calculator. Da Vinci filled over 13,000 pages of notebooks with drawings and ideas. He studied anatomy by dissecting human bodies, allowing him to paint people with incredible realism. He was left-handed and wrote entirely in mirror script — backwards from right to left.",
+   quiz:[
+     {q:'Besides painting, what else was da Vinci known for?',opts:['Soldier and king','Scientist, engineer, and inventor','Musician and poet','Mathematician only'],a:'Scientist, engineer, and inventor'},
+     {q:'How did da Vinci paint people with such realism?',opts:['Special paint','By studying anatomy','From imagination','Perfect eyesight'],a:'By studying anatomy'},
+     {q:'How did da Vinci write in his notebooks?',opts:['In Latin','In code','In mirror script, backwards','In tiny letters'],a:'In mirror script, backwards'}
+   ],
+   scavenger:null},
+  {id:'bl06',title:"Wolves: Nature's Ecosystem Engineers",subject:'Science & Nature',
+   video:'https://www.youtube.com/embed/Bs4GNpCEHEU',
+   passage:"Wolves live in family groups called packs, led by an alpha pair. They communicate through howls audible up to 10 miles away. When wolves were reintroduced to Yellowstone National Park in 1995, they triggered a chain reaction: wolves chased deer away from riverbanks, grass and trees grew back, riverbanks stabilized, and river courses literally changed. Birds and beavers returned. Scientists call this phenomenon a trophic cascade — one predator reshaping an entire ecosystem.",
+   quiz:[
+     {q:'What is a group of wolves called?',opts:['A herd','A pride','A pack','A colony'],a:'A pack'},
+     {q:'How far can a wolf howl be heard?',opts:['1 mile','5 miles','10 miles','20 miles'],a:'10 miles'},
+     {q:'What is the chain reaction wolves caused in Yellowstone called?',opts:['An ecosystem reset','A wildlife cascade','A trophic cascade','A predator effect'],a:'A trophic cascade'}
+   ],
+   scavenger:{title:'Wildlife Scavenger Hunt',items:['Find evidence of an animal living nearby (nest, burrow, or tracks)','Find something an animal would eat','Find a plant that could shelter a small animal','Listen outside for 60 seconds — count every different sound you hear']}}
+];
+
+const NATURE_CATEGORIES=[
+  {cat:'BIRDS OF WEST MICHIGAN',icon:'&#128038;',items:["American Robin — orange breast, one of Michigan's most common birds",'Bald Eagle — look near rivers, lakes, and Lake Michigan shoreline','Red-tailed Hawk — large hawk soaring on thermals, rusty red tail','Great Blue Heron — tall, gray, standing still in shallow water','Sandhill Crane — tall gray bird with red forehead, loud rattling call','Canada Goose — black neck, white chin patch, honking in formation','Mallard Duck — male has green head, female is brown','Belted Kingfisher — blue and white, hovers then dives for fish','Downy Woodpecker — small black and white with red spot, taps on trees','Red-winged Blackbird — black with red and yellow shoulder patches','Cedar Waxwing — sleek brown crest, yellow-tipped tail, red wingtips','Barn Swallow — deep blue back, rusty throat, forked tail, darts over fields','Wild Turkey — large, dark, iridescent feathers, often in open fields','Turkey Vulture — large, red head, tilts side to side while soaring','Osprey — white belly, black eye stripe, dives feet-first for fish','Common Loon — black and white checkered back, haunting call','Great Horned Owl — large ear tufts, yellow eyes, hoots at dusk','Ruby-throated Hummingbird — tiny, hovers at flowers, iridescent green','American Goldfinch — bright yellow with black wings, Michigan state bird','Northern Cardinal — bright red male, tan female with red tinge']},
+  {cat:'WEST MICHIGAN MAMMALS',icon:'&#129416;',items:['White-tailed Deer — common in fields and edges, watch at dawn and dusk','Eastern Gray Squirrel — gray body, bushy tail, chattering in trees','Eastern Chipmunk — small, striped back, stuffs cheeks with seeds','Groundhog (Woodchuck) — stocky brown animal, often near roads and fields','Raccoon — black mask, ringed tail, often near water or garbage cans','Striped Skunk — black with white stripe, distinctive smell','Opossum — gray, pink nose, plays dead when scared, only marsupial in North America','Eastern Cottontail Rabbit — brown with white fluffy tail, freezes when spotted','Red Fox — orange coat, white belly, black legs, bushy white-tipped tail','Coyote — looks like a medium dog, often heard howling at night','Beaver — large rodent, flat paddle tail, builds dams in streams','Muskrat — smaller than beaver, round tail, swims in ponds and marshes','Little Brown Bat — small bat swooping at dusk catching insects','River Otter — sleek, playful, slides on riverbanks near water']},
+  {cat:'REPTILES AND AMPHIBIANS',icon:'&#128013;',items:['Common Garter Snake — thin, striped yellow and green, harmless','Eastern Fox Snake — large Michigan snake, found near water and fields','Painted Turtle — flat, colorful red and yellow markings on shell edges','Snapping Turtle — prehistoric looking, large head, saw-toothed tail','American Toad — lumpy brown skin, found in gardens and near water','Bullfrog — large, deep jug-o-rum call, Michigan biggest frog','Green Frog — bright green, yellow throat on males, squeaks when it jumps','Spring Peeper — tiny frog heard but rarely seen, very loud chorus at night','Eastern Newt — small orange-red salamander near ponds']},
+  {cat:'INSECTS AND POLLINATORS',icon:'&#129412;',items:['Monarch Butterfly — orange and black, migrates through Michigan in August','Eastern Tiger Swallowtail — large yellow butterfly with black stripes','Cabbage White Butterfly — small white butterfly, very common','Red Admiral Butterfly — black wings with red-orange bands','Bumble Bee — large, fuzzy, black and yellow, important pollinator','Firefly (Lightning Bug) — flashes green light at dusk in summer','Dragonfly — iridescent wings, hovers near water','Damselfly — like a dragonfly but thinner, holds wings back when resting','Praying Mantis — green or brown, triangular head, front legs folded','Cicada — loud buzzing in trees on hot summer days','Walking Stick — long thin brown insect that looks exactly like a stick','Luna Moth — giant pale green moth with long tail, flies at night','Woolly Bear Caterpillar — black and brown fuzzy caterpillar on paths','Monarch Caterpillar — yellow, white, and black stripes on milkweed','Honeybee — smaller than bumble bee, often on flowers and clover']},
+  {cat:'PLANTS AND TREES',icon:'&#127807;',items:['White Pine — Michigan state tree, long soft needles in bundles of 5','Sugar Maple — brilliant orange and red in fall, source of maple syrup','Paper Birch — white peeling bark, often near water','Eastern Cottonwood — cotton-like fluff floating in the air in June','Black-eyed Susan — yellow petals with dark brown center, roadsides','Purple Coneflower — purple petals, spiky cone center, attracts bees','Milkweed — pink flower clusters, Monarch butterfly host plant','Wild Bergamot — lavender wildflower, smells like oregano',"Queen Anne's Lace — white umbrella-shaped flower, wild carrot",'Cattail — tall brown sausage-shaped seed heads near wetlands','Staghorn Sumac — red fuzzy seed clusters, brilliant red fall color','Poison Ivy — three shiny leaflets, red stem — DO NOT TOUCH','Trillium — three white petals, three leaves, protected in Michigan','Wild Columbine — red and yellow drooping flower, hummingbird favorite','Common Mullein — tall spike with yellow flowers, fuzzy gray-green leaves','Chicory — bright blue flowers along roadsides, opens in morning only','Goldenrod — tall plumes of yellow flowers, late summer roadsides','Common Dandelion — yes this counts. Yellow flower AND puffy seed head','Jack-in-the-Pulpit — unusual hooded flower in moist woodlands','Wild Blueberry — low shrub with small blue berries in dune areas']},
+  {cat:'LAKES WETLANDS AND WATER',icon:'&#128167;',items:['Lake Michigan — spot it from a dune or shoreline','A natural inland lake or pond','A stream or creek with flowing water','A wetland or marsh with cattails','A beaver dam or lodge','Duckweed — tiny green floating plants covering still water','A frog jumping into water','A fish jumping or breaking the surface','A heron hunting in shallow water','A turtle basking on a log','A dragonfly patrolling over water','Ripples from a muskrat or beaver swimming','A sand dune along Lake Michigan shoreline','Lake Michigan beach glass — smooth frosted glass on the beach','A rainbow over Lake Michigan or a lake']},
+  {cat:'TRACKS SIGNS AND EVIDENCE',icon:'&#128065;',items:['Deer tracks in mud or soft soil','Raccoon tracks — hand-shaped with 5 fingers','Bird tracks in sand or mud','A gnawed tree or stick — beaver or rodent work','An ant hill or ant trail',"A bird's nest in a shrub or tree",'A spider web with dew drops','Evidence of a woodpecker — holes drilled in a dead tree','Animal scat (droppings) — photo only, do not touch','A feather on the ground','A gall on a leaf or stem — swelling caused by insects','A caterpillar or cocoon on a leaf','A mole tunnel raised in a lawn','Shed snake skin','Crayfish mud chimneys near a stream or pond edge']},
+  {cat:'SKY WEATHER AND SEASONS',icon:'&#9728;',items:['A rainbow','A double rainbow','A thunderstorm building on the horizon','Fog in the early morning over a field or water','A full moon','A shooting star or meteor','Milky Way visible on a clear dark night','Heat lightning over Lake Michigan','A flock of birds flying in formation','Monarch butterflies migrating south (late August)','First firefly of the summer — write the date','Last firefly of the summer — write the date','A sundog — a rainbow-colored spot beside the sun','A morning with heavy dew on the grass','Sun setting over Lake Michigan']},
+];
+
+const LICENSE_PLATES=[
+  'Alabama',
+  'Alaska',
+  'Arizona',
+  'Arkansas',
+  'California',
+  'Colorado',
+  'Connecticut',
+  'Delaware',
+  'Florida',
+  'Georgia',
+  'Hawaii',
+  'Idaho',
+  'Illinois',
+  'Indiana',
+  'Iowa',
+  'Kansas',
+  'Kentucky',
+  'Louisiana',
+  'Maine',
+  'Maryland',
+  'Massachusetts',
+  'Michigan',
+  'Minnesota',
+  'Mississippi',
+  'Missouri',
+  'Montana',
+  'Nebraska',
+  'Nevada',
+  'New Hampshire',
+  'New Jersey',
+  'New Mexico',
+  'New York',
+  'North Carolina',
+  'North Dakota',
+  'Ohio',
+  'Oklahoma',
+  'Oregon',
+  'Pennsylvania',
+  'Rhode Island',
+  'South Carolina',
+  'South Dakota',
+  'Tennessee',
+  'Texas',
+  'Utah',
+  'Vermont',
+  'Virginia',
+  'Washington',
+  'West Virginia',
+  'Wisconsin',
+  'Wyoming',
+  'Washington D.C.',
+  'Puerto Rico',
+  'Canada — Ontario',
+  'Canada — Quebec',
+  'Canada — British Columbia',
+  'Canada — Alberta',
+  'Canada — other province',
+  'Mexico',
+  'Military plate (Army, Navy, Air Force, Marines, Coast Guard)',
+  'Government or federal plate',
+  'Specialty or sports team plate',
+  'Vanity or personalized plate',
+  'Classic car or antique vehicle plate',
+  'Farm truck or agricultural plate',
 ];
 
 const ASSIGNMENT_SETS=[
@@ -511,6 +754,164 @@ const ASSIGNMENT_SETS=[
    q:"Which F1 driver holds the record for the most World Championship titles?",
    opts:['Ayrton Senna','Michael Schumacher','Lewis Hamilton','Max Verstappen'],answer:'Lewis Hamilton',
    fact:"Lewis Hamilton won 7 World Championships, tying Schumacher's record. He drove for McLaren then Mercedes. Widely considered one of the greatest F1 drivers ever."},
+  ],
+  // ===== SET 3 =====
+  [
+  {id:'s3_m01',cat:'math',icon:'&#10135;',bg:'#F0FDF4',title:'Averaging Stats',sub:'Sports Math',xp:55,
+   q:'A basketball player scores 24, 31, 18, and 27 points over 4 games. What is their average points per game?',
+   opts:['24','25','26','27'],answer:'25',
+   fact:'Add all four: 24+31+18+27=100. Divide by 4 games: 100/4=25 points per game. Averages are one of the most used stats in all of sports.'},
+  {id:'s3_m02',cat:'math',icon:'&#10135;',bg:'#F0FDF4',title:'Percentages',sub:'Math',xp:55,
+   q:'A team makes 15 out of 20 three-point attempts. What percentage did they make?',
+   opts:['65%','70%','75%','80%'],answer:'75%',
+   fact:'15 divided by 20 equals 0.75, or 75%. In the NBA, shooting 40% from three is considered excellent. Steph Curry careers at 43%.'},
+  {id:'s3_h01',cat:'history',icon:'&#128214;',bg:'#FEF3C7',title:'The Constitution',sub:'American History',xp:60,
+   q:'How many amendments does the US Constitution currently have?',
+   opts:['10','15','27','32'],answer:'27',
+   fact:'The first 10 amendments are called the Bill of Rights, added in 1791. The most recent, the 27th Amendment, was ratified in 1992. It deals with Congressional pay raises.'},
+  {id:'s3_h02',cat:'history',icon:'&#128214;',bg:'#FEF3C7',title:'The Great Depression',sub:'American History',xp:60,
+   q:'The Great Depression began in 1929 when what event triggered a financial collapse?',
+   opts:['A major flood','The stock market crash','A world war','A drought'],answer:'The stock market crash',
+   fact:'October 29, 1929 — known as Black Tuesday — the stock market crashed. Millions lost jobs and savings. President FDR created the New Deal to help rebuild the economy.'},
+  {id:'s3_b01',cat:'bible',icon:'&#9997;',bg:'#FFF7ED',title:'Joseph and His Brothers',sub:'Genesis 37-50',xp:65,
+   q:'Joseph was sold into slavery by his brothers. What did God ultimately use that experience for?',
+   opts:['To punish his brothers','To make Joseph a shepherd','To save Egypt and his family from famine','To give Joseph a palace'],answer:'To save Egypt and his family from famine',
+   fact:'Genesis 50:20 — Joseph told his brothers: You intended to harm me, but God intended it for good. His suffering led him to become a ruler in Egypt who saved millions from starvation.'},
+  {id:'s3_b02',cat:'bible',icon:'&#9997;',bg:'#FFF7ED',title:'The Beatitudes',sub:'Matthew 5',xp:65,
+   q:'The Sermon on the Mount begins with the Beatitudes. Which of these is one of them?',
+   opts:['"Blessed are the strong"','"Blessed are the rich"','"Blessed are the meek"','"Blessed are the clever"'],answer:'"Blessed are the meek"',
+   fact:'Matthew 5:5 — Blessed are the meek, for they will inherit the earth. Jesus flips worldly values upside down. The humble, merciful, and pure in heart are honored above the powerful.'},
+  {id:'s3_b03',cat:'bible',icon:'&#9997;',bg:'#FFF7ED',title:'Elijah and the Prophets',sub:'1 Kings 18',xp:60,
+   q:'Elijah challenged 450 prophets of Baal to a contest. What was the test?',
+   opts:['Who could run fastest','Whose prayer would light a sacrifice with fire from heaven','Who could build the biggest altar','Who could fast the longest'],answer:'Whose prayer would light a sacrifice with fire from heaven',
+   fact:'1 Kings 18 — After the prophets of Baal failed all day, Elijah prayed once and fire came down from God and consumed everything including the water-soaked altar. It proved who the real God was.'},
+  {id:'s3_mu01',cat:'music',icon:'&#127928;',bg:'#EDE9FE',title:'Stevie Wonder',sub:'Music History',xp:55,
+   q:'Stevie Wonder was blind from infancy and became one of the greatest musicians ever. How many Grammy Awards has he won?',
+   opts:['10','15','25','32'],answer:'25',
+   fact:'25 Grammys and a Grammy Lifetime Achievement Award. He was signed to Motown at age 11. Songs like Superstition, Sir Duke, and Innervisions are considered masterpieces.'},
+  {id:'s3_mu02',cat:'music',icon:'&#127928;',bg:'#EDE9FE',title:'Woodstock 1969',sub:'Music History',xp:55,
+   q:'Woodstock in 1969 was a landmark music festival. Approximately how many people attended?',
+   opts:['50,000','100,000','400,000','1,000,000'],answer:'400,000',
+   fact:'About 400,000 people showed up in Bethel, New York over three days. Performers included Jimi Hendrix, Janis Joplin, The Who, Jefferson Airplane, and Crosby, Stills, Nash and Young.'},
+  {id:'s3_ar01',cat:'art',icon:'&#127912;',bg:'#ECFDF5',title:'Jackson Pollock',sub:'Abstract Art',xp:55,
+   q:'Jackson Pollock was famous for his drip painting technique. What art movement was he part of?',
+   opts:['Impressionism','Pop Art','Abstract Expressionism','Surrealism'],answer:'Abstract Expressionism',
+   fact:'Pollock would lay a canvas on the floor and drip, fling, and pour paint across it. Critics laughed at first. Today his paintings sell for over $100 million. His studio floor is now itself a museum piece.'},
+  {id:'s3_ar02',cat:'art',icon:'&#127912;',bg:'#ECFDF5',title:'Frida Kahlo',sub:'Mexican Art',xp:60,
+   q:'Frida Kahlo is one of the most recognized artists in history. What country was she from?',
+   opts:['Spain','Argentina','Mexico','Brazil'],answer:'Mexico',
+   fact:'Kahlo survived a devastating bus accident at 18 that left her in pain for life. She painted mostly self-portraits exploring her identity and suffering. She said: I paint myself because I am so often alone.'},
+  {id:'s3_po01',cat:'poetry',icon:'&#128220;',bg:'#FEF9C3',title:'Nothing Gold Can Stay',sub:'Robert Frost',xp:70,
+   q:"In Frost's poem Nothing Gold Can Stay — the line So Eden sank to grief — refers to what biblical story?",
+   opts:["Noah's Flood",'The Tower of Babel','Adam and Eve losing the Garden of Eden','The Exodus from Egypt'],answer:'Adam and Eve losing the Garden of Eden',
+   fact:'The poem is about how nothing beautiful lasts. The Garden of Eden represents the most perfect thing that was ever lost. The last line — So dawn goes down to day — means even the most beautiful moment becomes ordinary.'},
+  {id:'s3_po02',cat:'poetry',icon:'&#128220;',bg:'#FEF9C3',title:'Invictus',sub:'William Ernest Henley',xp:70,
+   q:'Invictus ends with two of the most famous lines in poetry. What are they?',
+   opts:['"I am the master of my fate, I am the captain of my soul"','"Do not go gentle into that good night"','"Two roads diverged in a wood"','"I think therefore I am"'],answer:'"I am the master of my fate, I am the captain of my soul"',
+   fact:'Written in 1875 by Henley who had his leg amputated but refused to let it break him. Nelson Mandela recited it during his 27 years in prison. It is one of the most powerful declarations of human will ever written.'},
+  {id:'s3_ba01',cat:'basketball',icon:'&#127936;',bg:'#FEE8D6',title:'The Triangle Offense',sub:'NBA Strategy',xp:55,
+   q:'Phil Jackson coached the Chicago Bulls and LA Lakers to 11 championships using what famous offensive system?',
+   opts:['The Princeton Offense','The Flex Offense','The Triangle Offense','The Motion Offense'],answer:'The Triangle Offense',
+   fact:'The Triangle was developed by Tex Winter. It creates equal spacing and requires every player to read the defense and make decisions. Jordan, Pippen, Shaq, and Kobe all ran it. Jackson is the winningest coach in NBA history.'},
+  {id:'s3_ba02',cat:'basketball',icon:'&#127936;',bg:'#FEE8D6',title:'Kareem Abdul-Jabbar',sub:'NBA Legends',xp:60,
+   q:"Kareem Abdul-Jabbar held the NBA scoring record for 38 years. What was his signature shot?",
+   opts:['The Fade Away','The Sky Hook','The Bank Shot','The Drop Step'],answer:'The Sky Hook',
+   fact:"The skyhook was nearly unblockable — Kareem released it so high with one hand. At 7ft 2in he won 6 championships and 6 MVPs. LeBron broke his scoring record in 2023."},
+  {id:"s3_ho01",cat:"hockey",icon:"&#127944;",bg:"#E0F2FE",title:"Miracle on Ice",sub:"Hockey History",xp:70,
+   q:"The 1980 Miracle on Ice saw the US Olympic hockey team defeat which powerful opponent?",
+   opts:['Canada','Sweden','Czechoslovakia','Soviet Union'],answer:'Soviet Union',
+   fact:'February 22, 1980. The Soviet Union had dominated international hockey for decades. The US team was a group of college kids. They won 4-3 in one of the greatest upsets in sports history.'},
+  {id:'s3_ho02',cat:'hockey',icon:'&#127944;',bg:'#E0F2FE',title:'Bobby Orr',sub:'NHL Legends',xp:65,
+   q:'Bobby Orr revolutionized the defenseman position. Which team did he play for during his most famous years?',
+   opts:['Montreal Canadiens','Toronto Maple Leafs','Boston Bruins','New York Rangers'],answer:'Boston Bruins',
+   fact:'Orr won 8 consecutive Norris Trophies as best defenseman. He is the only defenseman ever to win the NHL scoring title — twice. His flying goal photo in the 1970 Stanley Cup Finals is one of the most iconic sports images ever.'},
+  {id:'s3_f101',cat:'f1',icon:'&#127950;',bg:'#1a1a2e',title:'Ayrton Senna',sub:'F1 Legends',xp:65,
+   q:'Ayrton Senna is considered one of the greatest F1 drivers ever. How many World Championships did he win?',
+   opts:['2','3','4','5'],answer:'3',
+   fact:'1988, 1990, 1991. Senna was known for his ability in the rain and his raw speed. He died in a crash at Imola in 1994. His home country of Brazil stopped for three days of mourning. Lando Norris has spoken about being inspired by Senna.'},
+  {id:'s3_f102',cat:'f1',icon:'&#127950;',bg:'#1a1a2e',title:'DRS',sub:'F1 Rules',xp:50,
+   q:'In F1, what does DRS stand for and what does it do?',
+   opts:['Drag Reduction System — reduces aerodynamic drag to increase speed on straights','Double Racing Speed — allows cars to go twice as fast','Driver Response System — helps the driver steer','Downforce Reduction Sensor — measures grip'],answer:'Drag Reduction System — reduces aerodynamic drag to increase speed on straights',
+   fact:'DRS opens a flap in the rear wing, reducing drag by up to 10-15 mph on straights. Drivers can only use it within 1 second of the car ahead in designated zones. It was introduced in 2011 to help create more overtaking.'}
+  ],
+  // ===== SET 4 =====
+  [
+  {id:'s4_m01',cat:'math',icon:'&#10135;',bg:'#F0FDF4',title:'F1 Lap Record',sub:'Racing Math',xp:55,
+   q:'Lando Norris set a lap time of 1:11.097 at a circuit. A rival set 1:11.402. How many milliseconds faster was Lando?',
+   opts:['205ms','305ms','405ms','505ms'],answer:'305ms',
+   fact:'1:11.402 minus 1:11.097 = 0.305 seconds = 305 milliseconds. In F1, hundredths of a second decide qualifying positions. Pole position can be won or lost by less than one tenth of a second.'},
+  {id:'s4_m02',cat:'math',icon:'&#10135;',bg:'#F0FDF4',title:'Salary Cap Math',sub:'Sports Business',xp:55,
+   q:'An NBA team has a $120 million salary cap. Their five starters earn $22M, $18M, $16M, $14M, and $12M. How much is left for the rest of the roster?',
+   opts:['$28M','$38M','$48M','$58M'],answer:'$38M',
+   fact:'22+18+16+14+12 = $82M. $120M - $82M = $38M left. Teams use every dollar strategically. Going over the cap costs owners a luxury tax — sometimes more than $1 for every $1 over.'},
+  {id:'s4_h01',cat:'history',icon:'&#128214;',bg:'#FEF3C7',title:'The Cold War',sub:'World History',xp:60,
+   q:'The Cold War was a decades-long tension between the United States and which other country?',
+   opts:['Germany','China','The Soviet Union','Japan'],answer:'The Soviet Union',
+   fact:'1947 to 1991. No direct military combat but a constant competition for global influence, nuclear weapons, and space. The Berlin Wall, the Space Race, and the Cuban Missile Crisis were all part of it.'},
+  {id:'s4_h02',cat:'history',icon:'&#128214;',bg:'#FEF3C7',title:'The Space Race',sub:'American History',xp:60,
+   q:'The United States beat the Soviet Union to the moon in 1969. Which mission accomplished the first moon landing?',
+   opts:['Apollo 11','Apollo 13','Gemini 7','Mercury Atlas 6'],answer:'Apollo 11',
+   fact:'Apollo 11. Neil Armstrong and Buzz Aldrin landed on July 20, 1969 while Michael Collins orbited above. Armstrong stepped out first. Buzz Aldrin described the surface as "magnificent desolation."'},
+  {id:'s4_b01',cat:'bible',icon:'&#9997;',bg:'#FFF7ED',title:'Daniel in the Lions Den',sub:'Daniel 6',xp:65,
+   q:'Daniel was thrown into the lions den because he refused to stop doing what?',
+   opts:['Eating meat','Praying to God','Wearing his robe','Working on the Sabbath'],answer:'Praying to God',
+   fact:"Daniel 6 — King Darius made prayer illegal. Daniel kept praying toward Jerusalem every day. God shut the lions' mouths. Daniel came out without a scratch."},
+  {id:'s4_b02',cat:'bible',icon:'&#9997;',bg:'#FFF7ED',title:'The Sermon on the Mount',sub:'Matthew 5-7',xp:65,
+   q:'In the Sermon on the Mount, Jesus says you are the _____ of the world — meaning you should shine light everywhere.',
+   opts:['Hope','Salt','Light','Rock'],answer:'Light',
+   fact:'Matthew 5:14 — You are the light of the world. A city on a hill cannot be hidden. Jesus calls his followers to live in a way that makes goodness visible to everyone around them.'},
+  {id:'s4_b03',cat:'bible',icon:'&#9997;',bg:'#FFF7ED',title:'Faith Like a Mustard Seed',sub:'Matthew 17',xp:60,
+   q:'Jesus says if you have faith as small as a mustard seed you can do what?',
+   opts:['Walk on water','Move mountains','Heal the sick','See God'],answer:'Move mountains',
+   fact:'Matthew 17:20 — The mustard seed was the smallest seed known in that culture. Jesus is saying that even the tiniest genuine faith is more powerful than people imagine. It is about trust, not size.'},
+  {id:'s4_mu01',cat:'music',icon:'&#127928;',bg:'#EDE9FE',title:'Prince',sub:'Music History',xp:60,
+   q:'Prince was one of the most versatile musicians ever. Which instrument was he NOT known for playing?',
+   opts:['Guitar','Piano','Drums','Cello'],answer:'Cello',
+   fact:'Prince could play over 20 instruments and played almost every instrument on his debut album at age 19. His guitar solo on "While My Guitar Gently Weeps" at the 2004 Rock and Roll Hall of Fame is considered one of the greatest performances ever.'},
+  {id:'s4_mu02',cat:'music',icon:'&#127928;',bg:'#EDE9FE',title:'Ray Charles',sub:'Music Biography',xp:55,
+   q:'Ray Charles was blind from age 7 and became a pioneer of what genre of music?',
+   opts:['Classical','Jazz only','Soul music','Country only'],answer:'Soul music',
+   fact:'Ray Charles fused gospel, blues, jazz, and R&B to create soul music. He was also one of the first artists to successfully cross into country music. Songs like Georgia on My Mind and Hit the Road Jack are standards.'},
+  {id:'s4_ar01',cat:'art',icon:'&#127912;',bg:'#ECFDF5',title:'Salvador Dali',sub:'Surrealist Art',xp:55,
+   q:'Salvador Dali was a leader of Surrealism. His most famous painting shows melting versions of what object?',
+   opts:['Clocks','Apples','Telephones','Eggs'],answer:'Clocks',
+   fact:'The Persistence of Memory (1931) shows clocks melting over a dreamlike landscape. Dali was inspired by a piece of melting Camembert cheese. Surrealism explored the unconscious mind and dreams as subjects for art.'},
+  {id:'s4_ar02',cat:'art',icon:'&#127912;',bg:'#ECFDF5',title:'Street Art',sub:'Modern Art',xp:50,
+   q:"Banksy is the world's most famous street artist. What makes his identity unusual?",
+   opts:['He is a robot','He is completely anonymous — nobody knows who he is','He is a group of 10 artists','He only paints at night'],answer:'He is completely anonymous — nobody knows who he is',
+   fact:'Despite being worth hundreds of millions of dollars and having work in major museums, nobody officially knows who Banksy is. His pieces appear overnight on walls around the world. He once shredded his own painting seconds after it sold at auction for $1.4 million.'},
+  {id:'s4_po01',cat:'poetry',icon:'&#128220;',bg:'#FEF9C3',title:'Do Not Go Gentle',sub:'Dylan Thomas',xp:70,
+   q:'Dylan Thomas wrote "Do not go gentle into that good night" for his dying father. What does "rage against the dying of the light" mean?',
+   opts:["Be angry at candles","Fight against death and not give up easily","Complain about the weather","Stay up late"],answer:"Fight against death and not give up easily",
+   fact:"Written in 1947. The light is life itself. Thomas begs his father to fight and not accept death passively. One of the most emotionally powerful poems ever written. Many athletes have used it as motivation."},
+  {id:"s4_po02",cat:"poetry",icon:"&#128220;",bg:"#FEF9C3",title:"This Is Just To Say",sub:"William Carlos Williams",xp:60,
+   q:"Williams wrote a short poem called This Is Just To Say — a note about eating what from the icebox?",
+   opts:['Grapes','Cookies','Plums','Apples'],answer:'Plums',
+   fact:'He ate plums from the icebox that were probably being saved for breakfast and left a note apologizing but saying they were delicious and he is not really sorry. It is a poem about everyday honesty. Short, simple, and somehow unforgettable.'},
+  {id:'s4_ba01',cat:'basketball',icon:'&#127936;',bg:'#FEE8D6',title:'Russell Westbrook',sub:'Triple Double King',xp:55,
+   q:'Russell Westbrook holds the NBA record for most career triple-doubles. What is a triple-double?',
+   opts:['Scoring 30+ points three games in a row','Reaching double figures in three stat categories in one game','Making 10+ shots in three quarters','Having 10+ points in each quarter'],answer:'Reaching double figures in three stat categories in one game',
+   fact:'Points, rebounds, and assists are the most common. Westbrook averaged a triple-double for three straight seasons. Oscar Robertson did it first for an entire season in 1961-62. It is considered one of the hardest achievements in basketball.'},
+  {id:'s4_ba02',cat:'basketball',icon:'&#127936;',bg:'#FEE8D6',title:'The 2016 Finals',sub:'NBA History',xp:65,
+   q:'The 2016 NBA Finals is considered one of the greatest comebacks ever. The Cleveland Cavaliers came back from what deficit?',
+   opts:['2-1','3-1','3-2','2-0'],answer:'3-1',
+   fact:'No team had ever come back from 3-1 down in the Finals. LeBron James, Kyrie Irving, and the Cavaliers won Games 5, 6, and 7 to bring Cleveland its first championship in 52 years. LeBron blocked a layup in the final minute of Game 7 that sealed it.'},
+  {id:'s4_ho01',cat:'hockey',icon:'&#127944;',bg:'#E0F2FE',title:'Mario Lemieux',sub:'NHL Legends',xp:65,
+   q:'Mario Lemieux battled cancer and back problems but still retired as one of the greatest scorers ever. What was his nickname?',
+   opts:['The Magnificent One','Super Mario','Le Magnifique','The Pensburgh Penguin'],answer:'Le Magnifique',
+   fact:'French for The Magnificent One. Lemieux played for the Pittsburgh Penguins his entire career, won two Stanley Cups, and later bought the franchise to save it from relocation. He is the only person to have both played for and owned an NHL team.'},
+  {id:'s4_ho02',cat:'hockey',icon:'&#127944;',bg:'#E0F2FE',title:'Hockey Rules',sub:'NHL Rules',xp:50,
+   q:'In hockey, how many players from each team are on the ice at one time during regular play?',
+   opts:['4','5','6','7'],answer:'6',
+   fact:'5 skaters plus 1 goaltender per team. When a player gets a penalty and goes to the penalty box, their team plays shorthanded — 5 on 4 or even 5 on 3. The team with more players has a power play opportunity.'},
+  {id:"s4_f101",cat:"f1",icon:"&#127950;",bg:"#1a1a2e",title:"Monaco Grand Prix",sub:"F1 History",xp:60,
+   q:"The Monaco Grand Prix is the most prestigious race in F1. What makes it so difficult to drive?",
+   opts:["It rains every year","The track is extremely narrow through city streets with almost no room for error","It has the most turns","It is the longest race"],answer:"The track is extremely narrow through city streets with almost no room for error",
+   fact:"Monaco winds through the streets of Monte Carlo. Barriers are centimeters from the cars. Almost no room to overtake. Winning Monaco is considered one of motorsport's greatest achievements. Senna won it 6 times."},
+  {id:"s4_f102",cat:"f1",icon:"&#127950;",bg:"#1a1a2e",title:"McLaren History",sub:"F1 Teams",xp:55,
+   q:"McLaren — Lando Norris's team — was founded by which legendary driver and engineer?",
+   opts:["Ayrton Senna","Niki Lauda","Bruce McLaren","Jack Brabham"],answer:"Bruce McLaren",
+   fact:'Bruce McLaren was a New Zealand driver who founded the team in 1963. He died testing a car in 1970 at age 32. The team he built went on to win 8 Constructors Championships and produce legends like Senna, Prost, and now Norris.'}
   ]
 ];
 
@@ -562,11 +963,11 @@ const VAULT=[
 const CL={'all':'All','math':'Math','history':'History','bible':'Bible','music':'Music','art':'Art','poetry':'Poetry','basketball':'Basketball','hockey':'Hockey','f1':'F1 Racing'};
 const CE={'math':'&#10135;','history':'&#128214;','bible':'&#9997;','music':'&#127928;','art':'&#127912;','poetry':'&#128220;','basketball':'&#127936;','hockey':'&#127944;','f1':'&#127950;'};
 
-let state={xp:0,streak:0,currentSet:0,completed:[],tasksCompleted:[],lastDate:null,calDays:{},penalties:[]};
+let state={xp:0,streak:0,currentSet:0,completed:[],tasksCompleted:[],lastDate:null,calDays:{},penalties:[],bonusDays:{},rewardLedger:[],scavFound:{nature:{},plates:{}},signoffs:{}};
 let activeTab='learn',activeFilter='all',openCard=null,calM=5,calY=2026;
 
 function loadState(){
-  try{const s=JSON.parse(localStorage.getItem(SK));if(s)state=Object.assign({calDays:{},penalties:[]},state,s);if(!state.calDays)state.calDays={};if(!state.penalties)state.penalties=[]}catch(e){}
+  try{const s=JSON.parse(localStorage.getItem(SK));if(s)state=Object.assign({calDays:{},penalties:[]},state,s);if(!state.calDays)state.calDays={};if(!state.penalties)state.penalties=[];if(!state.bonusDays)state.bonusDays={};if(!state.rewardLedger)state.rewardLedger=[]}catch(e){}
 }
 function saveState(){localStorage.setItem(SK,JSON.stringify(state));}
 
@@ -593,6 +994,12 @@ function switchTab(tab){
   document.querySelectorAll('.tab').forEach(t=>t.classList.toggle('active',t.dataset.tab===tab));
   renderContent();window.scrollTo({top:0,behavior:'smooth'});
 }
+function updateBonusTabVisibility(){
+  const bt=document.getElementById('bonusTab');
+  if(!bt)return;
+  bt.style.display=isBonusWindow()?'':'none';
+  if(!isBonusWindow()&&activeTab==='bonus'){activeTab='learn';renderContent();}
+}
 function renderContent(){
   const el=document.getElementById('mainContent');
   if(activeTab==='learn')el.innerHTML=renderLearn();
@@ -600,6 +1007,9 @@ function renderContent(){
   if(activeTab==='sports')el.innerHTML=renderSports();
   if(activeTab==='calendar')el.innerHTML=renderCalendar();
   if(activeTab==='profile')el.innerHTML=renderProfile();
+  if(activeTab==='bonus')    el.innerHTML=renderBonus();
+  if(activeTab==='reward')   el.innerHTML=renderReward();
+  if(activeTab==='scavenger') el.innerHTML=renderScavenger();
 }
 
 function renderLearn(){
@@ -660,37 +1070,37 @@ function renderLearn(){
     }
     html+=`</div></div>`;
   });
+
+  // Sign-off banner at bottom of learn tab
+  const allDoneThisSet=getAssignments().every(a=>state.completed.includes(a.id));
+  const learnValid=todayLearnValidated();
+  if(allDoneThisSet){
+    if(learnValid){
+      html+=`<div style="background:var(--green-light);border:2px solid var(--green);border-radius:var(--radius);padding:16px;text-align:center;margin-top:12px">
+        <div style="font-size:22px;margin-bottom:4px">&#9989;</div>
+        <div style="font-family:var(--font-d);font-size:18px;color:#15803D;letter-spacing:1px">ASSIGNMENTS VALIDATED TODAY!</div>
+        <div style="font-size:12px;color:#15803D;margin-top:4px">Counts toward your $5 reward.</div>
+      </div>`;
+    } else {
+      html+=`<div style="background:var(--gold-light);border:2px solid var(--gold);border-radius:var(--radius);padding:16px;text-align:center;margin-top:12px">
+        <div style="font-size:22px;margin-bottom:4px">&#127942;</div>
+        <div style="font-family:var(--font-d);font-size:18px;color:var(--orange-dark);letter-spacing:1px">ALL ASSIGNMENTS DONE!</div>
+        <div style="font-size:12px;color:var(--muted);margin-top:4px;margin-bottom:12px">Show a parent to validate and earn toward your $5.</div>
+        <button onclick="signOffLearn()" style="background:var(--orange);color:white;border:none;border-radius:10px;padding:11px 24px;font-family:var(--font-d);font-size:18px;letter-spacing:1px;cursor:pointer">PARENT SIGN-OFF</button>
+      </div>`;
+    }
+  }
+
   return html;
 }
 
-const MOVE_CODE='1823';
-let moveUnlocked=false;
-
 function renderTasks(){
   const done=state.tasksCompleted.length;
-  if(!moveUnlocked){
-    return `<div style="padding:32px 16px;text-align:center">
-      <div style="font-size:48px;margin-bottom:12px">&#128274;</div>
-      <div style="font-family:var(--font-d);font-size:22px;color:var(--navy);letter-spacing:1px;margin-bottom:6px">PARENT CODE REQUIRED</div>
-      <div style="font-size:13px;color:var(--muted);margin-bottom:20px;line-height:1.6">A parent needs to enter the code to award XP for completed moves.</div>
-      <div style="max-width:260px;margin:0 auto">
-        <input id="moveCodeInput" type="password" placeholder="Enter code"
-          style="width:100%;padding:12px 16px;border:2px solid var(--border);border-radius:10px;font-size:18px;text-align:center;font-family:var(--font-b);outline:none;margin-bottom:10px;letter-spacing:4px"
-          onkeydown="if(event.key==='Enter')checkMoveCode()">
-        <button onclick="checkMoveCode()"
-          style="width:100%;padding:13px;background:var(--orange);color:white;border:none;border-radius:10px;font-family:var(--font-d);font-size:18px;letter-spacing:1px;cursor:pointer">
-          UNLOCK
-        </button>
-        <div id="codeError" style="color:#B91C1C;font-size:12px;font-weight:700;margin-top:8px;display:none">Wrong code. Try again.</div>
-      </div>
-    </div>`;
-  }
   let html=`<div class="stat-grid">
     <div class="stat-card"><div class="stat-num">${done}</div><div class="stat-lbl">Done</div></div>
     <div class="stat-card"><div class="stat-num">${TASKS.length-done}</div><div class="stat-lbl">Remaining</div></div>
     <div class="stat-card"><div class="stat-num">${TASKS.reduce((s,t)=>s+(state.tasksCompleted.includes(t.id)?t.xp:0),0)}</div><div class="stat-lbl">XP Earned</div></div>
-  </div><div class="section-title">&#127939; Move Missions</div>
-  <div style="background:rgba(244,109,27,.08);border:1.5px solid rgba(244,109,27,.2);border-radius:10px;padding:10px 14px;margin-bottom:12px;font-size:12px;color:var(--orange-dark);font-weight:600">&#128274; Parent mode active. Tap the checkmark next to each task Hewitt completed to award XP.</div>`;
+  </div><div class="section-title">&#127939; Move Missions</div>`;
   TASKS.forEach(t=>{
     const isDone=state.tasksCompleted.includes(t.id);
     html+=`<div class="task-card${isDone?' done-task':''}">
@@ -699,366 +1109,291 @@ function renderTasks(){
       <button class="task-check${isDone?' done':''}" onclick="completeTask('${t.id}')">${isDone?'&#10003;':''}</button>
     </div>`;
   });
-  html+=`<div style="margin-top:16px;text-align:center"><button onclick="moveUnlocked=false;renderContent()" style="background:transparent;border:1.5px solid var(--border);border-radius:8px;padding:8px 18px;font-size:12px;font-weight:700;color:var(--muted);cursor:pointer;font-family:var(--font-b)">&#128274; Lock Move Tab</button></div>`;
-  return html;
-}
-
-function checkMoveCode(){
-  const input=document.getElementById('moveCodeInput');
-  const err=document.getElementById('codeError');
-  if(!input)return;
-  if(input.value.trim()===MOVE_CODE){
-    moveUnlocked=true;
-    renderContent();
-  } else {
-    if(err){err.style.display='block';}
-    input.value='';
-    input.focus();
-  }
-}
-
-function renderSports(){
-  let html='<div class="section-title">&#127942; Sports Stats Vault</div><p style="font-size:13px;color:var(--muted);margin-bottom:16px;line-height:1.5">Legends, records, and numbers that define the games you love.</p>';
-  VAULT.forEach(f=>{
-    html+=`<div class="sports-card">
-      <div class="sports-icon">${f.icon}</div>
-      <div><div class="sports-name">${eh(f.name)}</div><div class="sports-stat">${eh(f.stat)}</div><div class="sports-lbl">${eh(f.lbl)}</div><div class="sports-note">${eh(f.note)}</div></div>
-    </div>`;
-  });
-  return html;
-}
-
-// ===================== CALENDAR =====================
-function dkey(y,m,d){return`${y}-${String(m+1).padStart(2,'0')}-${String(d).padStart(2,'0')}`;}
-function inRange(y,m,d){const dt=new Date(y,m,d);return dt>=CAL_START&&dt<=CAL_END;}
-function getSpecials(y,m,d){
-  const k=dkey(y,m,d);
-  const results=[];
-  if(k==='2026-07-04'){
-    results.push(SPECIALS['2026-07-04']);
-    results.push(...EXTRA_JULY4);
-    return results;
-  }
-  if(SPECIALS[k])results.push(SPECIALS[k]);
-  return results;
-}
-
-function renderCalendar(){
-  const logged=Object.values(state.calDays).filter(d=>d.checked).length;
-  const f1Races=Object.values(SPECIALS).filter(s=>s.type==='f1r').length;
-  const canPrev=!(calM===5&&calY===2026),canNext=!(calM===7&&calY===2026);
-
-  let html=`<div class="cal-stats">
-    <div class="cal-stat"><div class="cs-num">${logged}</div><div class="cs-lbl">Days Logged</div></div>
-    <div class="cal-stat"><div class="cs-num">86</div><div class="cs-lbl">Total Days</div></div>
-    <div class="cal-stat"><div class="cs-num">${f1Races}</div><div class="cs-lbl">F1 Race Days</div></div>
-  </div>`;
-
-  html+=`<div class="cal-header-bar">
-    <button class="cal-nav-btn" onclick="calPrev()" ${!canPrev?'disabled':''}>&#9664;</button>
-    <div class="cal-month-title">${MN[calM]} ${calY}</div>
-    <button class="cal-nav-btn" onclick="calNext()" ${!canNext?'disabled':''}>&#9654;</button>
-  </div>`;
-
-  html+=`<div class="cal-legend">
-    <div class="cal-li"><div class="cal-dot" style="background:#E8002D"></div>F1 Race</div>
-    <div class="cal-li"><div class="cal-dot" style="background:#2244AA"></div>F1 Weekend</div>
-    <div class="cal-li"><div class="cal-dot" style="background:var(--gold)"></div>Birthday</div>
-    <div class="cal-li"><div class="cal-dot" style="background:var(--green)"></div>Logged &#10003;</div>
-    <div class="cal-li"><div class="cal-dot" style="background:var(--blue-light);border:1px solid #93C5FD"></div>Event</div>
-  </div>`;
-
-  html+='<div class="cal-grid">';
-  ['Sun','Mon','Tue','Wed','Thu','Fri','Sat'].forEach((d,i)=>{
-    html+=`<div class="cal-dow${i===0||i===5||i===6?' wknd':''}">${d}</div>`;
-  });
-
-  const firstDay=new Date(calY,calM,1).getDay();
-  const daysInMonth=new Date(calY,calM+1,0).getDate();
-
-  for(let i=0;i<firstDay;i++)html+='<div class="cal-day empty"></div>';
-
-  for(let d=1;d<=daysInMonth;d++){
-    const k=dkey(calY,calM,d);
-    const specials=getSpecials(calY,calM,d);
-    const inR=inRange(calY,calM,d);
-    const dd=state.calDays[k]||{};
-    const dow=new Date(calY,calM,d).getDay();
-    const isWknd=dow===0||dow===5||dow===6;
-    const primary=specials.length?specials[0].type:null;
-
-    let cls='cal-day';
-    if(!inR)cls+=' out';
-    else if(isWknd)cls+=' wknd-day';
-    if(primary==='bday')cls+=' bday';
-    else if(primary==='f1r')cls+=' f1r';
-    else if(primary==='f1w')cls+=' f1w';
-    if(dd.checked)cls+=' logged';
-
-    html+=`<div class="${cls}"${inR?` onclick="openDay('${k}')"`:''}  data-k="${k}">`;
-    html+=`<div class="cal-dn">${d}</div>`;
-
-    if(primary==='bday'){
-      html+='<div style="font-size:15px;line-height:1">&#127874;</div>';
-      html+='<div class="cc cc-bday">BDAY!</div>';
+  // Sign-off banner at bottom of move tab
+  const allTasksDone=TASKS.every(t=>state.tasksCompleted.includes(t.id));
+  const moveValid=todayMoveValidated();
+  if(allTasksDone){
+    if(moveValid){
+      html+=`<div style="background:var(--green-light);border:2px solid var(--green);border-radius:var(--radius);padding:16px;text-align:center;margin-top:12px">
+        <div style="font-size:22px;margin-bottom:4px">&#9989;</div>
+        <div style="font-family:var(--font-d);font-size:18px;color:#15803D;letter-spacing:1px">MOVES VALIDATED TODAY!</div>
+        <div style="font-size:12px;color:#15803D;margin-top:4px">Counts toward your $5 reward.</div>
+      </div>`;
     } else {
-      html+='<div class="cal-events">';
-      specials.forEach(sp=>{
-        if(sp.type==='f1r')html+='<div class="cc cc-f1r">&#127937; F1</div>';
-        else if(sp.type==='f1w')html+='<div class="cc cc-f1w">&#127950; F1</div>';
-        else if(sp.type==='hol')html+=`<div class="cc cc-hol">${sp.label.substring(0,9)}</div>`;
-        else if(sp.type==='summer')html+=`<div class="cc cc-sm">${sp.label.substring(0,9)}</div>`;
-      });
-      if(dd.note)html+='<div class="cc cc-sm">&#128203; note</div>';
-      if(dd.penalties&&dd.penalties.length)html+='<div class="cc" style="background:#FEE2E2;color:#B91C1C;border:1px solid #FCA5A5">&#9888; -xp</div>';
-      html+='</div>';
+      html+=`<div style="background:var(--gold-light);border:2px solid var(--gold);border-radius:var(--radius);padding:16px;text-align:center;margin-top:12px">
+        <div style="font-size:22px;margin-bottom:4px">&#127939;</div>
+        <div style="font-family:var(--font-d);font-size:18px;color:var(--orange-dark);letter-spacing:1px">ALL MOVES DONE!</div>
+        <div style="font-size:12px;color:var(--muted);margin-top:4px;margin-bottom:12px">Show a parent to validate and earn toward your $5.</div>
+        <button onclick="signOffMove()" style="background:var(--orange);color:white;border:none;border-radius:10px;padding:11px 24px;font-family:var(--font-d);font-size:18px;letter-spacing:1px;cursor:pointer">PARENT SIGN-OFF</button>
+      </div>`;
     }
-    if(dd.checked)html+='<div class="cal-check-dot">&#10003;</div>';
-    html+='</div>';
   }
-
-  const rem=7-((firstDay+daysInMonth)%7);
-  if(rem<7)for(let i=0;i<rem;i++)html+='<div class="cal-day empty"></div>';
-  html+='</div>';
   return html;
 }
 
-function calPrev(){if(calM===5&&calY===2026)return;calM--;if(calM<0){calM=11;calY--;}renderContent();}
-function calNext(){if(calM===7&&calY===2026)return;calM++;if(calM>11){calM=0;calY++;}renderContent();}
 
-function openDay(k){
-  const parts=k.split('-').map(Number);
-  const [y,m,d]=[parts[0],parts[1],parts[2]];
-  const specials=getSpecials(y,m-1,d);
-  const dd=state.calDays[k]||{};
-  const penHistory=dd.penalties&&dd.penalties.length?dd.penalties.map(p=>'<div style="font-size:12px;padding:6px 10px;background:#FEE2E2;border-radius:6px;margin-bottom:4px;color:#991B1B;font-weight:600">&#9888; -'+p.pts+' XP: '+eh(p.reason)+'</div>').join(''):'';
-  const dateObj=new Date(y,m-1,d);
-  const dayName=dateObj.toLocaleDateString('en-US',{weekday:'long'});
-  const dateStr=dateObj.toLocaleDateString('en-US',{month:'long',day:'numeric',year:'numeric'});
+function toggleScav(idx){
+  const todayKey=getTodayKey();
+  if(!state.bonusDays)state.bonusDays={};
+  if(!state.bonusDays[todayKey])state.bonusDays[todayKey]={quizAnswers:{},scavChecked:[],completed:false};
+  const sc=state.bonusDays[todayKey].scavChecked;
+  const pos=sc.indexOf(idx);
+  if(pos===-1)sc.push(idx);else sc.splice(pos,1);
+  saveState();renderContent();
+}
 
-  let html=`<div class="overlay" onclick="closeModal(event)"><div class="day-modal" id="dmi">
-    <div class="modal-handle"></div>
-    <div class="modal-title">${dayName}, ${MS[m-1]} ${d}</div>
-    <div class="modal-sub">${dateStr}</div>`;
+function answerBonus(qIdx,choice){
+  const lesson=getBonusForToday();
+  const todayKey=getTodayKey();
+  if(!state.bonusDays)state.bonusDays={};
+  if(!state.bonusDays[todayKey])state.bonusDays[todayKey]={quizAnswers:{},scavChecked:[],completed:false};
+  const td=state.bonusDays[todayKey];
+  if(td.quizAnswers[qIdx]!==undefined)return;
+  td.quizAnswers[qIdx]=choice;
+  if(choice===lesson.quiz[qIdx].a){awardXP(30);}
+  saveState();renderContent();
+  setTimeout(()=>{
+    const next=document.querySelector('.bonus-q-card:not([data-answered])');
+    if(next)next.scrollIntoView({behavior:'smooth',block:'center'});
+  },100);
+}
 
-  if(specials.some(s=>s.type==='bday')){
-    html+=`<div class="bday-box">
-      <div class="bday-box-cake">&#127874;&#127881;&#127882;</div>
-      <div class="bday-box-title">HAPPY 11TH BIRTHDAY HEWITT!</div>
-      <div class="bday-box-sub">The British GP at Silverstone is TOMORROW. Best birthday ever?<br>Lando races on your birthday weekend. Let's go!</div>
-    </div>`;
-  }
+function completeBonus(){
+  const todayKey=getTodayKey();
+  if(!state.bonusDays)state.bonusDays={};
+  if(!state.bonusDays[todayKey])state.bonusDays[todayKey]={quizAnswers:{},scavChecked:[],completed:false};
+  state.bonusDays[todayKey].completed=true;
+  awardXP(50);
+  saveState();renderContent();
+  showToast('BONUS COMPLETE! +50 XP');
+}
 
-  const f1sp=specials.find(s=>s.type==='f1r'||s.type==='f1w');
-  if(f1sp){
-    const isRace=f1sp.type==='f1r';
-    html+=`<div class="f1-box">
-      <div class="f1-box-title">${isRace?'&#127937;':'&#127950;'} ${eh(f1sp.race||'F1 Weekend')}</div>
-      <div class="f1-box-detail">${eh(f1sp.circuit||'')} &nbsp;&bull;&nbsp; ${isRace?'RACE DAY':(f1sp.label.includes('Quali')?'QUALIFYING':'PRACTICE')}</div>
-      <div class="f1-drivers">
-        <div class="f1-dc" style="background:rgba(255,128,0,.15);border:1px solid rgba(255,128,0,.3)">
-          <div class="dnum" style="color:#FF8000">4</div><div class="dname" style="color:white">Lando Norris</div>
-        </div>
-        <div class="f1-dc" style="background:rgba(0,160,222,.15);border:1px solid rgba(0,160,222,.3)">
-          <div class="dnum" style="color:#00A0DE">12</div><div class="dname" style="color:white">Kimi Antonelli</div>
-        </div>
-      </div>
-    </div>`;
-  }
+/* ── REWARD HELPERS ── */
+function todayAssignmentsDone(){
+  return getAssignments().every(a=>state.completed.includes(a.id))&&todayLearnValidated();
+}
+function todayBonusDone(){
+  const td=(state.bonusDays||{})[getTodayKey()]||{};
+  return !!td.completed;
+}
+function todayAlreadyEarned(){
+  const ledger=state.rewardLedger||[];
+  return ledger.some(e=>e.type==='earn'&&e.date===getTodayKey());
+}
 
-  if(specials.some(s=>s.type==='hol'&&s.label!=='4th of July')){
-    const hol=specials.find(s=>s.type==='hol');
-    html+=`<div style="background:var(--red-light);border:1px solid rgba(220,38,38,.2);border-radius:10px;padding:10px 14px;margin-bottom:10px;font-size:13px;font-weight:600;color:#B91C1C">&#127881; ${eh(hol.label)}</div>`;
-  }
+function renderReward(){
+  const ledger=state.rewardLedger||[];
+  const totalEarned=ledger.filter(e=>e.type==='earn').reduce((s,e)=>s+e.amt,0);
+  const totalSpent=ledger.filter(e=>e.type==='spend').reduce((s,e)=>s+e.amt,0);
+  const balance=totalEarned-totalSpent;
+  const assignsDone=todayAssignmentsDone();
+  const bonusDone=todayBonusDone();
+  const alreadyEarned=todayAlreadyEarned();
+  const moveValidToday=todayMoveValidated();
+  const canEarn=assignsDone&&bonusDone&&moveValidToday&&!alreadyEarned;
 
-  html+=`<div class="modal-sl">Daily Note</div>
-    <textarea class="modal-note" id="mnote" placeholder="What did you do today? How did it go? Write anything...">${eh(dd.note||'')}</textarea>
-    <button class="modal-cb ${dd.checked?'chk':'unc'}" id="mcb" onclick="toggleCheck('${k}')">
-      ${dd.checked?'&#10003; Day Logged!':'Mark Day Complete +10 XP'}
-    </button>
-    <div style="margin-top:16px;padding-top:14px;border-top:1px solid var(--border)">
-      <div style="font-size:10px;font-weight:800;color:#B91C1C;text-transform:uppercase;letter-spacing:.8px;margin-bottom:8px">&#9888; Parent Penalty</div>
-      ${penHistory}
-      <input id="penReason" type="text" placeholder="Reason (e.g. disobeyed parents)" style="width:100%;padding:10px 12px;border:1.5px solid var(--border);border-radius:8px;font-family:var(--font-b);font-size:13px;margin-bottom:8px;outline:none;background:var(--gray-bg)">
-      <div style="display:flex;gap:8px;align-items:center;margin-bottom:8px">
-        <label style="font-size:12px;font-weight:700;color:var(--muted);white-space:nowrap">XP to deduct:</label>
-        <select id="penPts" style="flex:1;padding:8px 10px;border:1.5px solid var(--border);border-radius:8px;font-family:var(--font-b);font-size:13px;background:var(--gray-bg);outline:none">
-          <option value="25">25 XP</option>
-          <option value="50">50 XP</option>
-          <option value="75">75 XP</option>
-          <option value="100">100 XP</option>
-        </select>
-        <button onclick="addPenalty('${k}')" style="background:#B91C1C;color:white;border:none;padding:9px 14px;border-radius:8px;font-size:13px;font-weight:700;font-family:var(--font-b);cursor:pointer;white-space:nowrap">Deduct XP</button>
-      </div>
-      <div id="penResult"></div>
+  let html=`<div class="reward-hero">
+    <div class="reward-balance">$${balance.toFixed(2)}</div>
+    <div class="reward-balance-lbl">Available Balance</div>
+    <div class="reward-goal">Earn $5 today by completing everything</div>
+  </div>`;
+
+  html+=`<div class="section-title">&#127919; Today's Goal</div>
+  <div class="day-goal-card">
+    <div class="day-goal-row">
+      <div class="day-goal-dot" style="background:${assignsDone?'var(--green)':'var(--border)'}"></div>
+      <div class="day-goal-label">Complete all assignments</div>
+      <div class="day-goal-status" style="color:${assignsDone?'var(--green)':'var(--muted)'}">${assignsDone?'&#10003; Done':'Not yet'}</div>
     </div>
-    <button class="modal-cl" onclick="saveNote('${k}');closeModal()">Save &amp; Close</button>
-  </div></div>`;
+    <div class="day-goal-row">
+      <div class="day-goal-dot" style="background:${moveValidToday?'var(--green)':'var(--border)'}"></div>
+      <div class="day-goal-label">Complete and validate all moves</div>
+      <div class="day-goal-status" style="color:${moveValidToday?'var(--green)':'var(--muted)'}">${moveValidToday?'&#10003; Done':'Not yet'}</div>
+    </div>
+    <div class="day-goal-row">
+      <div class="day-goal-dot" style="background:${bonusDone?'var(--green)':'var(--border)'}"></div>
+      <div class="day-goal-label">Complete the bonus lesson</div>
+      <div class="day-goal-status" style="color:${bonusDone?'var(--green)':'var(--muted)'}">${bonusDone?'&#10003; Done':'Not yet'}</div>
+    </div>
+    ${alreadyEarned?`<div style="background:var(--green-light);border:1px solid var(--green);border-radius:8px;padding:10px 12px;margin-top:8px;font-size:12px;font-weight:700;color:#15803D;text-align:center">&#127881; $5 earned today! Great work!</div>`:''}
+    <button class="earn-btn ${canEarn?'ready':'not-ready'}" onclick="${canEarn?'earnReward()':'void(0)'}">${alreadyEarned?'&#10003; Already Earned Today':canEarn?'&#9989; EARN $5 NOW':'Complete both tasks above first'}</button>
+  </div>`;
 
-  document.getElementById('modalContainer').innerHTML=html;
+  html+=`<div class="section-title">&#128184; Ledger</div>`;
+  if(!ledger.length){html+=`<div class="ledger-empty">No transactions yet. Earn your first $5 today!</div>`;}
+  else{
+    [...ledger].reverse().forEach(e=>{
+      if(e.type==='earn'){
+        html+=`<div class="ledger-row-earn">&#43;$${e.amt.toFixed(2)} earned &nbsp;&bull;&nbsp; ${e.date} ${e.note?'&bull; '+eh(e.note):''}</div>`;
+      } else {
+        html+=`<div class="ledger-row-spend">&#8722;$${e.amt.toFixed(2)} spent &nbsp;&bull;&nbsp; ${e.date} ${e.note?'&bull; '+eh(e.note):''}</div>`;
+      }
+    });
+  }
+
+  html+=`<div class="spend-box">
+    <div class="spend-title">&#128274; Parent: Log a Spend</div>
+    <input id="spendCodeIn" type="password" placeholder="Parent code" style="width:100%;padding:9px 12px;border:1.5px solid var(--border);border-radius:8px;font-family:var(--font-b);font-size:13px;outline:none;margin-bottom:8px">
+    <div class="spend-row">
+      <input id="spendDesc" class="spend-input" placeholder="What was purchased">
+      <input id="spendAmt" class="spend-amt" type="number" placeholder="$" min="0.01" step="0.01">
+      <button class="spend-btn" onclick="logSpend()">&#8722; Spend</button>
+    </div>
+    <div id="spendErr" style="color:#B91C1C;font-size:11px;font-weight:700;display:none">Wrong code or missing info.</div>
+  </div>`;
+
+  return html;
 }
 
-function saveNote(k){
-  const ta=document.getElementById('mnote');
-  if(ta){if(!state.calDays[k])state.calDays[k]={};state.calDays[k].note=ta.value;saveState();}
+function earnReward(){
+  if(!todayAssignmentsDone()||!todayBonusDone()||todayAlreadyEarned())return;
+  if(!state.rewardLedger)state.rewardLedger=[];
+  state.rewardLedger.push({type:'earn',amt:5,date:getTodayKey(),note:'Daily goal complete'});
+  saveState();renderContent();
+  showToast('$5 EARNED! Great work!');
 }
-function addPenalty(k){
-  const reason=document.getElementById('penReason').value.trim();
-  const pts=parseInt(document.getElementById('penPts').value)||25;
-  if(!reason){alert('Please enter a reason.');return;}
-  const entry={date:k,reason:reason,pts:pts,ts:Date.now()};
-  state.penalties.push(entry);
-  // Log on calendar
-  if(!state.calDays[k])state.calDays[k]={};
-  if(!state.calDays[k].penalties)state.calDays[k].penalties=[];
-  state.calDays[k].penalties.push(entry);
-  state.xp=Math.max(0,state.xp-pts);
-  saveState();updateHeader();
-  showToast('-'+pts+' XP');
-  document.getElementById('penReason').value='';
-  document.getElementById('penResult').innerHTML='<div style="margin-top:8px;padding:10px 14px;background:#FEE2E2;border:1px solid #FCA5A5;border-radius:8px;font-size:13px;font-weight:700;color:#B91C1C">&#9888; -'+pts+' XP logged: '+eh(reason)+'</div>';
+
+async function logSpend(){
+  const code=document.getElementById('spendCodeIn')?.value?.trim();
+  const desc=document.getElementById('spendDesc')?.value?.trim();
+  const amt=parseFloat(document.getElementById('spendAmt')?.value||'0');
+  const err=document.getElementById('spendErr');
+  const codeOk=await verifyCode(code);
+  if(!codeOk||!desc||isNaN(amt)||amt<=0){
+    if(err)err.style.display='block';return;
+  }
+  if(!state.rewardLedger)state.rewardLedger=[];
+  state.rewardLedger.push({type:'spend',amt,date:getTodayKey(),note:desc});
+  saveState();renderContent();
+  showToast('-$'+amt.toFixed(2)+' logged');
+}
+
+
+/* ── SCAVENGER HUNT STATE & RENDER ── */
+let scavPage='nature';  // 'nature' or 'plates'
+let scavOpenCat=null;
+
+function toggleScavItem(type,key){
+  if(!state.scavFound)state.scavFound={nature:{},plates:{}};
+  if(!state.scavFound[type])state.scavFound[type]={};
+  state.scavFound[type][key]=!state.scavFound[type][key];
+  saveState();renderContent();
+}
+function toggleScavCat(idx){
+  scavOpenCat=scavOpenCat===idx?null:idx;
   renderContent();
 }
+function setScavPage(p){scavPage=p;scavOpenCat=null;renderContent();}
 
-function toggleCheck(k){
-  saveNote(k);
-  if(!state.calDays[k])state.calDays[k]={};
-  const was=state.calDays[k].checked;
-  state.calDays[k].checked=!was;
-  saveState();
-  const btn=document.getElementById('mcb');
-  if(btn){btn.className=`modal-cb ${state.calDays[k].checked?'chk':'unc'}`;btn.innerHTML=state.calDays[k].checked?'&#10003; Day Logged!':'Mark Day Complete +10 XP';}
-  if(!was){awardXP(10);}
-  renderContent();
-}
+function renderScavenger(){
+  if(!state.scavFound)state.scavFound={nature:{},plates:{}};
+  const nf=state.scavFound.nature||{};
+  const pf=state.scavFound.plates||{};
 
-function closeModal(e){
-  if(e&&e.target!==document.querySelector('.overlay'))return;
-  document.getElementById('modalContainer').innerHTML='';
-  renderContent();
-}
+  // totals
+  const totalNature=NATURE_CATEGORIES.reduce((s,c)=>s+c.items.length,0);
+  const foundNature=Object.values(nf).filter(Boolean).length;
+  const foundPlates=Object.values(pf).filter(Boolean).length;
+  const totalPlates=LICENSE_PLATES.length;
 
-function renderProfile(){
-  const l=getLvl();
-  const logged=Object.values(state.calDays).filter(d=>d.checked).length;
-  let html=`<div class="profile-hero">
-    <div class="avatar">&#127936;</div>
-    <div class="profile-name">HEWITT</div>
-    <div class="profile-title">Level ${l.lvl} &mdash; ${l.name}</div>
-    <div class="profile-stats">
-      <div class="profile-stat"><strong>${state.xp.toLocaleString()}</strong>Total XP</div>
-      <div class="profile-stat"><strong>${Object.values(state.calDays||{}).filter(d=>d.checked).length}</strong>Days Logged</div>
-      <div class="profile-stat"><strong>${state.completed.length}</strong>Lessons</div>
-      <div class="profile-stat"><strong>${logged}</strong>Days Logged</div>
+  let html=`<div class="scav-page-hero">
+    <div class="scav-page-title">${scavPage==='nature'?'&#127807; WEST MICHIGAN NATURE HUNT':'&#128663; LICENSE PLATE HUNT'}</div>
+    <div class="scav-page-sub">${scavPage==='nature'?'Summer 2026 — All Season Tracker':'All 50 States + Bonuses'}</div>
+    <div class="scav-progress-row">
+      <div class="scav-progress-bg"><div class="scav-progress-fill" style="width:${Math.round(((scavPage==='nature'?foundNature:foundPlates)/(scavPage==='nature'?totalNature:totalPlates))*100)}%"></div></div>
+      <div class="scav-progress-lbl">${scavPage==='nature'?foundNature:foundPlates} / ${scavPage==='nature'?totalNature:totalPlates}</div>
     </div>
   </div>`;
 
-  html+='<div class="section-title">&#127941; Badges</div><div class="badge-grid">';
-  BADGES.forEach(b=>{
-    const earned=b.check(state);
-    html+=`<div class="badge-item${earned?' earned':' locked'}">
-      <div class="badge-emoji">${b.icon}</div>
-      <div class="badge-name">${eh(b.name)}</div>
-    </div>`;
-  });
-  html+='</div>';
+  html+=`<div class="scav-page-tabs">
+    <div class="scav-page-tab${scavPage==='nature'?' active':''}" onclick="setScavPage('nature')">&#127807; Nature Hunt</div>
+    <div class="scav-page-tab${scavPage==='plates'?' active':''}" onclick="setScavPage('plates')">&#128663; License Plates</div>
+  </div>`;
 
-  html+='<div class="section-title" style="margin-top:20px">&#128202; Category Progress</div><div class="category-progress">';
-  Object.keys(CE).forEach(cat=>{
-    const total=getAssignments().filter(a=>a.cat===cat).length;
-    if(!total)return;
-    const done=state.completed.filter(id=>getAssignments().find(a=>a.id===id)?.cat===cat).length;
-    const pct=Math.round((done/total)*100);
-    html+=`<div class="prog-row">
-      <div class="prog-emoji">${CE[cat]}</div>
-      <div class="prog-label">${CL[cat]}</div>
-      <div class="prog-bar-bg"><div class="prog-bar-fill" style="width:${pct}%"></div></div>
-      <div class="prog-count">${done}/${total}</div>
-    </div>`;
-  });
-  html+='</div>';
-
-  // Penalty log
-  if(state.penalties&&state.penalties.length){
-    html+='<div class="section-title" style="margin-top:20px;color:#B91C1C">&#9888; Penalty Log</div>';
-    html+='<div style="display:flex;flex-direction:column;gap:6px;margin-bottom:16px">';
-    const sorted=[...state.penalties].sort((a,b)=>b.ts-a.ts);
-    sorted.forEach(p=>{
-      const dt=new Date(p.ts).toLocaleDateString('en-US',{month:'short',day:'numeric'});
-      html+=`<div style="background:#FEE2E2;border:1px solid #FCA5A5;border-radius:10px;padding:11px 14px;display:flex;align-items:center;justify-content:space-between;gap:12px">
-        <div>
-          <div style="font-size:13px;font-weight:700;color:#991B1B">${eh(p.reason)}</div>
-          <div style="font-size:11px;color:#B91C1C;margin-top:2px">${dt}</div>
+  if(scavPage==='nature'){
+    NATURE_CATEGORIES.forEach((cat,ci)=>{
+      const foundInCat=cat.items.filter((_,ii)=>nf[ci+'_'+ii]).length;
+      const isOpen=scavOpenCat===ci;
+      html+=`<div class="scav-cat-card">
+        <div class="scav-cat-header" onclick="toggleScavCat(${ci})">
+          <div class="scav-cat-icon">${cat.icon}</div>
+          <div class="scav-cat-name">${eh(cat.cat)}</div>
+          <div class="scav-cat-count">${foundInCat}/${cat.items.length}</div>
+          <div class="scav-cat-chev${isOpen?' open':''}">&#9660;</div>
         </div>
-        <div style="font-family:var(--font-d);font-size:22px;color:#B91C1C;flex-shrink:0">-${p.pts} XP</div>
+        <div class="scav-cat-body${isOpen?' open':''}">`;
+      cat.items.forEach((item,ii)=>{
+        const found=!!nf[ci+'_'+ii];
+        html+=`<div class="scav-item-row" onclick="toggleScavItem('nature','${ci+'_'+ii}')">
+          <div class="scav-item-check${found?' found':''}">${found?'&#10003;':''}</div>
+          <div class="scav-item-text${found?' found-text':''}">${eh(item)}</div>
+        </div>`;
+      });
+      html+=`</div></div>`;
+    });
+  } else {
+    html+=`<div class="scav-cat-card"><div class="plate-grid">`;
+    LICENSE_PLATES.forEach((plate,pi)=>{
+      const found=!!pf['p'+pi];
+      html+=`<div class="plate-item${found?' found-plate':''}" onclick="toggleScavItem('plates','p${pi}')">
+        ${found?'<div class="plate-check">&#10003; FOUND</div>':''}
+        <div class="plate-name">${eh(plate)}</div>
       </div>`;
     });
-    html+='</div>';
+    html+=`</div></div>`;
   }
 
-  html+=`<div class="reset-box">
-    <h3>Reset Progress</h3>
-    <p>Clears all XP, completed lessons, tasks, calendar logs, and penalty history.</p>
-    <button class="reset-btn" onclick="resetAll()">Reset Everything</button>
-  </div>`;
   return html;
 }
 
-function setFilter(f){activeFilter=f;openCard=null;renderContent();}
-function toggleCard(id){openCard=openCard===id?null:id;renderContent();}
 
-function answer(aid,choice){
-  const a=getAssignments().find(x=>x.id===aid);
-  if(!a||state.completed.includes(aid))return;
-  const optsEl=document.getElementById('opts_'+aid),resultEl=document.getElementById('result_'+aid);
-  if(!optsEl||!resultEl)return;
-  optsEl.querySelectorAll('.option-btn').forEach(btn=>{
-    btn.disabled=true;
-    if(btn.textContent.trim()===a.answer)btn.classList.add('correct');
-    else if(btn.textContent.trim()===choice&&choice!==a.answer)btn.classList.add('wrong');
-  });
-  if(choice===a.answer){
-    resultEl.innerHTML=`<div class="result-msg win">&#10003; Correct! ${eh(a.fact)}</div>`;
-    state.completed.push(aid);saveState();
-    setTimeout(()=>{awardXP(a.xp);renderContent();},900);
-  } else {
-    resultEl.innerHTML=`<div class="result-msg lose">&#10007; Not quite. Answer: <strong>${eh(a.answer)}</strong>. ${eh(a.fact)}</div>`;
-  }
+async function verifyCode(input){
+  const enc=new TextEncoder().encode(input.trim());
+  const buf=await crypto.subtle.digest('SHA-256',enc);
+  const hex=Array.from(new Uint8Array(buf)).map(b=>b.toString(16).padStart(2,'0')).join('');
+  return hex==='2e1943902be93c87e9d31812ef887d1f91326e8e8e3779feb59c48c9ac32f58f';
 }
 
-function completeTask(tid){
-  if(state.tasksCompleted.includes(tid))return;
-  const t=TASKS.find(x=>x.id===tid);if(!t)return;
-  state.tasksCompleted.push(tid);saveState();awardXP(t.xp);renderContent();
-}
 
-function advanceSet(){
-  const input=document.getElementById('nextSetCode');
-  const err=document.getElementById('nextSetErr');
-  if(!input)return;
-  if(input.value.trim()==='1823'){
-    state.currentSet=(state.currentSet||0)+1;
-    state.completed=[];
-    openCard=null;
-    activeFilter='all';
+/* ── PARENT SIGN-OFF ── */
+function getTodayKeySignoff(){return new Date().toISOString().slice(0,10);}
+
+async function signOffLearn(){
+  const code=prompt('Parent code to validate assignments:');
+  if(!code)return;
+  if(await verifyCode(code)){
+    const k=getTodayKeySignoff();
+    if(!state.signoffs)state.signoffs={};
+    state.signoffs[k]=state.signoffs[k]||{};
+    state.signoffs[k].learn=true;
     saveState();renderContent();
-    showToast('SET '+(state.currentSet+1)+' UNLOCKED!');
+    showToast('ASSIGNMENTS VALIDATED!');
   } else {
-    if(err)err.style.display='block';
-    input.value='';input.focus();
+    alert('Wrong code. Try again.');
   }
 }
 
-function resetAll(){
-  if(!confirm('Reset all progress including XP, lessons, tasks, and calendar?'))return;
-  state={xp:0,currentSet:0,completed:[],tasksCompleted:[],lastDate:null,calDays:{},penalties:[]};
-  saveState();updateHeader();renderContent();
+async function signOffMove(){
+  const code=prompt('Parent code to validate moves:');
+  if(!code)return;
+  if(await verifyCode(code)){
+    const k=getTodayKeySignoff();
+    if(!state.signoffs)state.signoffs={};
+    state.signoffs[k]=state.signoffs[k]||{};
+    state.signoffs[k].move=true;
+    saveState();renderContent();
+    showToast('MOVES VALIDATED!');
+  } else {
+    alert('Wrong code. Try again.');
+  }
 }
 
-function eh(s){return String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;').replace(/'/g,'&#039;');}
-function ea(s){return String(s).replace(/'/g,'&#039;').replace(/"/g,'&quot;');}
+function todayLearnValidated(){const k=getTodayKeySignoff();return !!(state.signoffs&&state.signoffs[k]&&state.signoffs[k].learn);}
+function todayMoveValidated(){const k=getTodayKeySignoff();return !!(state.signoffs&&state.signoffs[k]&&state.signoffs[k].move);}
 
 loadState();updateHeader();renderContent();
+updateBonusTabVisibility();
+setInterval(updateBonusTabVisibility,60000);
 </script>
 </body>
 </html>
