@@ -232,7 +232,7 @@ body{font-family:var(--font-b);background:var(--gray-bg);color:var(--text);min-h
         <div class="app-title">HEWITT'S<br>SUMMER ACADEMY</div>
         <div class="app-subtitle">Summer 2026 &nbsp;·&nbsp; Level Up</div>
       </div>
-      <div class="streak-badge">&#128293; <span id="streakCount">0</span> day streak</div>
+      <div class="streak-badge">&#128197; <span id="streakCount">0</span> days logged</div>
     </div>
     <div class="xp-section">
       <div class="level-row">
@@ -297,141 +297,227 @@ const EXTRA_JULY4=[
   {type:'f1w',label:'British GP — Sprint Weekend',race:'British GP',circuit:'Silverstone Circuit — Race is TOMORROW!'}
 ];
 
-const ASSIGNMENTS=[
-  // MATH
-  {id:'a24',cat:'math',icon:'&#10135;',bg:'#F0FDF4',title:'Free Throw Math',sub:'Basketball Statistics',xp:55,
+const ASSIGNMENT_SETS=[
+  // ===== SET 1 =====
+  [
+  {id:'s1_a24',cat:'math',icon:'&#10135;',bg:'#F0FDF4',title:'Free Throw Math',sub:'Basketball Statistics',xp:55,
    q:'A player shoots 80 free throws and makes 68. What is their free throw percentage?',
    opts:['82%','85%','80%','88%'],answer:'85%',
    fact:'68 divided by 80 equals 0.85, or 85%. The NBA season record belongs to Jose Calderon at 98.1% in 2008-09.'},
-  {id:'a25',cat:'math',icon:'&#10135;',bg:'#F0FDF4',title:'Win Percentage',sub:'Box Score Math',xp:55,
+  {id:'s1_a25',cat:'math',icon:'&#10135;',bg:'#F0FDF4',title:'Win Percentage',sub:'Box Score Math',xp:55,
    q:'A team plays 82 games and wins 57. What is their winning percentage to the nearest thousandth?',
    opts:['.695','.675','.715','.655'],answer:'.695',
    fact:'57 divided by 82 is 0.6951, which rounds to .695. The 1995-96 Chicago Bulls went 72-10 for a .878 win percentage.'},
-  // HISTORY
-  {id:'a26',cat:'history',icon:'&#128214;',bg:'#FEF3C7',title:'The Moon Landing',sub:'American History',xp:60,
+  {id:'s1_a26',cat:'history',icon:'&#128214;',bg:'#FEF3C7',title:'The Moon Landing',sub:'American History',xp:60,
    q:'Neil Armstrong became the first human to walk on the moon in what year?',
    opts:['1967','1968','1969','1971'],answer:'1969',
-   fact:'July 20, 1969. "That\'s one small step for man, one giant leap for mankind." Over 600 million watched on TV.'},
-  // BIBLE
-  {id:'b01',cat:'bible',icon:'&#9997;',bg:'#FFF7ED',title:'David and Goliath',sub:'1 Samuel 17',xp:65,
+   fact:"July 20, 1969. That's one small step for man, one giant leap for mankind. Over 600 million watched on TV."},
+  {id:'s1_b01',cat:'bible',icon:'&#9997;',bg:'#FFF7ED',title:'David and Goliath',sub:'1 Samuel 17',xp:65,
    q:'David defeated Goliath with a sling and a stone. How many stones did David pick up before the fight?',
    opts:['1','3','5','7'],answer:'5',
-   fact:'1 Samuel 17:40 — David chose five smooth stones from a stream but only needed one. The story teaches that courage and faith are more powerful than size or strength.'},
-  {id:'b02',cat:'bible',icon:'&#9997;',bg:'#FFF7ED',title:"Noah's Ark",sub:'Genesis 6-9',xp:60,
+   fact:'1 Samuel 17:40 — David chose five smooth stones from a stream but only needed one. Courage and faith beat size every time.'},
+  {id:'s1_b02',cat:'bible',icon:'&#9997;',bg:'#FFF7ED',title:"Noah's Ark",sub:'Genesis 6-9',xp:60,
    q:"How many days and nights did it rain during the flood in Noah's story?",
    opts:['7','20','40','100'],answer:'40',
-   fact:"Genesis 7:12 — It rained 40 days and 40 nights. The number 40 appears throughout the Bible as a period of testing. Moses spent 40 years in the desert. Jesus fasted 40 days."},
-  {id:'b03',cat:'bible',icon:'&#9997;',bg:'#FFF7ED',title:"The Lord's Prayer",sub:'Matthew 6',xp:70,
+   fact:"Genesis 7:12 — It rained 40 days and 40 nights. The number 40 appears throughout the Bible as a period of testing."},
+  {id:'s1_b03',cat:'bible',icon:'&#9997;',bg:'#FFF7ED',title:"The Lord's Prayer",sub:'Matthew 6',xp:70,
    q:"In the Lord's Prayer, we ask God to forgive our debts as we forgive whom?",
    opts:['Our enemies','Our debtors','Our neighbors','All people'],answer:'Our debtors',
-   fact:"Matthew 6:12 — Forgive us our debts, as we also have forgiven our debtors. The prayer teaches that receiving forgiveness is connected to giving it. One of the most recited prayers in history."},
-  {id:'b04',cat:'bible',icon:'&#9997;',bg:'#FFF7ED',title:'The Ten Commandments',sub:'Exodus 20',xp:65,
+   fact:"Matthew 6:12 — Forgive us our debts, as we also have forgiven our debtors. One of the most recited prayers in history."},
+  {id:'s1_b04',cat:'bible',icon:'&#9997;',bg:'#FFF7ED',title:'The Ten Commandments',sub:'Exodus 20',xp:65,
    q:'The first commandment says you shall have no other ___ before God.',
    opts:['kings','idols','gods','masters'],answer:'gods',
-   fact:'Exodus 20:3 — The first commandment establishes that God is above everything. Given to Moses on Mount Sinai, the Ten Commandments form the foundation of biblical law.'},
-  {id:'b05',cat:'bible',icon:'&#9997;',bg:'#FFF7ED',title:'The Golden Rule',sub:'Matthew 7:12',xp:60,
+   fact:'Exodus 20:3 — The first commandment establishes that God is above everything. Given to Moses on Mount Sinai.'},
+  {id:'s1_b05',cat:'bible',icon:'&#9997;',bg:'#FFF7ED',title:'The Golden Rule',sub:'Matthew 7:12',xp:60,
    q:'Jesus states the Golden Rule in Matthew 7:12. What does it teach?',
    opts:['Love your enemies','Treat others as you wish to be treated','Give to the poor','Pray without ceasing'],answer:'Treat others as you wish to be treated',
-   fact:'Matthew 7:12 — Do to others what you would have them do to you. Jesus called this the summary of the Law and the Prophets. One of the most powerful moral principles ever written.'},
-  // MUSIC
-  {id:'a10',cat:'music',icon:'&#127928;',bg:'#EDE9FE',title:'Like a Rolling Stone',sub:'Bob Dylan',xp:60,
-   q:'"Like a Rolling Stone" was revolutionary. What made radio stations refuse to play it?',
+   fact:'Matthew 7:12 — Do to others what you would have them do to you. Jesus called this the summary of the Law and the Prophets.'},
+  {id:'s1_a10',cat:'music',icon:'&#127928;',bg:'#EDE9FE',title:'Like a Rolling Stone',sub:'Bob Dylan',xp:60,
+   q:"'Like a Rolling Stone' was revolutionary. What made radio stations refuse to play it?",
    opts:['Too political','Over 6 minutes long','No melody','Too loud'],answer:'Over 6 minutes long',
    fact:'Radio said no song could be over 3 minutes. Dylan did not care. Changed what a pop song could be.'},
-  {id:'a11',cat:'music',icon:'&#127928;',bg:'#EDE9FE',title:'Beatles Break Up',sub:'Music History',xp:50,
+  {id:'s1_a11',cat:'music',icon:'&#127928;',bg:'#EDE9FE',title:'Beatles Break Up',sub:'Music History',xp:50,
    q:'In what year did The Beatles officially break up?',
    opts:['1968','1969','1970','1972'],answer:'1970',
    fact:'Paul McCartney announced his departure in April 1970, just after Abbey Road was released.'},
-  {id:'a12',cat:'music',icon:'&#127928;',bg:'#EDE9FE',title:'Hendrix at Woodstock',sub:'Jimi Hendrix',xp:75,
+  {id:'s1_a12',cat:'music',icon:'&#127928;',bg:'#EDE9FE',title:'Hendrix at Woodstock',sub:'Jimi Hendrix',xp:75,
    q:'Jimi Hendrix closed Woodstock 1969 with a famous version of which song?',
    opts:['Purple Haze','The Star-Spangled Banner','Hey Joe','All Along the Watchtower'],answer:'The Star-Spangled Banner',
    fact:'Hendrix played the national anthem with feedback and distortion. One of the greatest guitar moments in history.'},
-  {id:'a13',cat:'music',icon:'&#127928;',bg:'#EDE9FE',title:'The Beach Boys',sub:'California Sound',xp:50,
+  {id:'s1_a13',cat:'music',icon:'&#127928;',bg:'#EDE9FE',title:'The Beach Boys',sub:'California Sound',xp:50,
    q:'"Pet Sounds" by the Beach Boys directly influenced which legendary band?',
    opts:['The Rolling Stones','The Beatles','Led Zeppelin','The Doors'],answer:'The Beatles',
    fact:"Paul McCartney called Pet Sounds his favorite album. It inspired the Beatles to make Sgt. Pepper's."},
-  {id:'a14',cat:'music',icon:'&#127928;',bg:'#EDE9FE',title:'Elvis the King',sub:'Rock and Roll',xp:55,
-   q:'Elvis Presley is the "King of Rock and Roll." What state was he born in?',
+  {id:'s1_a14',cat:'music',icon:'&#127928;',bg:'#EDE9FE',title:'Elvis the King',sub:'Rock and Roll',xp:55,
+   q:"Elvis Presley is the 'King of Rock and Roll.' What state was he born in?",
    opts:['Tennessee','Alabama','Mississippi','Louisiana'],answer:'Mississippi',
    fact:'Tupelo, Mississippi, January 8, 1935. His first Sun Studio recording in 1954 changed American music.'},
-  // ART
-  {id:'a19',cat:'art',icon:'&#127912;',bg:'#ECFDF5',title:'Starry Night',sub:'Van Gogh',xp:60,
-   q:'Van Gogh painted "The Starry Night" from the window of what location?',
+  {id:'s1_a19',cat:'art',icon:'&#127912;',bg:'#ECFDF5',title:'Starry Night',sub:'Van Gogh',xp:60,
+   q:"Van Gogh painted 'The Starry Night' from the window of what location?",
    opts:['His Paris apartment','A hospital in Arles','An asylum in Saint-Remy','His childhood home'],answer:'An asylum in Saint-Remy',
    fact:'1889. Van Gogh painted it from his room in a mental institution. He called it a failure when he sent it to his brother Theo.'},
-  {id:'a20',cat:'art',icon:'&#127912;',bg:'#ECFDF5',title:'Mona Lisa',sub:'Leonardo da Vinci',xp:55,
+  {id:'s1_a20',cat:'art',icon:'&#127912;',bg:'#ECFDF5',title:'Mona Lisa',sub:'Leonardo da Vinci',xp:55,
    q:'The Mona Lisa is displayed in which museum?',
    opts:['The British Museum','The Louvre','The Vatican Museums','The Uffizi Gallery'],answer:'The Louvre',
    fact:'Paris, France. About 6 million people visit the Louvre every year just to see it. It is only 30 by 21 inches.'},
-  {id:'a21',cat:'art',icon:'&#127912;',bg:'#ECFDF5',title:'Pop Art',sub:'Andy Warhol',xp:50,
-   q:'Andy Warhol turned what everyday objects into iconic Pop Art?',
+  {id:'s1_a21',cat:'art',icon:'&#127912;',bg:'#ECFDF5',title:'Pop Art',sub:'Andy Warhol',xp:50,
+   q:"Andy Warhol turned what everyday objects into iconic Pop Art?",
    opts:['Dollar bills and coins','Soup cans and celebrities','Cars and motorcycles','Sports equipment'],answer:'Soup cans and celebrities',
    fact:"Campbell's Soup cans, Marilyn Monroe, Elvis. Warhol believed commercial objects were as valid as fine art."},
-  // POETRY
-  {id:'a22',cat:'poetry',icon:'&#128220;',bg:'#FEF9C3',title:'The Road Not Taken',sub:'Robert Frost',xp:70,
-   q:'In Frost\'s "The Road Not Taken," what twist do most readers miss?',
+  {id:'s1_a22',cat:'poetry',icon:'&#128220;',bg:'#FEF9C3',title:'The Road Not Taken',sub:'Robert Frost',xp:70,
+   q:"In Frost's \"The Road Not Taken,\" what twist do most readers miss?",
    opts:['The roads were actually identical','The speaker was lost','It is literally about driving','The speaker chose wrong'],answer:'The roads were actually identical',
    fact:'Frost describes both paths as having the same claim. It is a poem about how we create meaning from ordinary choices.'},
-  {id:'a23',cat:'poetry',icon:'&#128220;',bg:'#FEF9C3',title:'O Captain! My Captain!',sub:'Walt Whitman',xp:65,
-   q:'Walt Whitman\'s "O Captain! My Captain!" (1865) — the captain represents whom?',
+  {id:'s1_a23',cat:'poetry',icon:'&#128220;',bg:'#FEF9C3',title:'O Captain! My Captain!',sub:'Walt Whitman',xp:65,
+   q:"Walt Whitman's O Captain My Captain 1865 — the captain represents whom?",
    opts:['George Washington','Abraham Lincoln','Ulysses S. Grant','Frederick Douglass'],answer:'Abraham Lincoln',
    fact:"Whitman was devastated by Lincoln's assassination. Lincoln guided the country through the Civil War and was killed right as it ended."},
-  // BASKETBALL
-  {id:'a01',cat:'basketball',icon:'&#127936;',bg:'#FEE8D6',title:"Jordan's Six Rings",sub:'NBA History',xp:50,
+  {id:'s1_a01',cat:'basketball',icon:'&#127936;',bg:'#FEE8D6',title:"Jordan's Six Rings",sub:'NBA History',xp:50,
    q:'Michael Jordan won six NBA championships. How many Finals MVP awards did he win?',
    opts:['3','5','6','4'],answer:'6',
    fact:'Jordan was Finals MVP all six times. No one has ever won a Finals he played in.'},
-  {id:'a02',cat:'basketball',icon:'&#127936;',bg:'#FEE8D6',title:'Three-Point King',sub:'NBA Records',xp:50,
+  {id:'s1_a02',cat:'basketball',icon:'&#127936;',bg:'#FEE8D6',title:'Three-Point King',sub:'NBA Records',xp:50,
    q:'Stephen Curry holds the all-time NBA three-point record. About how many has he made?',
    opts:['Over 2,000','Over 3,000','Over 3,500','Over 4,000'],answer:'Over 3,500',
    fact:'Curry passed Ray Allen in 2021 and kept adding. He shoots around 43% from three for his career.'},
-  {id:'a03',cat:'basketball',icon:'&#127936;',bg:'#FEE8D6',title:"Wilt's 100-Point Game",sub:'Historic Stats',xp:75,
+  {id:'s1_a03',cat:'basketball',icon:'&#127936;',bg:'#FEE8D6',title:"Wilt's 100-Point Game",sub:'Historic Stats',xp:75,
    q:'Wilt Chamberlain scored 100 points in a single NBA game. What year?',
    opts:['1958','1960','1962','1965'],answer:'1962',
    fact:'March 2, 1962. Philadelphia Warriors vs New York Knicks. Nobody has ever come within 20 points of that mark.'},
-  {id:'a04',cat:'basketball',icon:'&#127936;',bg:'#FEE8D6',title:'The Dream Team',sub:'Olympics History',xp:60,
+  {id:'s1_a04',cat:'basketball',icon:'&#127936;',bg:'#FEE8D6',title:'The Dream Team',sub:'Olympics History',xp:60,
    q:'The 1992 US Dream Team had Jordan, Magic, Bird, and Barkley. Where were those Olympics?',
    opts:['Atlanta','Seoul','Sydney','Barcelona'],answer:'Barcelona',
    fact:'Barcelona, Spain. They won gold by an average of 44 points per game.'},
-  {id:'a05',cat:'basketball',icon:'&#127936;',bg:'#FEE8D6',title:'Bird vs Magic',sub:'1980s Rivalry',xp:65,
+  {id:'s1_a05',cat:'basketball',icon:'&#127936;',bg:'#FEE8D6',title:'Bird vs Magic',sub:'1980s Rivalry',xp:65,
    q:'Larry Bird and Magic Johnson were rivals in the 1980s. Which team did Bird play for?',
    opts:['New York Knicks','Los Angeles Lakers','Boston Celtics','Philadelphia 76ers'],answer:'Boston Celtics',
    fact:'Bird with the Celtics, Magic with the Lakers. Their rivalry is credited with saving the NBA.'},
-  {id:'a06',cat:'basketball',icon:'&#127936;',bg:'#FEE8D6',title:"LeBron's Record",sub:'All-Time Scoring',xp:55,
+  {id:'s1_a06',cat:'basketball',icon:'&#127936;',bg:'#FEE8D6',title:"LeBron's Record",sub:'All-Time Scoring',xp:55,
    q:'LeBron became the all-time NBA scoring leader in 2023. Whose record did he break?',
    opts:['Michael Jordan','Wilt Chamberlain','Kareem Abdul-Jabbar','Karl Malone'],answer:'Kareem Abdul-Jabbar',
    fact:'LeBron passed Kareem on February 7, 2023. Kareem held the record for 38 years.'},
-  // HOCKEY
-  {id:'a07',cat:'hockey',icon:'&#127944;',bg:'#E0F2FE',title:'The Great One',sub:'Wayne Gretzky',xp:75,
+  {id:'s1_a07',cat:'hockey',icon:'&#127944;',bg:'#E0F2FE',title:'The Great One',sub:'Wayne Gretzky',xp:75,
    q:"Gretzky's assists alone beat every other player's total points. How many career assists?",
    opts:['1,249','1,963','1,500','2,100'],answer:'1,963',
    fact:'1,963 assists. Total points were 2,857. They retired his number 99 across the entire NHL.'},
-  {id:'a08',cat:'hockey',icon:'&#127944;',bg:'#E0F2FE',title:'The Stanley Cup',sub:'NHL History',xp:50,
+  {id:'s1_a08',cat:'hockey',icon:'&#127944;',bg:'#E0F2FE',title:'The Stanley Cup',sub:'NHL History',xp:50,
    q:'The Stanley Cup is the oldest pro sports trophy in North America. When was it first awarded?',
    opts:['1893','1917','1904','1926'],answer:'1893',
    fact:"Lord Stanley donated it in 1892. Every player who wins still gets their name engraved on it every year."},
-  {id:'a09',cat:'hockey',icon:'&#127944;',bg:'#E0F2FE',title:"McDavid's Season",sub:'Modern NHL',xp:60,
+  {id:'s1_a09',cat:'hockey',icon:'&#127944;',bg:'#E0F2FE',title:"McDavid's Season",sub:'Modern NHL',xp:60,
    q:'Connor McDavid had a historic 153-point season in 2022-23. Who was the last to score 150+ before him?',
    opts:['Wayne Gretzky','Mario Lemieux','Jaromir Jagr','Brett Hull'],answer:'Mario Lemieux',
    fact:"Lemieux did it in 1995-96. McDavid is the fastest skater in NHL history."},
-  // F1
-  {id:'a15',cat:'f1',icon:'&#127950;',bg:'#1a1a2e',title:'Lando Wins Miami',sub:'F1 History',xp:60,
+  {id:'s1_a15',cat:'f1',icon:'&#127950;',bg:'#1a1a2e',title:'Lando Wins Miami',sub:'F1 History',xp:60,
    q:'Lando Norris won his first ever F1 race in 2024. Which Grand Prix was it?',
    opts:['British GP','Monaco GP','Miami GP','Australian GP'],answer:'Miami GP',
    fact:'May 5, 2024. Miami. Norris led from the front and held off Verstappen. The McLaren garage went crazy.'},
-  {id:'a16',cat:'f1',icon:'&#127950;',bg:'#1a1a2e',title:'Kimi Antonelli',sub:'F1 History',xp:65,
+  {id:'s1_a16',cat:'f1',icon:'&#127950;',bg:'#1a1a2e',title:'Kimi Antonelli',sub:'F1 History',xp:65,
    q:'Kimi Antonelli was born in 2006 and joined which legendary F1 team replacing Lewis Hamilton?',
    opts:['Ferrari','Red Bull','McLaren','Mercedes'],answer:'Mercedes',
    fact:'Mercedes signed Antonelli to replace Lewis Hamilton. Kimi is Italian and one of the youngest F1 drivers in history.'},
-  {id:'a17',cat:'f1',icon:'&#127950;',bg:'#1a1a2e',title:'F1 Speed',sub:'Formula 1 Facts',xp:50,
+  {id:'s1_a17',cat:'f1',icon:'&#127950;',bg:'#1a1a2e',title:'F1 Speed',sub:'Formula 1 Facts',xp:50,
    q:'What is the approximate top speed of a modern F1 car?',
    opts:['160 mph','200 mph','230 mph','280 mph'],answer:'230 mph',
    fact:'Over 230 mph on long straights. A pit stop takes about 2.5 seconds. Each car costs around $15 million.'},
-  {id:'a18',cat:'f1',icon:'&#127950;',bg:'#1a1a2e',title:'Silverstone History',sub:'British Grand Prix',xp:55,
-   q:'The British GP at Silverstone is Lando\'s home race. What was Silverstone before it became a circuit?',
+  {id:'s1_a18',cat:'f1',icon:'&#127950;',bg:'#1a1a2e',title:'Silverstone History',sub:'British Grand Prix',xp:55,
+   q:"The British GP at Silverstone is Lando's home race. What was Silverstone before it became a circuit?",
    opts:['A horse racing track','A WWII airfield','A shipping port','A train station'],answer:'A WWII airfield',
    fact:"Silverstone was a Royal Air Force base in WWII. The runways became the race track. The first British GP there was 1948."}
+  ],
+  // ===== SET 2 =====
+  [
+  {id:'s2_m01',cat:'math',icon:'&#10135;',bg:'#F0FDF4',title:'Points Per Game',sub:'Basketball Math',xp:55,
+   q:"A player scores 612 points over 72 games. What is their points per game average rounded to one decimal?",
+   opts:['8.3','8.5','8.7','9.1'],answer:'8.5',
+   fact:'612 divided by 72 is 8.5 points per game. NBA scoring averages are calculated the same way. In 2024, Luka Doncic averaged 29.6 points per game.'},
+  {id:'s2_m02',cat:'math',icon:'&#10135;',bg:'#F0FDF4',title:'F1 Lap Math',sub:'Racing Statistics',xp:55,
+   q:'A race is 52 laps long. Each lap is 3.337 miles. Approximately how long is the full race in miles?',
+   opts:['163 miles','174 miles','185 miles','196 miles'],answer:'174 miles',
+   fact:'52 x 3.337 = 173.5, which rounds to 174 miles. The Monaco Grand Prix circuit is 3.337 miles and 78 laps, making it about 260 miles total.'},
+  {id:'s2_h01',cat:'history',icon:'&#128214;',bg:'#FEF3C7',title:'The Civil War',sub:'American History',xp:60,
+   q:'The American Civil War was fought mainly over what issue?',
+   opts:['Taxation','Slavery','The presidency','Trade with Europe'],answer:'Slavery',
+   fact:'The Civil War was fought from 1861 to 1865. Over 600,000 soldiers died. President Lincoln signed the Emancipation Proclamation in 1863, freeing enslaved people in Confederate states.'},
+  {id:'s2_h02',cat:'history',icon:'&#128214;',bg:'#FEF3C7',title:'World War II',sub:'American History',xp:60,
+   q:'The United States entered World War II after Japan attacked which US naval base in 1941?',
+   opts:['Guam','Pearl Harbor','Midway','Manila'],answer:'Pearl Harbor',
+   fact:'December 7, 1941. Japan attacked Pearl Harbor in Hawaii. FDR called it "a date which will live in infamy." The US declared war the next day.'},
+  {id:'s2_b01',cat:'bible',icon:'&#9997;',bg:'#FFF7ED',title:'The Prodigal Son',sub:'Luke 15',xp:65,
+   q:'In the Parable of the Prodigal Son, what does the father do when his son returns after wasting his inheritance?',
+   opts:['Turns him away','Makes him a servant','Throws a celebration','Sends him away again'],answer:'Throws a celebration',
+   fact:'Luke 15:20-24 — The father runs to meet his son, gives him a robe and a ring, and throws a party. The parable shows that God celebrates when we return to Him, no matter what we have done.'},
+  {id:'s2_b02',cat:'bible',icon:'&#9997;',bg:'#FFF7ED',title:'The Armor of God',sub:'Ephesians 6',xp:65,
+   q:'In Ephesians 6, the "belt of truth" is one piece of the Armor of God. What is the "sword of the Spirit"?',
+   opts:['Prayer','Faith','The Word of God','Salvation'],answer:'The Word of God',
+   fact:"Ephesians 6:17 — The sword of the Spirit is the Word of God. It is the only offensive weapon in the armor. Paul uses the metaphor of a Roman soldier to describe spiritual readiness."},
+  {id:'s2_b03',cat:'bible',icon:'&#9997;',bg:'#FFF7ED',title:'Psalm 23',sub:'Psalms',xp:60,
+   q:'Psalm 23 says "The Lord is my shepherd, I shall not..." what?',
+   opts:['Fear','Want','Fall','Fail'],answer:'Want',
+   fact:'Psalm 23:1 — A shepherd provides everything his sheep need. The Psalm promises God guides, protects, and restores us. It is one of the most memorized passages in the entire Bible.'},
+  {id:'s2_mu01',cat:'music',icon:'&#127928;',bg:'#EDE9FE',title:'Rolling Stones',sub:'Rock History',xp:55,
+   q:'The Rolling Stones released "Paint It Black" in 1966. What instrument gives the song its distinctive sound?',
+   opts:['Banjo','Sitar','Mandolin','Dulcimer'],answer:'Sitar',
+   fact:'Brian Jones played the sitar, a traditional Indian string instrument. It was one of the first times a sitar was used in a mainstream rock song. The Beatles also used sitars thanks to George Harrison.'},
+  {id:'s2_mu02',cat:'music',icon:'&#127928;',bg:'#EDE9FE',title:'Led Zeppelin',sub:'Rock History',xp:55,
+   q:"Led Zeppelin's Stairway to Heaven is one of the greatest rock songs. Which guitarist played the famous intro?",
+   opts:['Eric Clapton','Jimi Hendrix','Jimmy Page','Pete Townshend'],answer:'Jimmy Page',
+   fact:'Jimmy Page wrote and played the entire song. The acoustic guitar intro is one of the most recognized riffs in rock history. Led Zeppelin released it in 1971.'},
+  {id:'s2_mu03',cat:'music',icon:'&#127928;',bg:'#EDE9FE',title:'Johnny Cash',sub:'Country and Rock',xp:50,
+   q:"Johnny Cash was known for wearing all black on stage. What was his nickname?",
+   opts:['The Dark One','The Man in Black','Midnight Rider','Black Jack'],answer:'The Man in Black',
+   fact:'Cash wrote a song called "Man in Black" in 1971 explaining why he always wore it — to represent the poor, hungry, and forgotten. He was one of the most influential musicians of the 20th century.'},
+  {id:'s2_ar01',cat:'art',icon:'&#127912;',bg:'#ECFDF5',title:'Michelangelo',sub:'Renaissance Art',xp:60,
+   q:"Michelangelo painted the ceiling of which famous chapel in Rome?",
+   opts:["St. Peter's Basilica",'The Pantheon','The Sistine Chapel','The Vatican Museum'],answer:'The Sistine Chapel',
+   fact:"Michelangelo painted the Sistine Chapel ceiling from 1508 to 1512, mostly lying on his back. The most famous section shows God reaching out to touch Adam's finger."},
+  {id:'s2_ar02',cat:'art',icon:'&#127912;',bg:'#ECFDF5',title:'Pablo Picasso',sub:'Modern Art',xp:55,
+   q:"Pablo Picasso co-founded which major art movement that broke objects into geometric shapes?",
+   opts:['Surrealism','Impressionism','Cubism','Expressionism'],answer:'Cubism',
+   fact:'Cubism showed multiple perspectives of an object at the same time. Picasso and Georges Braque developed it around 1907. It was one of the most revolutionary changes in art history.'},
+  {id:'s2_po01',cat:'poetry',icon:'&#128220;',bg:'#FEF9C3',title:"If— by Kipling",sub:'Rudyard Kipling',xp:70,
+   q:"Kipling's poem If is written as advice from a father to his son. What does it say you'll be if you meet certain challenges?",
+   opts:['A hero','A king','A Man','A legend'],answer:'A Man',
+   fact:"Kipling wrote: If you can meet Triumph and Disaster and treat those two impostors just the same, you'll be a Man my son. Written in 1895, one of the most beloved poems ever written."},
+  {id:'s2_po02',cat:'poetry',icon:'&#128220;',bg:'#FEF9C3',title:'Casey at the Bat',sub:'Ernest Thayer',xp:65,
+   q:"In the famous baseball poem Casey at the Bat, what happens when Casey steps up to hit?",
+   opts:['He hits a home run','He walks','He strikes out','He gets a base hit'],answer:'He strikes out',
+   fact:'Published in 1888, the poem ends with "mighty Casey has struck out." It is one of the most famous sports poems ever written and proves that even the best hitter can fail when the pressure is highest.'},
+  {id:'s2_ba01',cat:'basketball',icon:'&#127936;',bg:'#FEE8D6',title:'Kobe Bryant',sub:'NBA Legends',xp:65,
+   q:"Kobe Bryant spent his entire NBA career with which team?",
+   opts:['Chicago Bulls','Boston Celtics','Los Angeles Lakers','Miami Heat'],answer:'Los Angeles Lakers',
+   fact:'Kobe played all 20 seasons with the Lakers. He won 5 championships, scored 81 points in a single game in 2006, and wore both #8 and #24. The Lakers retired both numbers.'},
+  {id:'s2_ba02',cat:'basketball',icon:'&#127936;',bg:'#FEE8D6',title:'NBA Shot Clock',sub:'Basketball Rules',xp:50,
+   q:'The NBA shot clock requires a team to attempt a shot within how many seconds?',
+   opts:['20','24','30','35'],answer:'24',
+   fact:'The 24-second shot clock was introduced in 1954 by NBA owner Danny Biasone. Before it, teams would stall with the ball. One game ended 19-18. The shot clock saved the NBA.'},
+  {id:'s2_ba03',cat:'basketball',icon:'&#127936;',bg:'#FEE8D6',title:'The Finals MVP',sub:'NBA History',xp:55,
+   q:'Who is the only player to win NBA Finals MVP with three different teams?',
+   opts:['LeBron James',"Shaquille O'Neal",'Kareem Abdul-Jabbar','Magic Johnson'],answer:'LeBron James',
+   fact:'LeBron won Finals MVP with the Cavaliers (2016), Heat (2012, 2013), and Lakers (2020). His 2016 title with Cleveland, coming back from 3-1 down, is considered one of the greatest sports comebacks ever.'},
+  {id:'s2_ho01',cat:'hockey',icon:'&#127944;',bg:'#E0F2FE',title:'Gordie Howe',sub:'NHL Legends',xp:65,
+   q:"Gordie Howe's nickname was Mr. Hockey. How many seasons did he play in professional hockey?",
+   opts:['18','22','26','30'],answer:'26',
+   fact:'Gordie Howe played 26 professional seasons across the NHL and WHA. He once played on the same line as his two sons. He scored at least one goal in five different decades — one of the most remarkable athletic careers ever.'},
+  {id:'s2_ho02',cat:'hockey',icon:'&#127944;',bg:'#E0F2FE',title:'Penalty Shot',sub:'Hockey Rules',xp:50,
+   q:'In hockey, a penalty shot is awarded when a player is pulled down on a clear breakaway. How many players are on the ice during a penalty shot?',
+   opts:['All 12','Just the shooter and goalie','The two teams plus refs','3 on each side'],answer:'Just the shooter and goalie',
+   fact:"A penalty shot is one of the most dramatic moments in hockey. The player skates in alone against the goalie with no interference. It is hockey's version of a penalty kick in soccer."},
+  {id:'s2_f101',cat:'f1',icon:'&#127950;',bg:'#1a1a2e',title:'The Pit Stop',sub:'F1 Strategy',xp:60,
+   q:"In F1 racing, the world record for the fastest pit stop is approximately how long?",
+   opts:['1.8 seconds','2.5 seconds','3.2 seconds','4.0 seconds'],answer:'1.8 seconds',
+   fact:'Red Bull Racing set the all-time record at approximately 1.80 seconds in 2023. A pit crew has up to 20 mechanics working simultaneously. The tires, jacks, and fuel nozzle all operate in perfect coordination.'},
+  {id:'s2_f102',cat:'f1',icon:'&#127950;',bg:'#1a1a2e',title:'F1 Champions',sub:'F1 History',xp:60,
+   q:"Which F1 driver holds the record for the most World Championship titles?",
+   opts:['Ayrton Senna','Michael Schumacher','Lewis Hamilton','Max Verstappen'],answer:'Lewis Hamilton',
+   fact:"Lewis Hamilton won 7 World Championships, tying Schumacher's record. He drove for McLaren then Mercedes. Widely considered one of the greatest F1 drivers ever."},
+  ]
 ];
+
+function getAssignments(){
+  const idx=state.currentSet||0;
+  return ASSIGNMENT_SETS[Math.min(idx,ASSIGNMENT_SETS.length-1)];
+}
 
 const TASKS=[
   {id:'t01',icon:'&#127939;',name:'Run the Block',desc:'One full lap around the block at a good pace.',xp:40},
@@ -449,15 +535,14 @@ const TASKS=[
 ];
 
 const BADGES=[
-  {icon:'&#127936;',name:'Hooper',check:s=>s.completed.filter(id=>ASSIGNMENTS.find(a=>a.id===id)?.cat==='basketball').length>=5},
-  {icon:'&#127928;',name:'Rockstar',check:s=>s.completed.filter(id=>ASSIGNMENTS.find(a=>a.id===id)?.cat==='music').length>=4},
+  {icon:'&#127936;',name:'Hooper',check:s=>s.completed.filter(id=>ASSIGNMENT_SETS.flat().find(a=>a.id===id)?.cat==='basketball').length>=5},
+  {icon:'&#127928;',name:'Rockstar',check:s=>s.completed.filter(id=>ASSIGNMENT_SETS.flat().find(a=>a.id===id)?.cat==='music').length>=4},
   {icon:'&#127939;',name:'Athlete',check:s=>s.tasksCompleted.length>=5},
-  {icon:'&#128220;',name:'Poet',check:s=>s.completed.filter(id=>ASSIGNMENTS.find(a=>a.id===id)?.cat==='poetry').length>=2},
-  {icon:'&#128293;',name:'On Fire',check:s=>s.streak>=3},
+  {icon:'&#128220;',name:'Poet',check:s=>s.completed.filter(id=>ASSIGNMENT_SETS.flat().find(a=>a.id===id)?.cat==='poetry').length>=2},
   {icon:'&#127942;',name:'MVP',check:s=>s.xp>=2400},
-  {icon:'&#127912;',name:'Artsy',check:s=>s.completed.filter(id=>ASSIGNMENTS.find(a=>a.id===id)?.cat==='art').length>=3},
-  {icon:'&#129518;',name:'Stats Nerd',check:s=>s.completed.filter(id=>ASSIGNMENTS.find(a=>a.id===id)?.cat==='math').length>=2},
-  {icon:'&#127950;',name:'Checkered',check:s=>s.completed.filter(id=>ASSIGNMENTS.find(a=>a.id===id)?.cat==='f1').length>=4},
+  {icon:'&#127912;',name:'Artsy',check:s=>s.completed.filter(id=>ASSIGNMENT_SETS.flat().find(a=>a.id===id)?.cat==='art').length>=3},
+  {icon:'&#129518;',name:'Stats Nerd',check:s=>s.completed.filter(id=>ASSIGNMENT_SETS.flat().find(a=>a.id===id)?.cat==='math').length>=2},
+  {icon:'&#127950;',name:'Checkered',check:s=>s.completed.filter(id=>ASSIGNMENT_SETS.flat().find(a=>a.id===id)?.cat==='f1').length>=4},
   {icon:'&#128197;',name:'Consistent',check:s=>Object.values(s.calDays||{}).filter(d=>d.checked).length>=14},
   {icon:'&#9997;',name:'Scripture',check:s=>s.completed.filter(id=>ASSIGNMENTS.find(a=>a.id===id)?.cat==='bible').length>=5}
 ];
@@ -477,22 +562,14 @@ const VAULT=[
 const CL={'all':'All','math':'Math','history':'History','bible':'Bible','music':'Music','art':'Art','poetry':'Poetry','basketball':'Basketball','hockey':'Hockey','f1':'F1 Racing'};
 const CE={'math':'&#10135;','history':'&#128214;','bible':'&#9997;','music':'&#127928;','art':'&#127912;','poetry':'&#128220;','basketball':'&#127936;','hockey':'&#127944;','f1':'&#127950;'};
 
-let state={xp:0,streak:0,completed:[],tasksCompleted:[],lastDate:null,calDays:{},penalties:[]};
+let state={xp:0,streak:0,currentSet:0,completed:[],tasksCompleted:[],lastDate:null,calDays:{},penalties:[]};
 let activeTab='learn',activeFilter='all',openCard=null,calM=5,calY=2026;
 
 function loadState(){
   try{const s=JSON.parse(localStorage.getItem(SK));if(s)state=Object.assign({calDays:{},penalties:[]},state,s);if(!state.calDays)state.calDays={};if(!state.penalties)state.penalties=[]}catch(e){}
-  checkStreak();
 }
 function saveState(){localStorage.setItem(SK,JSON.stringify(state));}
-function checkStreak(){
-  const today=new Date().toDateString(),yesterday=new Date(Date.now()-86400000).toDateString();
-  if(state.lastDate===today)return;
-  if(state.lastDate===yesterday)state.streak+=1;
-  else if(!state.lastDate){}
-  else state.streak=0;
-  state.lastDate=today;saveState();
-}
+
 function getLvl(){
   let i=0;for(let j=LEVELS.length-1;j>=0;j--){if(state.xp>=LEVELS[j].min){i=j;break;}}
   return{lvl:i+1,...LEVELS[i],nextMax:LEVELS[Math.min(i+1,LEVELS.length-1)].max};
@@ -503,7 +580,7 @@ function updateHeader(){
   document.getElementById('levelName').textContent=l.name;
   document.getElementById('xpDisplay').textContent=state.xp.toLocaleString()+' / '+l.nextMax.toLocaleString()+' XP';
   document.getElementById('xpFill').style.width=pct+'%';
-  document.getElementById('streakCount').textContent=state.streak;
+  document.getElementById('streakCount').textContent=Object.values(state.calDays||{}).filter(d=>d.checked).length;
 }
 function showToast(msg){const t=document.getElementById('toast');t.textContent=msg;t.classList.add('show');setTimeout(()=>t.classList.remove('show'),2200);}
 function awardXP(amt){
@@ -530,12 +607,38 @@ function renderLearn(){
   let chips='<div class="filter-chips">';
   cats.forEach(c=>{chips+=`<div class="chip${activeFilter===c?' active':''}" onclick="setFilter('${c}')">${CL[c]}</div>`;});
   chips+='</div>';
-  const filtered=activeFilter==='all'?ASSIGNMENTS:ASSIGNMENTS.filter(a=>a.cat===activeFilter);
+  const filtered=activeFilter==='all'?getAssignments():getAssignments().filter(a=>a.cat===activeFilter);
+  const allDone=getAssignments().every(a=>state.completed.includes(a.id));
+  const hasNextSet=(state.currentSet||0)<ASSIGNMENT_SETS.length-1;
+  const setLabel=`Set ${(state.currentSet||0)+1} of ${ASSIGNMENT_SETS.length}`;
+
   let html=chips+`<div class="stat-grid">
     <div class="stat-card"><div class="stat-num">${state.completed.length}</div><div class="stat-lbl">Completed</div></div>
-    <div class="stat-card"><div class="stat-num">${ASSIGNMENTS.length-state.completed.length}</div><div class="stat-lbl">Remaining</div></div>
+    <div class="stat-card"><div class="stat-num">${getAssignments().length-state.completed.length}</div><div class="stat-lbl">Remaining</div></div>
     <div class="stat-card"><div class="stat-num">${state.xp.toLocaleString()}</div><div class="stat-lbl">Total XP</div></div>
-  </div><div class="section-title">&#128218; Assignments</div>`;
+  </div>`;
+
+  if(allDone&&hasNextSet){
+    html+=`<div style="background:linear-gradient(135deg,#FEF9C3,#FEE8D6);border:2px solid var(--gold);border-radius:var(--radius);padding:16px;margin-bottom:14px;text-align:center">
+      <div style="font-size:28px;margin-bottom:6px">&#127942;</div>
+      <div style="font-family:var(--font-d);font-size:20px;color:var(--orange-dark);letter-spacing:1px;margin-bottom:4px">SET ${(state.currentSet||0)+1} COMPLETE!</div>
+      <div style="font-size:12px;color:var(--muted);margin-bottom:12px">All assignments finished. Parent code required to unlock the next set.</div>
+      <input id="nextSetCode" type="password" placeholder="Enter parent code"
+        style="width:100%;max-width:220px;padding:10px;border:2px solid var(--border);border-radius:8px;font-size:16px;text-align:center;font-family:var(--font-b);outline:none;margin-bottom:8px;letter-spacing:3px;display:block;margin:0 auto 8px"
+        onkeydown="if(event.key==='Enter')advanceSet()">
+      <button onclick="advanceSet()" style="background:var(--orange);color:white;border:none;border-radius:8px;padding:10px 24px;font-family:var(--font-d);font-size:18px;letter-spacing:1px;cursor:pointer;margin-top:6px">NEXT SET &#9658;</button>
+      <div id="nextSetErr" style="color:#B91C1C;font-size:11px;font-weight:700;margin-top:6px;display:none">Wrong code. Try again.</div>
+    </div>`;
+  } else if(allDone&&!hasNextSet){
+    html+=`<div style="background:var(--green-light);border:2px solid var(--green);border-radius:var(--radius);padding:16px;margin-bottom:14px;text-align:center">
+      <div style="font-size:28px;margin-bottom:6px">&#127942;</div>
+      <div style="font-family:var(--font-d);font-size:20px;color:#15803D;letter-spacing:1px">ALL SETS COMPLETE!</div>
+      <div style="font-size:12px;color:var(--muted);margin-top:4px">Hewitt finished every assignment. GOAT status confirmed.</div>
+    </div>`;
+  }
+
+  html+=`<div style="font-size:11px;color:var(--muted);font-weight:700;text-transform:uppercase;letter-spacing:.5px;margin-bottom:10px">${setLabel}</div>`;
+  html+=`<div class="section-title">&#128218; Assignments</div>`;
   filtered.forEach(a=>{
     const isDone=state.completed.includes(a.id),isOpen=openCard===a.id;
     html+=`<div class="assignment-card${isDone?' completed':''}">
@@ -560,13 +663,34 @@ function renderLearn(){
   return html;
 }
 
+const MOVE_CODE='1823';
+let moveUnlocked=false;
+
 function renderTasks(){
   const done=state.tasksCompleted.length;
+  if(!moveUnlocked){
+    return `<div style="padding:32px 16px;text-align:center">
+      <div style="font-size:48px;margin-bottom:12px">&#128274;</div>
+      <div style="font-family:var(--font-d);font-size:22px;color:var(--navy);letter-spacing:1px;margin-bottom:6px">PARENT CODE REQUIRED</div>
+      <div style="font-size:13px;color:var(--muted);margin-bottom:20px;line-height:1.6">A parent needs to enter the code to award XP for completed moves.</div>
+      <div style="max-width:260px;margin:0 auto">
+        <input id="moveCodeInput" type="password" placeholder="Enter code"
+          style="width:100%;padding:12px 16px;border:2px solid var(--border);border-radius:10px;font-size:18px;text-align:center;font-family:var(--font-b);outline:none;margin-bottom:10px;letter-spacing:4px"
+          onkeydown="if(event.key==='Enter')checkMoveCode()">
+        <button onclick="checkMoveCode()"
+          style="width:100%;padding:13px;background:var(--orange);color:white;border:none;border-radius:10px;font-family:var(--font-d);font-size:18px;letter-spacing:1px;cursor:pointer">
+          UNLOCK
+        </button>
+        <div id="codeError" style="color:#B91C1C;font-size:12px;font-weight:700;margin-top:8px;display:none">Wrong code. Try again.</div>
+      </div>
+    </div>`;
+  }
   let html=`<div class="stat-grid">
     <div class="stat-card"><div class="stat-num">${done}</div><div class="stat-lbl">Done</div></div>
     <div class="stat-card"><div class="stat-num">${TASKS.length-done}</div><div class="stat-lbl">Remaining</div></div>
     <div class="stat-card"><div class="stat-num">${TASKS.reduce((s,t)=>s+(state.tasksCompleted.includes(t.id)?t.xp:0),0)}</div><div class="stat-lbl">XP Earned</div></div>
-  </div><div class="section-title">&#127939; Move Missions</div>`;
+  </div><div class="section-title">&#127939; Move Missions</div>
+  <div style="background:rgba(244,109,27,.08);border:1.5px solid rgba(244,109,27,.2);border-radius:10px;padding:10px 14px;margin-bottom:12px;font-size:12px;color:var(--orange-dark);font-weight:600">&#128274; Parent mode active. Tap the checkmark next to each task Hewitt completed to award XP.</div>`;
   TASKS.forEach(t=>{
     const isDone=state.tasksCompleted.includes(t.id);
     html+=`<div class="task-card${isDone?' done-task':''}">
@@ -575,7 +699,22 @@ function renderTasks(){
       <button class="task-check${isDone?' done':''}" onclick="completeTask('${t.id}')">${isDone?'&#10003;':''}</button>
     </div>`;
   });
+  html+=`<div style="margin-top:16px;text-align:center"><button onclick="moveUnlocked=false;renderContent()" style="background:transparent;border:1.5px solid var(--border);border-radius:8px;padding:8px 18px;font-size:12px;font-weight:700;color:var(--muted);cursor:pointer;font-family:var(--font-b)">&#128274; Lock Move Tab</button></div>`;
   return html;
+}
+
+function checkMoveCode(){
+  const input=document.getElementById('moveCodeInput');
+  const err=document.getElementById('codeError');
+  if(!input)return;
+  if(input.value.trim()===MOVE_CODE){
+    moveUnlocked=true;
+    renderContent();
+  } else {
+    if(err){err.style.display='block';}
+    input.value='';
+    input.focus();
+  }
 }
 
 function renderSports(){
@@ -808,7 +947,7 @@ function renderProfile(){
     <div class="profile-title">Level ${l.lvl} &mdash; ${l.name}</div>
     <div class="profile-stats">
       <div class="profile-stat"><strong>${state.xp.toLocaleString()}</strong>Total XP</div>
-      <div class="profile-stat"><strong>${state.streak}</strong>Day Streak</div>
+      <div class="profile-stat"><strong>${Object.values(state.calDays||{}).filter(d=>d.checked).length}</strong>Days Logged</div>
       <div class="profile-stat"><strong>${state.completed.length}</strong>Lessons</div>
       <div class="profile-stat"><strong>${logged}</strong>Days Logged</div>
     </div>
@@ -826,9 +965,9 @@ function renderProfile(){
 
   html+='<div class="section-title" style="margin-top:20px">&#128202; Category Progress</div><div class="category-progress">';
   Object.keys(CE).forEach(cat=>{
-    const total=ASSIGNMENTS.filter(a=>a.cat===cat).length;
+    const total=getAssignments().filter(a=>a.cat===cat).length;
     if(!total)return;
-    const done=state.completed.filter(id=>ASSIGNMENTS.find(a=>a.id===id)?.cat===cat).length;
+    const done=state.completed.filter(id=>getAssignments().find(a=>a.id===id)?.cat===cat).length;
     const pct=Math.round((done/total)*100);
     html+=`<div class="prog-row">
       <div class="prog-emoji">${CE[cat]}</div>
@@ -859,7 +998,7 @@ function renderProfile(){
 
   html+=`<div class="reset-box">
     <h3>Reset Progress</h3>
-    <p>Clears all XP, completed lessons, tasks, calendar logs, streak, and penalty history.</p>
+    <p>Clears all XP, completed lessons, tasks, calendar logs, and penalty history.</p>
     <button class="reset-btn" onclick="resetAll()">Reset Everything</button>
   </div>`;
   return html;
@@ -869,7 +1008,7 @@ function setFilter(f){activeFilter=f;openCard=null;renderContent();}
 function toggleCard(id){openCard=openCard===id?null:id;renderContent();}
 
 function answer(aid,choice){
-  const a=ASSIGNMENTS.find(x=>x.id===aid);
+  const a=getAssignments().find(x=>x.id===aid);
   if(!a||state.completed.includes(aid))return;
   const optsEl=document.getElementById('opts_'+aid),resultEl=document.getElementById('result_'+aid);
   if(!optsEl||!resultEl)return;
@@ -893,9 +1032,26 @@ function completeTask(tid){
   state.tasksCompleted.push(tid);saveState();awardXP(t.xp);renderContent();
 }
 
+function advanceSet(){
+  const input=document.getElementById('nextSetCode');
+  const err=document.getElementById('nextSetErr');
+  if(!input)return;
+  if(input.value.trim()==='1823'){
+    state.currentSet=(state.currentSet||0)+1;
+    state.completed=[];
+    openCard=null;
+    activeFilter='all';
+    saveState();renderContent();
+    showToast('SET '+(state.currentSet+1)+' UNLOCKED!');
+  } else {
+    if(err)err.style.display='block';
+    input.value='';input.focus();
+  }
+}
+
 function resetAll(){
-  if(!confirm('Reset all progress including XP, lessons, tasks, calendar, and streak?'))return;
-  state={xp:0,streak:0,completed:[],tasksCompleted:[],lastDate:new Date().toDateString(),calDays:{},penalties:[]};
+  if(!confirm('Reset all progress including XP, lessons, tasks, and calendar?'))return;
+  state={xp:0,currentSet:0,completed:[],tasksCompleted:[],lastDate:null,calDays:{},penalties:[]};
   saveState();updateHeader();renderContent();
 }
 
