@@ -68,6 +68,7 @@ body{font-family:var(--font-b);background:var(--gray-bg);color:var(--text);min-h
 .assignment-card{background:var(--card-bg);border-radius:var(--radius);border:1px solid var(--border);margin-bottom:10px;overflow:hidden;box-shadow:var(--shadow);transition:transform .15s,box-shadow .15s}
 .assignment-card:hover{transform:translateY(-1px);box-shadow:var(--shadow-lg)}
 .assignment-card.completed{opacity:.72}
+.assignment-card.attempted{opacity:.82}
 .card-header{display:flex;align-items:center;gap:12px;padding:14px;cursor:pointer;user-select:none}
 .cat-icon{width:46px;height:46px;border-radius:12px;display:flex;align-items:center;justify-content:center;font-size:24px;flex-shrink:0}
 .card-meta{flex:1;min-width:0}
@@ -75,6 +76,7 @@ body{font-family:var(--font-b);background:var(--gray-bg);color:var(--text);min-h
 .card-sub{font-size:11px;color:var(--muted);text-transform:uppercase;letter-spacing:.5px;font-weight:600}
 .card-xp{background:var(--orange-light);color:var(--orange-dark);font-size:12px;font-weight:800;padding:5px 12px;border-radius:99px;flex-shrink:0;white-space:nowrap}
 .card-xp.done{background:var(--green-light);color:#15803D}
+.card-xp.wrong-xp{background:#FEE2E2;color:#B91C1C;font-size:11px}
 .chevron{font-size:13px;color:var(--muted);margin-left:2px;transition:transform .2s;flex-shrink:0}
 .chevron.open{transform:rotate(180deg)}
 .card-body{border-top:1px solid var(--border);padding:14px;display:none;animation:fadeIn .2s ease}
@@ -2499,11 +2501,11 @@ const VAULT=[
 const CL={'all':'All','math':'Math','history':'History','bible':'Bible','music':'Music','art':'Art','poetry':'Poetry','basketball':'Basketball','hockey':'Hockey','f1':'F1 Racing'};
 const CE={'math':'&#10135;','history':'&#128214;','bible':'&#9997;','music':'&#127928;','art':'&#127912;','poetry':'&#128220;','basketball':'&#127936;','hockey':'&#127944;','f1':'&#127950;'};
 
-let state={xp:0,streak:0,currentSet:0,completed:[],tasksCompleted:[],lastDate:null,calDays:{},penalties:[],bonusDays:{},rewardLedger:[],scavFound:{nature:{},plates:{}},signoffs:{}};
+let state={xp:0,streak:0,currentSet:0,completed:[],attempted:{},tasksCompleted:[],dailyTasks:{},lastDate:null,calDays:{},penalties:[],bonusDays:{},rewardLedger:[],scavFound:{nature:{},plates:{}},signoffs:{}};
 let activeTab='learn',activeFilter='all',openCard=null,calM=5,calY=2026;
 
 function loadState(){
-  try{const s=JSON.parse(localStorage.getItem(SK));if(s)state=Object.assign({calDays:{},penalties:[]},state,s);if(!state.calDays)state.calDays={};if(!state.penalties)state.penalties=[];if(!state.bonusDays)state.bonusDays={};if(!state.rewardLedger)state.rewardLedger=[]}catch(e){}
+  try{const s=JSON.parse(localStorage.getItem(SK));if(s)state=Object.assign({calDays:{},penalties:[]},state,s);if(!state.calDays)state.calDays={};if(!state.penalties)state.penalties=[];if(!state.bonusDays)state.bonusDays={};if(!state.rewardLedger)state.rewardLedger=[];if(!state.dailyTasks)state.dailyTasks={};if(!state.signoffs)state.signoffs={};if(!state.attempted)state.attempted={};}catch(e){}
 }
 function saveState(){localStorage.setItem(SK,JSON.stringify(state));}
 
@@ -2554,21 +2556,32 @@ function renderLearn(){
   cats.forEach(c=>{chips+=`<div class="chip${activeFilter===c?' active':''}" onclick="setFilter('${c}')">${CL[c]}</div>`;});
   chips+='</div>';
   const filtered=activeFilter==='all'?getAssignments():getAssignments().filter(a=>a.cat===activeFilter);
-  const allDone=getAssignments().every(a=>state.completed.includes(a.id));
+  const allAssign=getAssignments();
+  const att=state.attempted||{};
+  const allDone=allAssign.every(a=>state.completed.includes(a.id)||att[a.id]);
   const hasNextSet=(state.currentSet||0)<ASSIGNMENT_SETS.length-1;
   const setLabel=`Set ${(state.currentSet||0)+1} of ${ASSIGNMENT_SETS.length}`;
+  const correctCount=state.completed.length;
+  const wrongCount=Object.keys(att).filter(id=>allAssign.find(a=>a.id===id)).length;
+  const answeredCount=correctCount+wrongCount;
+  const totalCount=allAssign.length;
+  const scorePct=answeredCount>0?Math.round((correctCount/answeredCount)*100):null;
+  const scoreColor=scorePct===null?'var(--muted)':scorePct>=80?'var(--green)':scorePct>=60?'var(--orange)':'#B91C1C';
 
   let html=chips+`<div class="stat-grid">
-    <div class="stat-card"><div class="stat-num">${state.completed.length}</div><div class="stat-lbl">Completed</div></div>
-    <div class="stat-card"><div class="stat-num">${getAssignments().length-state.completed.length}</div><div class="stat-lbl">Remaining</div></div>
-    <div class="stat-card"><div class="stat-num">${state.xp.toLocaleString()}</div><div class="stat-lbl">Total XP</div></div>
+    <div class="stat-card"><div class="stat-num" style="color:var(--green)">${correctCount}</div><div class="stat-lbl">Correct</div></div>
+    <div class="stat-card"><div class="stat-num" style="color:${wrongCount>0?'#B91C1C':'var(--muted)'}">${wrongCount}</div><div class="stat-lbl">Incorrect</div></div>
+    <div class="stat-card"><div class="stat-num">${totalCount-answeredCount}</div><div class="stat-lbl">Remaining</div></div>
+    ${scorePct!==null?`<div class="stat-card"><div class="stat-num" style="color:${scoreColor}">${scorePct}%</div><div class="stat-lbl">Score</div></div>`:''}
   </div>`;
 
   if(allDone&&hasNextSet){
+    const grade=scorePct>=90?'Outstanding!':scorePct>=75?'Nice work!':scorePct>=50?'Keep grinding!':'Study up next time!';
     html+=`<div style="background:linear-gradient(135deg,#FEF9C3,#FEE8D6);border:2px solid var(--gold);border-radius:var(--radius);padding:16px;margin-bottom:14px;text-align:center">
       <div style="font-size:28px;margin-bottom:6px">&#127942;</div>
       <div style="font-family:var(--font-d);font-size:20px;color:var(--orange-dark);letter-spacing:1px;margin-bottom:4px">SET ${(state.currentSet||0)+1} COMPLETE!</div>
-      <div style="font-size:12px;color:var(--muted);margin-bottom:12px">All assignments finished. Parent code required to unlock the next set.</div>
+      <div style="font-size:18px;font-weight:700;color:${scoreColor};margin-bottom:4px">${scorePct}% &mdash; ${grade}</div>
+      <div style="font-size:12px;color:var(--muted);margin-bottom:12px">${correctCount} of ${totalCount} correct. Parent code to unlock next set.</div>
       <input id="nextSetCode" type="password" placeholder="Enter parent code"
         style="width:100%;max-width:220px;padding:10px;border:2px solid var(--border);border-radius:8px;font-size:16px;text-align:center;font-family:var(--font-b);outline:none;margin-bottom:8px;letter-spacing:3px;display:block;margin:0 auto 8px"
         onkeydown="if(event.key==='Enter')advanceSet()">
@@ -2579,6 +2592,7 @@ function renderLearn(){
     html+=`<div style="background:var(--green-light);border:2px solid var(--green);border-radius:var(--radius);padding:16px;margin-bottom:14px;text-align:center">
       <div style="font-size:28px;margin-bottom:6px">&#127942;</div>
       <div style="font-family:var(--font-d);font-size:20px;color:#15803D;letter-spacing:1px">ALL SETS COMPLETE!</div>
+      <div style="font-size:14px;font-weight:700;color:${scoreColor};margin:4px 0">Final Score: ${scorePct}%</div>
       <div style="font-size:12px;color:var(--muted);margin-top:4px">Hewitt finished every assignment. GOAT status confirmed.</div>
     </div>`;
   }
@@ -2586,19 +2600,30 @@ function renderLearn(){
   html+=`<div style="font-size:11px;color:var(--muted);font-weight:700;text-transform:uppercase;letter-spacing:.5px;margin-bottom:10px">${setLabel}</div>`;
   html+=`<div class="section-title">&#128218; Assignments</div>`;
   filtered.forEach(a=>{
-    const isDone=state.completed.includes(a.id),isOpen=openCard===a.id;
-    html+=`<div class="assignment-card${isDone?' completed':''}">
+    const isDone=state.completed.includes(a.id),isAttempted=!!(att[a.id]),isOpen=openCard===a.id;
+    html+=`<div class="assignment-card${isDone?' completed':isAttempted?' attempted':''}">
       <div class="card-header" onclick="toggleCard('${a.id}')">
         <div class="cat-icon" style="background:${a.bg}">${a.icon}</div>
         <div class="card-meta">
           <div class="card-title"${a.cat==='f1'?' style="color:white"':''}>${eh(a.title)}</div>
           <div class="card-sub">${eh(a.sub)}</div>
         </div>
-        <div class="card-xp${isDone?' done':''}">${isDone?'&#10003; Done':'+'+a.xp+' XP'}</div>
+        <div class="card-xp${isDone?' done':isAttempted?' wrong-xp':''}">${isDone?'&#10003; Correct':isAttempted?'&#10007; Wrong':'+'+a.xp+' XP'}</div>
         <div class="chevron${isOpen?' open':''}">&#9660;</div>
       </div>
       <div class="card-body${isOpen?' open':''}" id="body_${a.id}">`;
     if(isDone){html+=`<div class="done-stamp">&#10003; <span>${eh(a.fact)}</span></div>`;}
+    else if(isAttempted){
+      const chosen=att[a.id];
+      html+=`<div class="card-question">${eh(a.q)}</div><div class="card-options">`;
+      a.opts.forEach(o=>{
+        let cls='option-btn';
+        if(o===a.answer)cls+=' correct';
+        else if(o===chosen)cls+=' wrong';
+        html+=`<button class="${cls}" disabled>${eh(o)}</button>`;
+      });
+      html+=`</div><div class="result-msg lose">&#10007; Not quite. The correct answer was: <strong>${eh(a.answer)}</strong>. ${eh(a.fact)}</div>`;
+    }
     else{
       html+=`<div class="card-question">${eh(a.q)}</div><div class="card-options" id="opts_${a.id}">`;
       a.opts.forEach(o=>{html+=`<button class="option-btn" onclick="answer('${a.id}','${ea(o)}')">${eh(o)}</button>`;});
@@ -2608,7 +2633,7 @@ function renderLearn(){
   });
 
   // Sign-off banner at bottom of learn tab
-  const allDoneThisSet=getAssignments().every(a=>state.completed.includes(a.id));
+  const allDoneThisSet=allAssign.every(a=>state.completed.includes(a.id)||att[a.id]);
   const learnValid=todayLearnValidated();
   if(allDoneThisSet){
     if(learnValid){
@@ -2631,14 +2656,16 @@ function renderLearn(){
 }
 
 function renderTasks(){
-  const done=state.tasksCompleted.length;
+  const todayKey=getTodayKeySignoff();
+  const todayDone=(state.dailyTasks[todayKey]||[]);
+  const done=todayDone.length;
   let html=`<div class="stat-grid">
-    <div class="stat-card"><div class="stat-num">${done}</div><div class="stat-lbl">Done</div></div>
+    <div class="stat-card"><div class="stat-num">${done}</div><div class="stat-lbl">Done Today</div></div>
     <div class="stat-card"><div class="stat-num">${TASKS.length-done}</div><div class="stat-lbl">Remaining</div></div>
-    <div class="stat-card"><div class="stat-num">${TASKS.reduce((s,t)=>s+(state.tasksCompleted.includes(t.id)?t.xp:0),0)}</div><div class="stat-lbl">XP Earned</div></div>
+    <div class="stat-card"><div class="stat-num">${TASKS.reduce((s,t)=>s+(todayDone.includes(t.id)?t.xp:0),0)}</div><div class="stat-lbl">XP Earned</div></div>
   </div><div class="section-title">&#127939; Move Missions</div>`;
   TASKS.forEach(t=>{
-    const isDone=state.tasksCompleted.includes(t.id);
+    const isDone=todayDone.includes(t.id);
     html+=`<div class="task-card${isDone?' done-task':''}">
       <div class="task-icon">${t.icon}</div>
       <div class="task-info"><div class="task-name">${eh(t.name)}</div><div class="task-desc">${eh(t.desc)}</div><div class="task-xp-badge">+${t.xp} XP</div></div>
@@ -2646,7 +2673,7 @@ function renderTasks(){
     </div>`;
   });
   // Sign-off banner at bottom of move tab
-  const allTasksDone=TASKS.every(t=>state.tasksCompleted.includes(t.id));
+  const allTasksDone=TASKS.every(t=>todayDone.includes(t.id));
   const moveValid=todayMoveValidated();
   if(allTasksDone){
     if(moveValid){
@@ -2890,7 +2917,7 @@ function toggleCard(id){openCard=openCard===id?null:id;renderContent();}
 
 function answer(aid,choice){
   const a=getAssignments().find(x=>x.id===aid);
-  if(!a||state.completed.includes(aid))return;
+  if(!a||state.completed.includes(aid)||(state.attempted&&state.attempted[aid]))return;
   const optsEl=document.getElementById('opts_'+aid),resultEl=document.getElementById('result_'+aid);
   if(!optsEl||!resultEl)return;
   optsEl.querySelectorAll('.option-btn').forEach(btn=>{
@@ -2898,29 +2925,40 @@ function answer(aid,choice){
     if(btn.textContent.trim()===a.answer)btn.classList.add('correct');
     else if(btn.textContent.trim()===choice&&choice!==a.answer)btn.classList.add('wrong');
   });
+  const att=state.attempted||{};
+  const goNext=()=>{
+    const filtered=activeFilter==='all'?getAssignments():getAssignments().filter(x=>x.cat===activeFilter);
+    const next=filtered.find(x=>!state.completed.includes(x.id)&&!att[x.id]);
+    if(next){
+      openCard=next.id;renderContent();
+      setTimeout(()=>{const el=document.getElementById('body_'+next.id);if(el)el.scrollIntoView({behavior:'smooth',block:'center'});},120);
+    } else {
+      openCard=null;renderContent();showToast('ALL DONE! Great work Hewitt!');
+    }
+  };
   if(choice===a.answer){
     resultEl.innerHTML=`<div class="result-msg win">&#10003; ${eh(a.fact)}</div>`;
     state.completed.push(aid);saveState();
-    setTimeout(()=>{
-      awardXP(a.xp);
-      const filtered=activeFilter==='all'?getAssignments():getAssignments().filter(x=>x.cat===activeFilter);
-      const next=filtered.find(x=>!state.completed.includes(x.id));
-      if(next){
-        openCard=next.id;renderContent();
-        setTimeout(()=>{const el=document.getElementById('body_'+next.id);if(el)el.scrollIntoView({behavior:'smooth',block:'center'});},120);
-      } else {
-        openCard=null;renderContent();showToast('ALL DONE! Great work Hewitt!');
-      }
-    },900);
+    setTimeout(()=>{awardXP(a.xp);goNext();},900);
   }else{
-    resultEl.innerHTML=`<div class="result-msg lose">&#10007; Not quite. Answer: <strong>${eh(a.answer)}</strong>. ${eh(a.fact)}</div>`;
+    if(!state.attempted)state.attempted={};
+    state.attempted[aid]=choice;
+    saveState();
+    resultEl.innerHTML=`<div class="result-msg lose">&#10007; Not quite. The correct answer was: <strong>${eh(a.answer)}</strong>. ${eh(a.fact)}</div>`;
+    setTimeout(()=>{goNext();},1400);
   }
 }
 
 function completeTask(tid){
-  if(state.tasksCompleted.includes(tid))return;
+  const todayKey=getTodayKeySignoff();
+  if(!state.dailyTasks)state.dailyTasks={};
+  if(!state.dailyTasks[todayKey])state.dailyTasks[todayKey]=[];
+  if(state.dailyTasks[todayKey].includes(tid))return;
   const t=TASKS.find(x=>x.id===tid);if(!t)return;
-  state.tasksCompleted.push(tid);saveState();awardXP(t.xp);renderContent();
+  state.dailyTasks[todayKey].push(tid);
+  // Also track lifetime for Athlete badge
+  if(!state.tasksCompleted.includes(tid))state.tasksCompleted.push(tid);
+  saveState();awardXP(t.xp);renderContent();
 }
 
 async function advanceSet(){
@@ -2929,7 +2967,7 @@ async function advanceSet(){
   if(!input)return;
   if(await verifyCode(input.value)){
     state.currentSet=(state.currentSet||0)+1;
-    state.completed=[];openCard=null;activeFilter='all';
+    state.completed=[];state.attempted={};openCard=null;activeFilter='all';
     saveState();renderContent();showToast('SET '+(state.currentSet+1)+' UNLOCKED!');
   } else {
     if(err)err.style.display='block';
@@ -2939,7 +2977,7 @@ async function advanceSet(){
 
 function resetAll(){
   if(!confirm('Reset all progress including XP, lessons, tasks, calendar, and penalties?'))return;
-  state={xp:0,streak:0,currentSet:0,completed:[],tasksCompleted:[],lastDate:null,calDays:{},penalties:[],bonusDays:{},rewardLedger:[],scavFound:{nature:{},plates:{}},signoffs:{}};
+  state={xp:0,streak:0,currentSet:0,completed:[],attempted:{},tasksCompleted:[],dailyTasks:{},lastDate:null,calDays:{},penalties:[],bonusDays:{},rewardLedger:[],scavFound:{nature:{},plates:{}},signoffs:{}};
   saveState();updateHeader();renderContent();
 }
 
@@ -3052,7 +3090,8 @@ function completeBonus(){
 
 /* ── REWARD HELPERS ── */
 function todayAssignmentsDone(){
-  return getAssignments().every(a=>state.completed.includes(a.id))&&todayLearnValidated();
+  const att=state.attempted||{};
+  return getAssignments().every(a=>state.completed.includes(a.id)||att[a.id])&&todayLearnValidated();
 }
 function todayBonusDone(){
   const td=(state.bonusDays||{})[getTodayKey()]||{};
