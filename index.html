@@ -329,6 +329,58 @@ body{font-family:var(--font-b);background:var(--gray-bg);color:var(--text);min-h
 .scav-page-tab:last-child{border-right:none}
 .scav-page-tab.active{background:#064E3B;color:white}
 
+
+/* ── F1 Games ──────────────────────────────── */
+.games-wrap{padding:4px 0}
+.game-tabs{display:flex;gap:6px;margin-bottom:16px}
+.gtab{flex:1;padding:10px 4px;border:2px solid var(--border);border-radius:12px;background:#fff;font-family:var(--font-d);font-size:13px;letter-spacing:.5px;cursor:pointer;text-align:center;line-height:1.3;transition:all .15s}
+.gtab.active{background:var(--orange);color:#fff;border-color:var(--orange)}
+
+/* Lights Out */
+.lights-arena{background:#1a1a2e;border-radius:16px;padding:24px 16px;margin-bottom:14px;text-align:center}
+.lights-row{display:flex;justify-content:center;gap:10px;margin-bottom:20px}
+.f1-light{width:52px;height:52px;border-radius:50%;background:#2a2a3e;border:3px solid #444;transition:background .12s,box-shadow .12s;position:relative}
+.f1-light.on{background:#CC0000;border-color:#FF3333;box-shadow:0 0 18px 6px rgba(204,0,0,.7)}
+.f1-light.flash{background:#FF6600;border-color:#FF8800;box-shadow:0 0 18px 6px rgba(255,102,0,.8)}
+.lights-status{font-family:var(--font-d);font-size:22px;color:#fff;letter-spacing:1px;margin-bottom:16px;min-height:32px}
+.lights-go-btn{background:var(--orange);color:#fff;border:none;border-radius:12px;padding:14px 36px;font-family:var(--font-d);font-size:24px;letter-spacing:2px;cursor:pointer;transition:transform .1s}
+.lights-go-btn:active{transform:scale(.95)}
+.lights-go-btn:disabled{background:#444;color:#888;cursor:not-allowed}
+.reaction-result{margin-top:16px;padding:14px;border-radius:12px;font-family:var(--font-d);font-size:20px;letter-spacing:1px}
+.reaction-result.good{background:rgba(34,197,94,.2);color:#4ADE80;border:2px solid #22C55E}
+.reaction-result.ok{background:rgba(251,191,36,.2);color:#FCD34D;border:2px solid #FBBF24}
+.reaction-result.bad{background:rgba(239,68,68,.2);color:#F87171;border:2px solid #EF4444}
+.reaction-result.jump{background:rgba(239,68,68,.3);color:#FCA5A5;border:2px solid #EF4444}
+
+/* Lap Time Challenge */
+.lap-track{background:#1a1a2e;border-radius:16px;padding:16px;margin-bottom:14px;position:relative;overflow:hidden}
+.lap-track-svg{width:100%;display:block}
+.lap-corner-btn{background:#fff;border:3px solid var(--orange);border-radius:50%;width:52px;height:52px;font-family:var(--font-d);font-size:11px;cursor:pointer;display:flex;align-items:center;justify-content:center;text-align:center;line-height:1.2;transition:all .12s;color:#1a1a2e;letter-spacing:.3px}
+.lap-corner-btn.active{background:var(--orange);color:#fff;transform:scale(1.15);box-shadow:0 0 12px rgba(255,102,0,.6)}
+.lap-corner-btn.hit{background:#22C55E;border-color:#22C55E;color:#fff}
+.lap-corner-btn.miss{background:#EF4444;border-color:#EF4444;color:#fff}
+.lap-hud{display:flex;gap:8px;margin-bottom:10px}
+.lap-hud-pill{flex:1;background:#1a1a2e;border-radius:10px;padding:8px 6px;text-align:center;color:#fff}
+.lap-hud-num{font-family:var(--font-d);font-size:20px;color:var(--orange);letter-spacing:1px}
+.lap-hud-lbl{font-size:10px;color:#888;font-weight:700;text-transform:uppercase;letter-spacing:.5px}
+
+/* CCM */
+.ccm-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-bottom:14px}
+.driver-card{background:#fff;border:2px solid var(--border);border-radius:12px;padding:12px;cursor:pointer;transition:all .15s;text-align:center}
+.driver-card.selected{border-color:var(--orange);background:#FFF7ED}
+.driver-card.selected .dc-name{color:var(--orange)}
+.dc-num{font-family:var(--font-d);font-size:28px;color:var(--orange);letter-spacing:1px}
+.dc-name{font-family:var(--font-d);font-size:14px;color:#1a1a2e;letter-spacing:.5px;margin-top:2px}
+.dc-team{font-size:10px;color:var(--muted);font-weight:700;text-transform:uppercase;letter-spacing:.4px;margin-top:2px}
+.dc-rating{font-size:11px;font-weight:700;margin-top:4px}
+.race-result-row{display:flex;align-items:center;gap:10px;padding:8px 0;border-bottom:1px solid var(--border)}
+.race-pos{font-family:var(--font-d);font-size:18px;width:28px;text-align:center}
+.race-pos.p1{color:#FFD700}.race-pos.p2{color:#C0C0C0}.race-pos.p3{color:#CD7F32}
+.ccm-standings{background:#1a1a2e;border-radius:12px;padding:14px;margin-top:10px}
+.stand-row{display:flex;justify-content:space-between;align-items:center;padding:6px 0;border-bottom:1px solid rgba(255,255,255,.08)}
+.stand-name{font-family:var(--font-d);font-size:14px;color:#fff;letter-spacing:.5px}
+.stand-pts{font-family:var(--font-d);font-size:16px;color:var(--orange)}
+
 </style>
 </head>
 <body>
@@ -360,6 +412,7 @@ body{font-family:var(--font-b);background:var(--gray-bg);color:var(--text);min-h
     <div class="tab" data-tab="bonus" id="bonusTab" onclick="switchTab('bonus')"><span class="tab-icon">&#9889;</span>Bonus</div>
     <div class="tab" data-tab="reward" onclick="switchTab('reward')"><span class="tab-icon">&#128184;</span>Reward</div>
     <div class="tab" data-tab="scavenger" onclick="switchTab('scavenger')"><span class="tab-icon">&#127807;</span>Hunt</div>
+    <div class="tab" data-tab="games" onclick="switchTab('games')"><span class="tab-icon">&#127950;</span>Games</div>
     <div class="tab" data-tab="profile" onclick="switchTab('profile')"><span class="tab-icon">&#127942;</span>Profile</div>
   </div>
 
@@ -2557,11 +2610,11 @@ function getTodayVault(){
 const CL={'all':'All','math':'Math','history':'History','bible':'Bible','music':'Music','art':'Art','poetry':'Poetry','basketball':'Basketball','hockey':'Hockey','f1':'F1 Racing'};
 const CE={'math':'&#10135;','history':'&#128214;','bible':'&#9997;','music':'&#127928;','art':'&#127912;','poetry':'&#128220;','basketball':'&#127936;','hockey':'&#127944;','f1':'&#127950;'};
 
-let state={xp:0,streak:0,currentSet:0,completed:[],attempted:{},tasksCompleted:[],dailyTasks:{},lastDate:null,calDays:{},penalties:[],bonusDays:{},rewardLedger:[],scavFound:{nature:{},plates:{}},signoffs:{}};
+let state={xp:0,streak:0,currentSet:0,completed:[],attempted:{},tasksCompleted:[],dailyTasks:{},lastDate:null,calDays:{},penalties:[],bonusDays:{},rewardLedger:[],scavFound:{nature:{},plates:{}},signoffs:{},gameWins:0,bestReaction:null,ccmSeason:null};
 let activeTab='learn',activeFilter='all',openCard=null,calM=5,calY=2026;
 
 function loadState(){
-  try{const s=JSON.parse(localStorage.getItem(SK));if(s)state=Object.assign({calDays:{},penalties:[]},state,s);if(!state.calDays)state.calDays={};if(!state.penalties)state.penalties=[];if(!state.bonusDays)state.bonusDays={};if(!state.rewardLedger)state.rewardLedger=[];if(!state.dailyTasks)state.dailyTasks={};if(!state.signoffs)state.signoffs={};if(!state.attempted)state.attempted={};}catch(e){}
+  try{const s=JSON.parse(localStorage.getItem(SK));if(s)state=Object.assign({calDays:{},penalties:[]},state,s);if(!state.calDays)state.calDays={};if(!state.penalties)state.penalties=[];if(!state.bonusDays)state.bonusDays={};if(!state.rewardLedger)state.rewardLedger=[];if(!state.dailyTasks)state.dailyTasks={};if(!state.signoffs)state.signoffs={};if(!state.attempted)state.attempted={};if(!state.gameWins)state.gameWins=0;if(state.bestReaction===undefined)state.bestReaction=null;}catch(e){}
 }
 function saveState(){localStorage.setItem(SK,JSON.stringify(state));}
 
@@ -2605,6 +2658,7 @@ function renderContent(){
   if(activeTab==='bonus')    el.innerHTML=renderBonus();
   if(activeTab==='reward')   el.innerHTML=renderReward();
   if(activeTab==='scavenger') el.innerHTML=renderScavenger();
+  if(activeTab==='games'){el.innerHTML=renderGames();initGames();}
 }
 
 function renderEducation(){
@@ -3417,6 +3471,524 @@ function ea(s){return String(s).replace(/'/g,'&#039;').replace(/"/g,'&quot;');}
 loadState();updateHeader();renderContent();
 updateBonusTabVisibility();
 setInterval(updateBonusTabVisibility,60000);
+
+/* ══════════════════════════════════════════════════════
+   F1 GAMES HUB
+   ══════════════════════════════════════════════════════ */
+
+let activeGame='lights';
+
+function renderGames(){
+  return `<div class="games-wrap">
+    <div class="section-title">&#127950; F1 Games</div>
+    <div class="game-tabs">
+      <button class="gtab${activeGame==='lights'?' active':''}" onclick="setGame('lights')">&#128308;<br>Lights Out</button>
+      <button class="gtab${activeGame==='lap'?' active':''}" onclick="setGame('lap')">&#9971;<br>Lap Time</button>
+      <button class="gtab${activeGame==='ccm'?' active':''}" onclick="setGame('ccm')">&#127942;<br>Constructor</button>
+    </div>
+    <div id="gameArea"></div>
+  </div>`;
+}
+
+function initGames(){
+  setGame(activeGame,true);
+}
+
+function setGame(g,skipRender){
+  activeGame=g;
+  if(!skipRender){
+    const el=document.getElementById('gameArea');
+    if(el)renderGameArea();
+    return;
+  }
+  renderGameArea();
+}
+
+function renderGameArea(){
+  const el=document.getElementById('gameArea');
+  if(!el)return;
+  if(activeGame==='lights')el.innerHTML=renderLightsOut();
+  if(activeGame==='lap')el.innerHTML=renderLapGame();
+  if(activeGame==='ccm')el.innerHTML=renderCCM();
+}
+
+/* ─────────────────────────────────────────
+   GAME 1: LIGHTS OUT REACTION
+   ───────────────────────────────────────── */
+let loState='idle'; // idle | arming | lights | gone | result | jumped
+let loLightCount=0;
+let loLightTimer=null;
+let loStartTime=null;
+let loReactionTime=null;
+
+const LO_REFS=[
+  {label:'Red Bull Record',ms:1800,note:'Red Bull 1.80s pit stop — the fastest ever'},
+  {label:'Average F1 Start',ms:200,note:'Average F1 driver reaction: ~0.20s'},
+  {label:'Lando Norris Best',ms:185,note:'Lando avg start reaction ~0.185s'},
+  {label:'Human Limit',ms:100,note:'Under 100ms is near-human physical limit'},
+];
+
+function renderLightsOut(){
+  const best=state.bestReaction;
+  const bestStr=best!==null?best+'ms':'—';
+  return `<div>
+    <p style="font-size:13px;color:var(--muted);margin-bottom:12px;line-height:1.5">Five lights come on one by one. When they go out — TAP as fast as you can. Just like an F1 race start.</p>
+    <div class="lights-arena">
+      <div class="lights-row">
+        ${[0,1,2,3,4].map(i=>`<div class="f1-light" id="loLight${i}"></div>`).join('')}
+      </div>
+      <div class="lights-status" id="loStatus">Press ARM to begin</div>
+      <button class="lights-go-btn" id="loBtn" onclick="loAction()">ARM</button>
+    </div>
+    <div id="loResult"></div>
+    <div style="background:#fff;border:1.5px solid var(--border);border-radius:12px;padding:12px;margin-top:10px">
+      <div style="font-family:var(--font-d);font-size:14px;color:var(--orange);letter-spacing:.5px;margin-bottom:8px">YOUR STATS</div>
+      <div style="display:flex;justify-content:space-between;margin-bottom:6px">
+        <span style="font-size:13px;color:var(--muted);font-weight:700">Best Reaction</span>
+        <span style="font-family:var(--font-d);font-size:16px;color:var(--orange)">${bestStr}</span>
+      </div>
+      <div style="font-size:11px;font-weight:700;color:var(--muted);text-transform:uppercase;letter-spacing:.4px;margin-top:8px;margin-bottom:6px">F1 Benchmarks</div>
+      ${LO_REFS.map(r=>`<div style="display:flex;justify-content:space-between;padding:4px 0;border-bottom:1px solid var(--border)">
+        <span style="font-size:12px;color:var(--fg)">${r.label}</span>
+        <span style="font-size:12px;font-weight:700;color:var(--muted)">${r.ms}ms</span>
+      </div>`).join('')}
+    </div>
+  </div>`;
+}
+
+function loAction(){
+  if(loState==='idle'){loArm();return;}
+  if(loState==='gone'){loTap();return;}
+  if(loState==='lights'){loJump();return;}
+  if(loState==='result'||loState==='jumped'){loReset();return;}
+}
+
+function loArm(){
+  loState='arming';
+  loLightCount=0;
+  loReactionTime=null;
+  [0,1,2,3,4].forEach(i=>{
+    const el=document.getElementById('loLight'+i);
+    if(el){el.className='f1-light';}
+  });
+  document.getElementById('loStatus').textContent='Get ready...';
+  document.getElementById('loBtn').textContent='WAITING';
+  document.getElementById('loBtn').disabled=true;
+  document.getElementById('loResult').innerHTML='';
+  // Arm the sequence — lights go on one by one with ~800ms gaps
+  loLightTimer=setTimeout(loNextLight,900);
+}
+
+function loNextLight(){
+  if(loLightCount<5){
+    const el=document.getElementById('loLight'+loLightCount);
+    if(el)el.className='f1-light on';
+    loLightCount++;
+    document.getElementById('loStatus').textContent=loLightCount===5?'...':'Light '+loLightCount;
+    if(loLightCount<5){
+      loLightTimer=setTimeout(loNextLight,700+Math.random()*300);
+    } else {
+      // All 5 on — random delay 0.8s to 3.5s then GO
+      const delay=800+Math.random()*2700;
+      loLightTimer=setTimeout(loGo,delay);
+      loState='lights';
+      document.getElementById('loBtn').textContent='TAP!';
+      document.getElementById('loBtn').disabled=false;
+    }
+  }
+}
+
+function loGo(){
+  loState='gone';
+  loStartTime=performance.now();
+  [0,1,2,3,4].forEach(i=>{
+    const el=document.getElementById('loLight'+i);
+    if(el)el.className='f1-light';
+  });
+  document.getElementById('loStatus').textContent='GO GO GO!';
+  document.getElementById('loBtn').textContent='TAP NOW!';
+}
+
+function loTap(){
+  const rt=Math.round(performance.now()-loStartTime);
+  loReactionTime=rt;
+  loState='result';
+  clearTimeout(loLightTimer);
+  // Flash green on all lights
+  [0,1,2,3,4].forEach(i=>{
+    const el=document.getElementById('loLight'+i);
+    if(el)el.className='f1-light flash';
+  });
+  // Determine grade
+  let grade,cls,xp,msg;
+  if(rt<150){grade='INSANE!';cls='good';xp=50;msg='Under 150ms — you might be an F1 driver.';}
+  else if(rt<200){grade='ELITE!';cls='good';xp=40;msg='Under 200ms — Lando Norris territory.';}
+  else if(rt<250){grade='SHARP!';cls='good';xp=30;msg='Under 250ms — solid F1 start.';}
+  else if(rt<350){grade='DECENT';cls='ok';xp=20;msg='Under 350ms — room to improve.';}
+  else if(rt<500){grade='SLOW';cls='ok';xp=10;msg='Over 350ms — a grid penalty in F1 terms.';}
+  else{grade='STALLED';cls='bad';xp=5;msg='Over 500ms — the pack has left you behind.';}
+  // Personal best
+  const prev=state.bestReaction;
+  const isPB=prev===null||rt<prev;
+  if(isPB){state.bestReaction=rt;}
+  awardXP(xp);
+  state.gameWins=(state.gameWins||0)+1;
+  saveState();
+  document.getElementById('loStatus').textContent=rt+'ms';
+  document.getElementById('loBtn').textContent='TRY AGAIN';
+  document.getElementById('loResult').innerHTML=`<div class="reaction-result ${cls}">
+    <div style="font-size:26px;margin-bottom:4px">${grade}</div>
+    <div style="font-size:16px;margin-bottom:4px">${rt}ms ${isPB?'&#127942; Personal Best!':''}</div>
+    <div style="font-size:12px;opacity:.85">${msg}</div>
+    <div style="font-size:13px;margin-top:6px;font-family:var(--font-d)">+${xp} XP</div>
+  </div>`;
+  // Refresh best stat inline
+  const bestEl=document.querySelector('.lights-arena + div .stat-best');
+  // Re-render sidebar stat
+}
+
+function loJump(){
+  clearTimeout(loLightTimer);
+  loState='jumped';
+  [0,1,2,3,4].forEach(i=>{
+    const el=document.getElementById('loLight'+i);
+    if(el)el.className='f1-light on';
+  });
+  document.getElementById('loStatus').textContent='JUMPED START!';
+  document.getElementById('loBtn').textContent='TRY AGAIN';
+  document.getElementById('loBtn').disabled=false;
+  document.getElementById('loResult').innerHTML=`<div class="reaction-result jump">
+    <div style="font-size:22px;margin-bottom:4px">&#9888; JUMP START!</div>
+    <div style="font-size:13px">You moved before the lights went out. 5-second penalty in F1!</div>
+  </div>`;
+}
+
+function loReset(){
+  loState='idle';
+  loLightCount=0;
+  clearTimeout(loLightTimer);
+  [0,1,2,3,4].forEach(i=>{
+    const el=document.getElementById('loLight'+i);
+    if(el)el.className='f1-light';
+  });
+  document.getElementById('loStatus').textContent='Press ARM to begin';
+  document.getElementById('loBtn').textContent='ARM';
+  document.getElementById('loBtn').disabled=false;
+  document.getElementById('loResult').innerHTML='';
+}
+
+/* ─────────────────────────────────────────
+   GAME 2: LAP TIME CHALLENGE
+   ───────────────────────────────────────── */
+let lapState='idle';
+let lapCorner=0;
+let lapStartTime=null;
+let lapTimes=[];
+let lapTimer=null;
+let lapHitTimeout=null;
+let lapMissed=0;
+let lapScore=0;
+
+const LAP_CORNERS=[
+  {id:'c1',name:'T1',x:72,y:22,desc:'Turn 1 — Brake Hard'},
+  {id:'c2',name:'T3',x:88,y:55,desc:'T3 Hairpin — Slow'},
+  {id:'c3',name:'T6',x:72,y:82,desc:'T6 — Apex'},
+  {id:'c4',name:'T9',x:42,y:92,desc:'T9 — Fast Sweep'},
+  {id:'c5',name:'T11',x:15,y:68,desc:'T11 — Chicane'},
+  {id:'c6',name:'T14',x:15,y:35,desc:'T14 — Long Right'},
+  {id:'c7',name:'DRS',x:42,y:12,desc:'DRS Zone — Flat Out'},
+];
+const LAP_WINDOW_MS=900; // time allowed to hit each corner
+const LAP_ROUNDS=3;
+let lapRound=0;
+
+function renderLapGame(){
+  const bestLap=state.bestLap||null;
+  return `<div>
+    <p style="font-size:13px;color:var(--muted);margin-bottom:12px;line-height:1.5">Hit each corner marker at the right moment as the car comes through. You have ${LAP_WINDOW_MS}ms per corner. 3 laps. Fewest misses wins!</p>
+    <div class="lap-hud">
+      <div class="lap-hud-pill"><div class="lap-hud-num" id="lapCornerNum">—</div><div class="lap-hud-lbl">Corner</div></div>
+      <div class="lap-hud-pill"><div class="lap-hud-num" id="lapMissNum">0</div><div class="lap-hud-lbl">Misses</div></div>
+      <div class="lap-hud-pill"><div class="lap-hud-num" id="lapRoundNum">0/${LAP_ROUNDS}</div><div class="lap-hud-lbl">Laps</div></div>
+      <div class="lap-hud-pill"><div class="lap-hud-num" id="lapScoreNum">0</div><div class="lap-hud-lbl">Score</div></div>
+    </div>
+    <div class="lap-track">
+      <svg class="lap-track-svg" viewBox="0 0 100 110" xmlns="http://www.w3.org/2000/svg">
+        <path d="M42,15 Q72,8 82,22 Q95,40 88,58 Q88,75 72,85 Q58,98 42,95 Q20,95 12,80 Q5,65 12,50 Q8,35 18,28 Q28,18 42,15 Z" fill="none" stroke="#333" stroke-width="8"/>
+        <path d="M42,15 Q72,8 82,22 Q95,40 88,58 Q88,75 72,85 Q58,98 42,95 Q20,95 12,80 Q5,65 12,50 Q8,35 18,28 Q28,18 42,15 Z" fill="none" stroke="#555" stroke-width="5"/>
+        <line x1="38" y1="10" x2="46" y2="10" stroke="#fff" stroke-width="1.5"/>
+        <text x="30" y="8" fill="#888" font-size="4" font-family="monospace">START/FINISH</text>
+        ${LAP_CORNERS.map((corner,i)=>`
+          <circle cx="${corner.x}" cy="${corner.y}" r="5.5" fill="#1a1a2e" stroke="#FF6600" stroke-width="1.5" id="cDot${i}"/>
+          <text x="${corner.x}" y="${corner.y+1.5}" fill="#FF6600" font-size="3.5" text-anchor="middle" font-family="monospace" font-weight="bold">${corner.name}</text>
+        `).join('')}
+        <circle cx="42" cy="14" r="3" fill="#FF6600" id="lapCar" opacity="0.9"/>
+      </svg>
+    </div>
+    <div style="text-align:center;margin-bottom:10px" id="lapInstruct" style="font-size:13px;color:var(--muted)">
+      <span style="font-size:13px;color:var(--muted)">Active corner will flash orange — tap it!</span>
+    </div>
+    <button onclick="lapAction()" id="lapBtn" style="width:100%;padding:13px;background:var(--orange);color:#fff;border:none;border-radius:12px;font-family:var(--font-d);font-size:22px;letter-spacing:1px;cursor:pointer;margin-bottom:10px">START LAP</button>
+    <div id="lapResult"></div>
+  </div>`;
+}
+
+function lapAction(){
+  if(lapState==='idle'||lapState==='done'){lapStartRace();return;}
+  if(lapState==='waiting'){lapHit();return;}
+}
+
+function lapStartRace(){
+  lapState='running';
+  lapCorner=0;lapMissed=0;lapScore=0;lapRound=0;lapTimes=[];
+  document.getElementById('lapBtn').textContent='TAP CORNER!';
+  document.getElementById('lapResult').innerHTML='';
+  document.getElementById('lapMissNum').textContent='0';
+  document.getElementById('lapScoreNum').textContent='0';
+  document.getElementById('lapRoundNum').textContent='0/'+LAP_ROUNDS;
+  lapNextCorner();
+}
+
+function lapNextCorner(){
+  if(lapRound>=LAP_ROUNDS){lapFinish();return;}
+  if(lapCorner>=LAP_CORNERS.length){
+    lapRound++;
+    lapCorner=0;
+    document.getElementById('lapRoundNum').textContent=lapRound+'/'+LAP_ROUNDS;
+    setTimeout(lapNextCorner,400);
+    return;
+  }
+  lapState='waiting';
+  lapStartTime=performance.now();
+  // Highlight current corner button
+  document.getElementById('lapCornerNum').textContent=LAP_CORNERS[lapCorner].name;
+  document.getElementById('lapInstruct').textContent=LAP_CORNERS[lapCorner].desc+' — TAP!';
+  // Flash the SVG dot
+  const dot=document.getElementById('cDot'+lapCorner);
+  if(dot)dot.setAttribute('fill','#FF6600');
+  // Miss timeout
+  lapHitTimeout=setTimeout(()=>{
+    lapMiss();
+  },LAP_WINDOW_MS);
+}
+
+function lapHit(){
+  if(lapState!=='waiting')return;
+  clearTimeout(lapHitTimeout);
+  const rt=Math.round(performance.now()-lapStartTime);
+  const dot=document.getElementById('cDot'+lapCorner);
+  if(dot){dot.setAttribute('fill','#22C55E');setTimeout(()=>{if(dot)dot.setAttribute('fill','#1a1a2e');},300);}
+  // Score based on timing — earlier within window = more points
+  const pts=rt<300?3:rt<600?2:1;
+  lapScore+=pts;
+  document.getElementById('lapScoreNum').textContent=lapScore;
+  lapCorner++;
+  lapState='running';
+  setTimeout(lapNextCorner,250);
+}
+
+function lapMiss(){
+  lapMissed++;
+  document.getElementById('lapMissNum').textContent=lapMissed;
+  const dot=document.getElementById('cDot'+lapCorner);
+  if(dot){dot.setAttribute('fill','#EF4444');setTimeout(()=>{if(dot)dot.setAttribute('fill','#1a1a2e');},300);}
+  lapCorner++;
+  lapState='running';
+  setTimeout(lapNextCorner,250);
+}
+
+function lapFinish(){
+  lapState='done';
+  clearTimeout(lapHitTimeout);
+  const totalCorners=LAP_CORNERS.length*LAP_ROUNDS;
+  const hits=totalCorners-lapMissed;
+  const pct=Math.round((hits/totalCorners)*100);
+  let grade,xp;
+  if(pct>=90){grade='PERFECT LAP!';xp=50;}
+  else if(pct>=75){grade='CLEAN LAP!';xp=35;}
+  else if(pct>=60){grade='SOLID RUN';xp=25;}
+  else if(pct>=40){grade='NEEDS WORK';xp=15;}
+  else{grade='INTO THE WALL';xp=5;}
+  awardXP(xp);
+  state.gameWins=(state.gameWins||0)+1;
+  saveState();
+  document.getElementById('lapBtn').textContent='RACE AGAIN';
+  document.getElementById('lapResult').innerHTML=`<div style="background:linear-gradient(135deg,#FEF9C3,#FEE8D6);border:2px solid var(--gold);border-radius:12px;padding:16px;text-align:center">
+    <div style="font-family:var(--font-d);font-size:22px;color:var(--orange-dark);letter-spacing:1px;margin-bottom:6px">${grade}</div>
+    <div style="font-size:15px;font-weight:700;margin-bottom:4px">${hits}/${totalCorners} corners hit (${pct}%)</div>
+    <div style="font-size:13px;color:var(--muted);margin-bottom:8px">Score: ${lapScore} pts &bull; Misses: ${lapMissed}</div>
+    <div style="font-family:var(--font-d);font-size:18px;color:var(--orange)">+${xp} XP</div>
+  </div>`;
+}
+
+/* ─────────────────────────────────────────
+   GAME 3: CONSTRUCTOR CHAMPIONSHIP MANAGER
+   ───────────────────────────────────────── */
+const CCM_DRIVERS=[
+  {num:4,  name:'Lando Norris',   team:'McLaren',  color:'#FF8000', rating:95, emoji:'&#127950;'},
+  {num:12, name:'Kimi Antonelli', team:'Mercedes', color:'#27F4D2', rating:82, emoji:'&#127944;'},
+  {num:1,  name:'Max Verstappen', team:'Red Bull',  color:'#3671C6', rating:96, emoji:'&#128009;'},
+  {num:16, name:'Charles Leclerc',team:'Ferrari',   color:'#E8002D', rating:90, emoji:'&#128293;'},
+  {num:63, name:'George Russell',  team:'Mercedes', color:'#27F4D2', rating:87, emoji:'&#127936;'},
+  {num:44, name:'Lewis Hamilton',  team:'Ferrari',  color:'#E8002D', rating:88, emoji:'&#129351;'},
+  {num:81, name:'Oscar Piastri',   team:'McLaren',  color:'#FF8000', rating:88, emoji:'&#127849;'},
+  {num:55, name:'Carlos Sainz',    team:'Williams', color:'#64C4FF', rating:85, emoji:'&#9733;'},
+];
+const F1_PTS=[25,18,15,12,10,8,6,4,2,1];
+const CCM_RACES=[
+  'Bahrain','Saudi Arabia','Australia','Japan','China','Miami',
+  'Monaco','Canada','Spain','Austria','Britain','Hungary',
+  'Belgium','Netherlands','Italy','Azerbaijan','Singapore',
+  'Austin','Mexico','Brazil','Las Vegas','Abu Dhabi'
+];
+
+let ccmPicks=[]; // indices into CCM_DRIVERS
+let ccmStandings={}; // driverNum -> pts
+let ccmRacesDone=0;
+let ccmMyPts=0;
+let ccmLastResult=null;
+let ccmPhase='pick'; // pick | result | done
+
+function renderCCM(){
+  if(!state.ccmSeason){
+    state.ccmSeason={standings:{},racesDone:0,myPts:0,picks:[]};
+    CCM_DRIVERS.forEach(d=>{state.ccmSeason.standings[d.num]=0;});
+  }
+  const s=state.ccmSeason;
+  const raceName=CCM_RACES[Math.min(s.racesDone,CCM_RACES.length-1)];
+  const isLastRace=s.racesDone>=CCM_RACES.length;
+
+  if(isLastRace){
+    return renderCCMChampionship();
+  }
+
+  let html=`<div>
+    <p style="font-size:13px;color:var(--muted);margin-bottom:10px;line-height:1.5">Pick 2 drivers before each race. Earn points based on how they finish. Build the best constructor total over the season!</p>
+    <div style="background:#1a1a2e;border-radius:12px;padding:10px 14px;margin-bottom:12px;display:flex;justify-content:space-between;align-items:center">
+      <div style="font-family:var(--font-d);font-size:14px;color:#fff;letter-spacing:.5px">Round ${s.racesDone+1}/${CCM_RACES.length}</div>
+      <div style="font-family:var(--font-d);font-size:16px;color:var(--orange)">${raceName}</div>
+      <div style="font-family:var(--font-d);font-size:14px;color:#fff">MY PTS: <span style="color:var(--orange)">${s.myPts}</span></div>
+    </div>`;
+
+  // Last race result
+  if(s.lastResult){
+    html+=`<div style="background:#0d0d1a;border-radius:10px;padding:10px;margin-bottom:12px">
+      <div style="font-family:var(--font-d);font-size:12px;color:#888;letter-spacing:.5px;margin-bottom:8px">LAST RACE: ${s.lastResult.race}</div>
+      ${s.lastResult.top5.map((d,i)=>`<div class="race-result-row">
+        <div class="race-pos ${i===0?'p1':i===1?'p2':i===2?'p3':''}">${i+1}</div>
+        <div style="font-size:12px;color:#fff;flex:1">${d.name}</div>
+        <div style="font-size:11px;font-weight:700;color:${s.picks.includes(d.num)?'#4ADE80':'#888'}">${F1_PTS[i]} pts${s.picks.includes(d.num)?' &#10003;':''}</div>
+      </div>`).join('')}
+    </div>`;
+  }
+
+  // Driver picker
+  html+=`<div style="font-family:var(--font-d);font-size:14px;color:var(--orange);letter-spacing:.5px;margin-bottom:8px">PICK YOUR 2 DRIVERS</div>
+  <div class="ccm-grid">
+    ${CCM_DRIVERS.map((d,i)=>{
+      const sel=s.picks.includes(d.num);
+      return `<div class="driver-card${sel?' selected':''}" onclick="ccmTogglePick(${d.num})">
+        <div class="dc-num" style="color:${d.color}">${d.num}</div>
+        <div class="dc-name">${d.name}</div>
+        <div class="dc-team">${d.team}</div>
+        <div class="dc-rating" style="color:${d.rating>=90?'#22C55E':d.rating>=85?'#FBBF24':'#9CA3AF'}">Rating ${d.rating}</div>
+      </div>`;
+    }).join('')}
+  </div>
+  <button onclick="ccmRace()" ${s.picks.length<2?'disabled':''} style="width:100%;padding:13px;background:${s.picks.length>=2?'var(--orange)':'#666'};color:#fff;border:none;border-radius:12px;font-family:var(--font-d);font-size:22px;letter-spacing:1px;cursor:${s.picks.length>=2?'pointer':'not-allowed'};margin-bottom:12px">
+    ${s.picks.length<2?'PICK 2 DRIVERS':'RACE! &#127950;'}
+  </button>`;
+
+  // Standings
+  html+=`<div class="ccm-standings">
+    <div style="font-family:var(--font-d);font-size:14px;color:var(--orange);letter-spacing:.5px;margin-bottom:8px">STANDINGS</div>
+    ${Object.entries(s.standings).sort((a,b)=>b[1]-a[1]).map(([num,pts],i)=>{
+      const d=CCM_DRIVERS.find(x=>x.num===parseInt(num));
+      return `<div class="stand-row">
+        <span style="font-family:var(--font-d);font-size:12px;color:#888;width:20px">${i+1}</span>
+        <span class="stand-name">${d?d.name:num}</span>
+        <span class="stand-pts">${pts}</span>
+      </div>`;
+    }).join('')}
+    <div class="stand-row" style="margin-top:8px;border-top:1px solid rgba(255,165,0,.3)">
+      <span style="font-family:var(--font-d);font-size:12px;color:var(--orange);width:20px">&#9733;</span>
+      <span class="stand-name" style="color:var(--orange)">HEWITT (My Pts)</span>
+      <span class="stand-pts">${s.myPts}</span>
+    </div>
+  </div>
+  </div>`;
+  return html;
+}
+
+function renderCCMChampionship(){
+  const s=state.ccmSeason;
+  const sorted=Object.entries(s.standings).sort((a,b)=>b[1]-a[1]);
+  const champion=CCM_DRIVERS.find(d=>d.num===parseInt(sorted[0][0]));
+  const myRank=sorted.findIndex(([num])=>false)+1; // Hewitt is separate
+  let xp=0;
+  if(s.myPts>=sorted[0][1])xp=100;
+  else if(s.myPts>=sorted[2][1])xp=60;
+  else xp=30;
+  return `<div style="text-align:center">
+    <div style="font-size:42px;margin-bottom:8px">&#127942;</div>
+    <div style="font-family:var(--font-d);font-size:26px;color:var(--orange);letter-spacing:1px;margin-bottom:4px">SEASON COMPLETE!</div>
+    <div style="font-size:14px;color:var(--muted);margin-bottom:16px">Champion: ${champion?champion.name:'Unknown'} — ${sorted[0][1]} pts</div>
+    <div style="background:#1a1a2e;border-radius:12px;padding:16px;margin-bottom:14px">
+      <div style="font-family:var(--font-d);font-size:16px;color:var(--orange);margin-bottom:8px">YOUR TOTAL: ${s.myPts} pts</div>
+      ${sorted.slice(0,5).map(([num,pts],i)=>{
+        const d=CCM_DRIVERS.find(x=>x.num===parseInt(num));
+        return `<div class="stand-row"><span style="color:#888;font-size:12px;width:20px">${i+1}</span><span class="stand-name">${d?d.name:num}</span><span class="stand-pts">${pts}</span></div>`;
+      }).join('')}
+    </div>
+    <button onclick="ccmNewSeason()" style="width:100%;padding:13px;background:var(--orange);color:#fff;border:none;border-radius:12px;font-family:var(--font-d);font-size:22px;letter-spacing:1px;cursor:pointer">NEW SEASON &#127950;</button>
+  </div>`;
+}
+
+function ccmTogglePick(num){
+  const s=state.ccmSeason;
+  if(!s)return;
+  if(s.picks.includes(num)){
+    s.picks=s.picks.filter(n=>n!==num);
+  } else {
+    if(s.picks.length>=2)s.picks.shift();
+    s.picks.push(num);
+  }
+  renderGameArea();
+}
+
+function ccmRace(){
+  const s=state.ccmSeason;
+  if(!s||s.picks.length<2)return;
+  const raceName=CCM_RACES[s.racesDone];
+  // Simulate race — weight by rating with randomness
+  const results=[...CCM_DRIVERS].map(d=>({
+    ...d,
+    score:d.rating+Math.random()*30-5
+  })).sort((a,b)=>b.score-a.score);
+  // Award points
+  let myEarned=0;
+  results.forEach((d,i)=>{
+    const pts=F1_PTS[i]||0;
+    s.standings[d.num]=(s.standings[d.num]||0)+pts;
+    if(s.picks.includes(d.num))myEarned+=pts;
+  });
+  s.myPts+=myEarned;
+  s.lastResult={race:raceName,top5:results.slice(0,5)};
+  s.racesDone++;
+  s.picks=[];
+  awardXP(Math.min(myEarned,50));
+  state.gameWins=(state.gameWins||0)+1;
+  saveState();
+  renderGameArea();
+}
+
+function ccmNewSeason(){
+  state.ccmSeason={standings:{},racesDone:0,myPts:0,picks:[],lastResult:null};
+  CCM_DRIVERS.forEach(d=>{state.ccmSeason.standings[d.num]=0;});
+  saveState();
+  renderGameArea();
+}
+
 </script>
 </body>
 </html>
